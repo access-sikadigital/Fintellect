@@ -1,0 +1,17 @@
+import type { MetadataRoute } from "next";
+import { site } from "@/data/site";
+
+export default function robots(): MetadataRoute.Robots {
+  return {
+    rules: [
+      {
+        userAgent: "*",
+        allow: "/",
+        // Paid landing pages are noindex at the page level as well.
+        disallow: ["/lp/"],
+      },
+    ],
+    sitemap: `https://${site.domain}/sitemap.xml`,
+    host: `https://${site.domain}`,
+  };
+}

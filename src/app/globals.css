@@ -1,0 +1,388 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   FINTELLECT — DESIGN TOKENS
+   Encoded directly from "Fintellect - Brand Guidelines" (2026).
+   The four primary colours below are the ONLY hues in this system.
+   Every tint, shade and surface is derived from them via alpha or color-mix.
+   ========================================================================== */
+
+@theme {
+  /* --- 02. Colour palette — primary (Brand Guidelines p.13) ------------- */
+  --color-offwhite: #fbfeee; /* RGB(251,254,238)  CMYK(1,0,6,0)    */
+  --color-sand: #e2e6d1;     /* RGB(226,230,209)  CMYK(2,0,9,10)   */
+  --color-green: #206943;    /* RGB(32,105,67)    CMYK(70,0,36,59) */
+  --color-forest: #012412;   /* RGB(1,36,18)      CMYK(97,0,50,86) */
+
+  /* Semantic aliases — same four hues, named by role. */
+  --color-paper: var(--color-offwhite);
+  --color-ink: var(--color-forest);
+  --color-accent: var(--color-green);
+
+  /* Derived surfaces. Alpha over the brand hues — no new colours. */
+  --color-ink-90: color-mix(in oklab, var(--color-forest) 90%, transparent);
+  --color-ink-70: color-mix(in oklab, var(--color-forest) 70%, transparent);
+  --color-ink-50: color-mix(in oklab, var(--color-forest) 50%, transparent);
+  --color-ink-30: color-mix(in oklab, var(--color-forest) 30%, transparent);
+  --color-ink-12: color-mix(in oklab, var(--color-forest) 12%, transparent);
+  --color-ink-06: color-mix(in oklab, var(--color-forest) 6%, transparent);
+
+  --color-paper-80: color-mix(in oklab, var(--color-offwhite) 80%, transparent);
+  --color-paper-60: color-mix(in oklab, var(--color-offwhite) 60%, transparent);
+  --color-paper-40: color-mix(in oklab, var(--color-offwhite) 40%, transparent);
+  --color-paper-20: color-mix(in oklab, var(--color-offwhite) 20%, transparent);
+  --color-paper-10: color-mix(in oklab, var(--color-offwhite) 10%, transparent);
+
+  --color-green-60: color-mix(in oklab, var(--color-green) 60%, transparent);
+  --color-green-30: color-mix(in oklab, var(--color-green) 30%, transparent);
+  --color-green-15: color-mix(in oklab, var(--color-green) 15%, transparent);
+
+  /* Section banding. Brand hues blended with each other — nothing else. */
+  --color-sand-warm: color-mix(in oklab, var(--color-sand) 60%, var(--color-offwhite));
+
+  /* --- 03. Typography (Brand Guidelines p.16–18) ------------------------ */
+  --font-sans: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Helvetica, Arial, sans-serif;
+  --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
+
+  /* Fluid type scale. Titles use Fraunces, everything else Inter. */
+  /* min(vw, vh) keeps the headline in frame on short, wide windows. */
+  --text-hero: clamp(2.25rem, min(7vw, 12vh), 7.5rem);
+  --text-display: clamp(2.5rem, min(5.4vw, 10vh), 5.25rem);
+  --text-h1: clamp(2.5rem, 5vw, 4.75rem);
+  --text-h2: clamp(2rem, 3.6vw, 3.5rem);
+  --text-h3: clamp(1.5rem, 2.2vw, 2.25rem);
+  --text-h4: clamp(1.25rem, 1.5vw, 1.5rem);
+  --text-lead: clamp(1.125rem, 1.45vw, 1.5rem);
+  --text-body: clamp(1rem, 1.05vw, 1.125rem);
+  --text-small: 0.9375rem;
+  --text-label: 0.75rem;
+
+  /* Line heights, per the usage guidelines table. */
+  --leading-title: 1.1;   /* Fraunces titles: 110–120% */
+  --leading-subtitle: 1.35; /* Inter Bold subtitles: 130–150% */
+  --leading-body: 1.55;   /* Inter Regular body: 140–150% */
+  --leading-label: 1.4;   /* Inter SemiBold labels: 130–150% */
+
+  /* Letter spacing. Labels are the only role with tracking (20%). */
+  --tracking-label: 0.2em;
+  --tracking-title: -0.01em;
+
+  /* --- Motion ----------------------------------------------------------- */
+  --ease-brand: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-brand-in: cubic-bezier(0.64, 0, 0.78, 0);
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --duration-fast: 300ms;
+  --duration-base: 600ms;
+  --duration-slow: 1000ms;
+
+  /* --- Structure --------------------------------------------------------- */
+  --radius-pill: 999px;
+  --radius-card: 1.25rem;
+  --radius-panel: 2rem;
+
+  --spacing-gutter: clamp(1.25rem, 4vw, 4.5rem);
+  --spacing-section: clamp(5rem, 11vh, 10rem);
+
+  /* Height of the fixed header, used to offset the mobile panel. */
+  --header-h: 4.5rem;
+
+  --container-content: 78rem;
+  --container-wide: 92rem;
+
+  /* --- Gradients (Brand Guidelines p.14) --------------------------------- */
+  --gradient-light: linear-gradient(
+    135deg,
+    var(--color-offwhite) 0%,
+    var(--color-sand) 100%
+  );
+  --gradient-dark: linear-gradient(
+    135deg,
+    var(--color-green) 0%,
+    var(--color-forest) 100%
+  );
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    /* Lenis drives scrolling; native smooth scroll must stay off. */
+    scroll-behavior: auto;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-body);
+    line-height: var(--leading-body);
+    font-weight: 400;
+    font-variation-settings: "opsz" 20;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: clip;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 600; /* Fraunces SemiBold — the guideline weight for titles */
+    line-height: var(--leading-title);
+    letter-spacing: var(--tracking-title);
+    font-variation-settings: "opsz" 120, "SOFT" 0, "WONK" 1;
+    text-wrap: balance;
+    margin: 0;
+  }
+
+  p { text-wrap: pretty; margin: 0; }
+
+  ::selection {
+    background-color: var(--color-green);
+    color: var(--color-offwhite);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-green);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  /* Dark sections invert the focus ring so it stays visible. */
+  .on-dark :focus-visible {
+    outline-color: var(--color-sand);
+  }
+
+  img, svg, video { display: block; max-width: 100%; }
+
+  button { font: inherit; color: inherit; }
+}
+
+/* ==========================================================================
+   LENIS — required base styles for the smooth-scroll container
+   ========================================================================== */
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+/* Opt an inner scroller out of Lenis with data-lenis-prevent. */
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   TYPE ROLES — the four roles defined on Brand Guidelines p.18
+   ========================================================================== */
+
+@utility type-hero {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-hero);
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  font-variation-settings: "opsz" 144, "SOFT" 0, "WONK" 1;
+}
+
+@utility type-display {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--text-display);
+  line-height: var(--leading-title);
+  letter-spacing: -0.02em;
+  font-variation-settings: "opsz" 144, "SOFT" 0, "WONK" 1;
+}
+
+@utility type-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: var(--leading-title);
+  letter-spacing: var(--tracking-title);
+  font-variation-settings: "opsz" 120, "SOFT" 0, "WONK" 1;
+}
+
+/* Italic Fraunces — used for the emphasised half of a headline. */
+@utility type-accent {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  font-variation-settings: "opsz" 144, "SOFT" 40, "WONK" 1;
+}
+
+@utility type-subtitle {
+  font-family: var(--font-sans);
+  font-weight: 700; /* Inter Bold */
+  font-size: var(--text-lead);
+  line-height: var(--leading-subtitle);
+  letter-spacing: 0;
+  font-variation-settings: "opsz" 28;
+}
+
+@utility type-body {
+  font-family: var(--font-sans);
+  font-weight: 400; /* Inter Regular */
+  font-size: var(--text-body);
+  line-height: var(--leading-body);
+  letter-spacing: 0;
+}
+
+@utility type-label {
+  font-family: var(--font-sans);
+  font-weight: 600; /* Inter SemiBold */
+  font-size: var(--text-label);
+  line-height: var(--leading-label);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+/* Tabular figures for all statistics and currency. */
+@utility numeric {
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
+/* ==========================================================================
+   LAYOUT HELPERS
+   ========================================================================== */
+
+@utility container-content {
+  width: 100%;
+  max-width: var(--container-content);
+  margin-inline: auto;
+  padding-inline: var(--spacing-gutter);
+}
+
+@utility container-wide {
+  width: 100%;
+  max-width: var(--container-wide);
+  margin-inline: auto;
+  padding-inline: var(--spacing-gutter);
+}
+
+@utility section-y {
+  padding-block: var(--spacing-section);
+}
+
+/* Hairline in the brand palette, for section and card edges. */
+@utility rule-ink {
+  border-color: var(--color-ink-12);
+}
+
+@utility rule-paper {
+  border-color: var(--color-paper-20);
+}
+
+/* ==========================================================================
+   ANIMATION PRIMITIVES
+   Elements start hidden only when JS is running, so no-JS users see content.
+   ========================================================================== */
+
+@layer components {
+  /* Split-text: each line sits in an overflow-hidden mask. */
+  .line-mask {
+    display: block;
+    overflow: hidden;
+    padding-bottom: 0.12em;
+    margin-bottom: -0.12em;
+  }
+
+  .line-inner {
+    display: block;
+    will-change: transform;
+  }
+
+  .js .anim-fade {
+    opacity: 0;
+  }
+
+  .js .anim-rise {
+    opacity: 0;
+    transform: translate3d(0, 2.5rem, 0);
+  }
+
+  .js .anim-clip {
+    clip-path: inset(0 0 100% 0);
+  }
+
+  /* Marquee — CSS-driven so it runs without a scroll trigger. */
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee var(--marquee-duration, 45s) linear infinite;
+  }
+
+  .marquee-track[data-direction="reverse"] {
+    animation-direction: reverse;
+  }
+
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee {
+    to {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  /* Fine noise, drawn from the palette, to stop large flats banding. */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* ==========================================================================
+   ACCESSIBILITY — honour reduced motion everywhere
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .js .anim-fade,
+  .js .anim-rise,
+  .js .anim-clip {
+    opacity: 1 !important;
+    transform: none !important;
+    clip-path: none !important;
+  }
+
+  .marquee-track {
+    animation: none !important;
+  }
+}
