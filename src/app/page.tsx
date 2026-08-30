@@ -1,6 +1,6 @@
 import { Hero } from "@/components/sections/Hero";
-import { Ticker } from "@/components/sections/Ticker";
 import { Situations } from "@/components/sections/Situations";
+import { WhyUs } from "@/components/sections/WhyUs";
 import { Process } from "@/components/sections/Process";
 import { Numbers } from "@/components/sections/Numbers";
 import { CalculatorTeaser } from "@/components/sections/CalculatorTeaser";
@@ -12,10 +12,10 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <Ticker />
       <Situations />
       <Process />
       <Numbers />
+      <WhyUs />
       <CalculatorTeaser />
       <Honesty />
       <Coverage />

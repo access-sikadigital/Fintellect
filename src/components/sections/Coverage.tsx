@@ -1,17 +1,11 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SplitLines } from "@/components/motion/SplitLines";
 import { Reveal } from "@/components/motion/Reveal";
-import { Marquee } from "@/components/motion/Marquee";
+import { Parallax } from "@/components/motion/Parallax";
+import { Icon } from "@/components/ui/Icon";
 import { site } from "@/data/site";
 
-const credentials = [
-  "Australian Credit Licence 515382",
-  "Aggregator: SFG",
-  "Residential · Commercial · Asset · SMSF",
-  "Melbourne office",
-  "Gold Coast office",
-  "Lending nationwide",
-];
 
 const cities = [
   { label: "Melbourne", href: "/mortgage-broker-melbourne", live: true },
@@ -68,40 +62,61 @@ export function Coverage() {
             </Reveal>
           </div>
 
-          {/* House motif built from the brand graphic elements */}
-          <Reveal variant="fade" delay={0.1} className="relative hidden lg:block">
-            <div className="relative mx-auto aspect-square w-full max-w-[30rem]">
-              <div className="absolute inset-0 rounded-full border border-ink-12" />
-              <div className="absolute inset-[12%] rounded-full border border-ink-12" />
-              <div className="absolute inset-[24%] rounded-full bg-sand" />
-              <svg
-                viewBox="0 0 125 130"
+          {/*
+            Was an abstract circle-and-house motif, which read as a placeholder
+            in a section that is about real offices. A photograph plus the two
+            office cards says considerably more.
+          */}
+          <Reveal variant="rise" delay={0.1} className="relative">
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-panel">
+              <Parallax speed={0.1} overscan>
+                <div className="relative aspect-[4/3] w-full">
+                  <Image
+                    src="/brand/photography/coverage.webp"
+                    alt="A family outside their home"
+                    fill
+                    sizes="(min-width:1024px) 46vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              </Parallax>
+              <div
                 aria-hidden="true"
-                className="absolute left-1/2 top-1/2 h-[26%] w-auto -translate-x-1/2 -translate-y-1/2 text-green"
-              >
-                <path
-                  d="M125 62.4009V124.8C125 126.179 124.451 127.502 123.474 128.477C122.498 129.452 121.173 130 119.792 130H5.20839C3.82706 130 2.5023 129.452 1.52555 128.477C0.548799 127.502 6.54523e-05 126.179 6.54523e-05 124.8V62.4009C-0.00480896 61.0336 0.262621 59.679 0.786806 58.4159C1.31099 57.1527 2.08147 56.0062 3.05345 55.043L55.1367 3.04364C57.09 1.09476 59.7385 0 62.5 0C65.2615 0 67.91 1.09476 69.8633 3.04364L121.947 55.043C122.919 56.0062 123.689 57.1527 124.213 58.4159C124.737 59.679 125.005 61.0336 125 62.4009Z"
-                  fill="currentColor"
-                />
-              </svg>
+                className="absolute inset-0 bg-gradient-to-t from-forest/70 via-forest/10 to-transparent"
+              />
+
+              {/* Offices, over the photograph */}
+              <div className="absolute inset-x-4 bottom-4 grid gap-2.5 sm:inset-x-5 sm:bottom-5 sm:grid-cols-2">
+                {site.offices.map((city) => (
+                  <div
+                    key={city}
+                    className="flex items-center gap-3 rounded-card border border-paper-20 bg-forest/85 px-4 py-3.5 backdrop-blur-md"
+                  >
+                    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-sand text-forest">
+                      <Icon name="location" className="h-4 w-4" />
+                    </span>
+                    <span>
+                      <span className="type-label block text-offwhite">{city}</span>
+                      <span className="type-body block text-[0.75rem] text-paper-60">
+                        Office
+                      </span>
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Licence line, tying the section back to the credential */}
+            <div className="mt-3 flex items-center justify-between gap-4 rounded-panel border border-ink-12 px-6 py-4">
+              <span className="type-label text-forest/60">Lending</span>
+              <span className="type-body text-[0.9375rem] font-medium text-forest">
+                Australia-wide · ACL {site.acl}
+              </span>
             </div>
           </Reveal>
         </div>
       </div>
 
-      {/* Credential strip */}
-      <div className="border-y border-ink-12 bg-sand-warm py-5">
-        <Marquee speed={60} reverse fade>
-          {credentials.map((c) => (
-            <span key={c} className="flex items-center">
-              <span className="type-label px-8 whitespace-nowrap text-forest/70">
-                {c}
-              </span>
-              <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-green/50" />
-            </span>
-          ))}
-        </Marquee>
-      </div>
     </section>
   );
 }

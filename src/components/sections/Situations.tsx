@@ -20,7 +20,7 @@ const situations = [
     service: "Refinance",
     href: "/home-loans/refinance",
     detail:
-      "We check what you're on now against what you could be on, and tell you straight whether moving is worth the switching costs.",
+      "Lenders keep their sharpest pricing for people who are leaving. We price the whole move — discharge, application and valuation fees — and tell you if it clears.",
     image: "/brand/photography/sit-refinance.webp",
   },
   {
@@ -29,7 +29,7 @@ const situations = [
     service: "Self-employed & low doc",
     href: "/home-loans/self-employed",
     detail:
-      "Alt-doc and low-doc lenders read your numbers differently. Eighteen months of trading is often enough — the majors just won't tell you that.",
+      "Your accountant's job is to make the profit look small. The bank wants it to look big. Alt-doc lenders read BAS and bank statements instead — twelve months of trading is often enough.",
     image: "/brand/photography/sit-self-employed.webp",
   },
   {
@@ -38,7 +38,7 @@ const situations = [
     service: "Medical & professionals",
     href: "/home-loans/doctors-medical-professionals",
     detail:
-      "Specialists, registrars and residents can borrow up to 95% with no lenders mortgage insurance through the major banks. Accountants and lawyers have their own waivers.",
+      "Up to 95% with no lenders mortgage insurance at the majors. On a $900,000 purchase that waiver is a five-figure saving nobody mentions unless you ask.",
     image: "/brand/photography/sit-professionals.webp",
   },
   {
@@ -47,7 +47,7 @@ const situations = [
     service: "Asset & equipment finance",
     href: "/asset-finance/equipment-finance",
     detail:
-      "Trucks, excavators and machinery, new or used. Two years of ABN and GST registration is usually the whole conversation.",
+      "Two years of ABN, GST registered, and the invoice. Low doc approvals often come back inside 48 hours — including private sales, which most brokers decline.",
     image: "/brand/photography/sit-asset.webp",
   },
 ] as const;
@@ -119,9 +119,8 @@ export function Situations() {
           </div>
           <Reveal variant="rise" delay={0.1} className="lg:pb-3">
             <p className="type-body max-w-[46ch] text-ink-70">
-              Pick the one that sounds like you. If none of them do, call anyway
-              — the first conversation is where we work out whether we&rsquo;re
-              the right fit.
+              Straightforward applications go through anywhere. These are the
+              ones that don&rsquo;t, and they&rsquo;re what we&rsquo;re for.
             </p>
           </Reveal>
         </div>

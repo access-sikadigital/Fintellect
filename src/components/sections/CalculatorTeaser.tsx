@@ -135,9 +135,9 @@ export function CalculatorTeaser() {
           </SplitLines>
           <Reveal variant="rise" delay={0.12} className="mt-7 grid gap-6">
             <p className="type-body max-w-[48ch] text-ink-70">
-              Repayments, borrowing capacity, stamp duty in every state, LMI and
-              what refinancing would actually save you. Free, no email required
-              to see the result.
+              Sixteen calculators. Stamp duty in every state, repayments,
+              borrowing capacity, LMI and what refinancing would really save.
+              The number shows without an email address.
             </p>
             <div className="flex flex-wrap gap-3">
               <Button href="/calculators" variant="primary" size="md" magnetic>

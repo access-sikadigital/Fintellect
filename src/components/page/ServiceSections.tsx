@@ -323,7 +323,7 @@ export function ComplianceNote({ extra }: { extra?: string }) {
   return (
     <section className={cn("border-t border-ink-12 bg-offwhite py-10")}>
       <div className="container-wide">
-        <p className="type-body max-w-[110ch] text-[0.8125rem] leading-relaxed text-ink-50">
+        <p className="type-body text-[0.8125rem] leading-relaxed text-ink-50">
           {complianceNote}
           {extra ? ` ${extra}` : ""}
         </p>

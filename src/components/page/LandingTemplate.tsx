@@ -96,7 +96,7 @@ export function LandingTemplate({ page }: { page: LandingPage }) {
 
       <footer className="border-t border-ink-12 bg-offwhite py-10">
         <div className="container-wide flex flex-col gap-4">
-          <p className="type-body max-w-[110ch] text-[0.8125rem] leading-relaxed text-ink-50">
+          <p className="type-body text-[0.8125rem] leading-relaxed text-ink-50">
             {complianceNote}
           </p>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-[0.8125rem] text-ink-50">

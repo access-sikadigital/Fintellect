@@ -98,7 +98,7 @@ export function Footer() {
       {/* Compliance */}
       <div className="relative z-10 border-t border-paper-20">
         <div className="container-wide flex flex-col gap-5 py-8">
-          <p className="type-body max-w-[110ch] text-[0.8125rem] leading-relaxed text-paper-40">
+          <p className="type-body text-[0.8125rem] leading-relaxed text-paper-40">
             {site.legalName} holds Australian Credit Licence {site.acl}. This
             website provides general information only and does not take your
             objectives, financial situation or needs into account. Consider

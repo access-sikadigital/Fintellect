@@ -47,7 +47,7 @@
 
   /* Fluid type scale. Titles use Fraunces, everything else Inter. */
   /* min(vw, vh) keeps the headline in frame on short, wide windows. */
-  --text-hero: clamp(2.25rem, min(7vw, 12vh), 7.5rem);
+  --text-hero: clamp(2.5rem, min(7.2vw, 11.5vh), 7.5rem);
   --text-display: clamp(2.5rem, min(5.4vw, 10vh), 5.25rem);
   --text-h1: clamp(2.5rem, 5vw, 4.75rem);
   --text-h2: clamp(2rem, 3.6vw, 3.5rem);
@@ -147,6 +147,49 @@
 
   p { text-wrap: pretty; margin: 0; }
 
+  /* ---------------------------------------------------------------------
+     Scrollbar. Thin, in the brand palette, and consistent across engines.
+     Firefox gets the two-property standard; WebKit and Blink get the
+     pseudo-elements. Kept narrow so it reads as a hairline rather than a
+     control, and given a transparent track so it works over both the light
+     and the dark sections.
+     --------------------------------------------------------------------- */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-green) transparent;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-green);
+    border-radius: var(--radius-pill);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-forest);
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  /* Inner scrollers on dark panels need the light end of the palette. */
+  .on-dark ::-webkit-scrollbar-thumb {
+    background-color: var(--color-sand);
+  }
+
+  .on-dark {
+    scrollbar-color: var(--color-sand) transparent;
+  }
+
   ::selection {
     background-color: var(--color-green);
     color: var(--color-offwhite);
@@ -202,7 +245,9 @@ html.lenis body {
   font-family: var(--font-display);
   font-weight: 600;
   font-size: var(--text-hero);
-  line-height: 0.95;
+  /* Must clear the descenders: SplitText masks each line to its line box,
+     so anything tighter than ~1.0 clips the tails on "g", "y" and ",". */
+  line-height: 1.06;
   letter-spacing: -0.025em;
   font-variation-settings: "opsz" 144, "SOFT" 0, "WONK" 1;
 }
