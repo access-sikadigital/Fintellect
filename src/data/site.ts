@@ -15,6 +15,23 @@ export const site = {
   offices: ["Melbourne", "Gold Coast"],
   callbackMinutes: 10,
   fastestApprovalMinutes: 22,
+
+  /**
+   * FIN-12 — the single primary action, defined once.
+   *
+   * The site previously ran four competing primaries: "Get your free loan
+   * health check", "Free loan health check", "Start your assessment" and
+   * "Check if we can help". Everything primary now reads from here, so the
+   * wording can only be changed in one place.
+   *
+   * Approved by John, 31 August 2026.
+   */
+  cta: {
+    primary: "Get your free loan health check",
+    /** For tight spaces — the header bar. */
+    short: "Free loan health check",
+    href: "/contact",
+  },
 } as const;
 
 export type NavChild = { label: string; href: string; note?: string };
@@ -71,23 +88,47 @@ export const nav: NavItem[] = [
   { label: "About", href: "/about" },
 ];
 
+/**
+ * FIN-13 — the footer mirrors the header exactly. Every link in `nav` above
+ * has a home here, so a menu change in one place cannot silently drift from
+ * the other. Verified by scripts/check-nav-parity.mjs.
+ */
 export const footerNav = {
-  Services: [
+  "Home loans": [
+    { label: "All home loans", href: "/home-loans" },
     { label: "Refinance", href: "/home-loans/refinance" },
     { label: "Self-employed", href: "/home-loans/self-employed" },
-    { label: "Doctors & professionals", href: "/home-loans/doctors-medical-professionals" },
+    { label: "Doctors & medical", href: "/home-loans/doctors-medical-professionals" },
+    { label: "Accountants & lawyers", href: "/home-loans/accountants-lawyers" },
     { label: "Investment property", href: "/home-loans/investment-property" },
-    { label: "Commercial finance", href: "/commercial-finance" },
-    { label: "Asset & equipment", href: "/asset-finance" },
+    { label: "Construction", href: "/home-loans/construction" },
+    { label: "Bridging finance", href: "/home-loans/bridging-finance" },
+    { label: "Debt consolidation", href: "/home-loans/debt-consolidation" },
+  ],
+  Commercial: [
+    { label: "All commercial", href: "/commercial-finance" },
+    { label: "Commercial property", href: "/commercial-finance/commercial-property-loans" },
+    { label: "Business loans", href: "/commercial-finance/business-loans" },
+    { label: "Low doc business", href: "/commercial-finance/low-doc-business-loans" },
+    { label: "Working capital", href: "/commercial-finance/working-capital-cashflow" },
     { label: "SMSF lending", href: "/smsf-loans" },
   ],
-  Tools: [
-    { label: "Stamp duty calculator", href: "/calculators/stamp-duty" },
-    { label: "Repayment calculator", href: "/calculators/home-loan-repayments" },
-    { label: "Borrowing capacity", href: "/calculators/borrowing-capacity" },
-    { label: "LMI calculator", href: "/calculators/lmi" },
-    { label: "Refinance savings", href: "/calculators/refinance-savings" },
+  "Asset finance": [
+    { label: "All asset finance", href: "/asset-finance" },
+    { label: "Equipment finance", href: "/asset-finance/equipment-finance" },
+    { label: "Truck finance", href: "/asset-finance/truck-finance" },
+    { label: "Machinery & excavator", href: "/asset-finance/machinery-excavator" },
+    { label: "Vehicle finance", href: "/asset-finance/vehicle-finance" },
+    { label: "Chattel mortgage", href: "/asset-finance/chattel-mortgage" },
+  ],
+  Calculators: [
     { label: "All calculators", href: "/calculators" },
+    { label: "Stamp duty", href: "/calculators/stamp-duty" },
+    { label: "Repayments", href: "/calculators/home-loan-repayments" },
+    { label: "Borrowing capacity", href: "/calculators/borrowing-capacity" },
+    { label: "LMI", href: "/calculators/lmi" },
+    { label: "Refinance savings", href: "/calculators/refinance-savings" },
+    { label: "Offset account", href: "/calculators/offset-account" },
   ],
   Company: [
     { label: "About Fintellect", href: "/about" },

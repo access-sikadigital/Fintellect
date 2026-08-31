@@ -35,7 +35,7 @@ export function SplitLines({
   delay = 0,
   stagger = 0.09,
   immediate = false,
-  start = "top 85%",
+  start = "top 90%",
   ...rest
 }: SplitLinesProps) {
   const ref = useRef<HTMLElement>(null);

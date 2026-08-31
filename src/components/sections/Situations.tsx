@@ -100,27 +100,27 @@ export function Situations() {
     <section
       ref={root}
       id="situations"
-      className="section-y relative bg-offwhite"
+      className="section-y relative bg-paper-warm"
       aria-labelledby="situations-heading"
     >
       <div className="container-wide">
         <div className="grid gap-6 border-b border-ink-12 pb-12 lg:grid-cols-[auto_1fr] lg:items-end lg:gap-16">
           <div>
             <Reveal variant="fade">
-              <p className="type-label text-green">Where we&rsquo;re strongest</p>
+              <p className="type-label text-clay">Where we&rsquo;re strongest</p>
             </Reveal>
             <SplitLines
               as="h2"
               id="situations-heading"
               className="type-display mt-5 max-w-[13ch] text-forest"
             >
-              Four situations we solve every week.
+              Four situations we deal with every week.
             </SplitLines>
           </div>
           <Reveal variant="rise" delay={0.1} className="lg:pb-3">
             <p className="type-body max-w-[46ch] text-ink-70">
               Straightforward applications go through anywhere. These are the
-              ones that don&rsquo;t, and they&rsquo;re what we&rsquo;re for.
+              ones that get declined, and they&rsquo;re the ones we&rsquo;re good at.
             </p>
           </Reveal>
         </div>
@@ -143,7 +143,7 @@ export function Situations() {
                   active !== null && active !== i && "opacity-40",
                 )}
               >
-                <span className="type-label pt-1.5 text-green numeric">{s.n}</span>
+                <span className="type-label pt-1.5 text-clay numeric">{s.n}</span>
 
                 <div className="grid gap-3">
                   <h3 className="type-title text-[clamp(1.5rem,2.9vw,2.5rem)] text-forest transition-transform duration-500 ease-[var(--ease-brand)] md:group-hover/row:translate-x-3">
@@ -164,7 +164,7 @@ export function Situations() {
                   </div>
                 </div>
 
-                <span className="type-label flex items-center gap-2 pt-2 text-green">
+                <span className="type-label flex items-center gap-2 pt-2 text-clay">
                   {s.service}
                   <span
                     aria-hidden="true"

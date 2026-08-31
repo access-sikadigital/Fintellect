@@ -187,3 +187,83 @@ woff2, no external font requests. `Icon.tsx` inlines all 33 brand icons with
 
 **Excluded by instruction**
 First home buyer keywords and pages, at Robert's direction.
+
+---
+
+## Change round 1 — 31 August 2026 · SIGNED OFF
+
+Worked from `Fintellect Change Brief.pdf` and `Fintellect_Change_Spec.docx`
+(John's review of the live site, 30 Aug). **John signed off the outstanding
+decisions on 31 Aug** — headline, warm accent, CTA wording and the Record
+figures are all approved and live.
+
+| # | Item | Status |
+| --- | --- | --- |
+| FIN-01 | Hero headline — "We reach lenders other brokers can't." | ✅ approved |
+| FIN-02 | "Speed is the part nobody else is selling" replaced | ✅ |
+| FIN-03 | "Four steps. No chasing." replaced (cards untouched) | ✅ |
+| FIN-04 | "Two offices. Every postcode." demoted to a fact | ✅ |
+| FIN-05 | Counters SSR the real figure — never zeros | ✅ |
+| FIN-06 | Warm clay accent, applied across the site | ✅ approved |
+| FIN-07 | Concept clip, house mask **and** stock broker portraits removed | ✅ |
+| FIN-08 | Lender logo strip built | ⛔ awaiting logo assets |
+| FIN-09 | Reviews section built | ⛔ awaiting real Google reviews |
+| FIN-10 | Team block built | ⛔ awaiting broker photos |
+| FIN-11 | ACL 515382 leads the hero credential strip | ✅ |
+| FIN-12 | One primary CTA, defined once in `site.cta` | ✅ approved |
+| FIN-13 | Header ↔ footer parity + `npm run check:nav` guard | ✅ |
+| SPEC | "22 minutes" reduced to one instance, with its sourcing | ✅ |
+| SPEC | Whole-page copy tone pass | ✅ |
+| SPEC | Reveal timing, reduced motion, mobile QA | ✅ |
+
+### Spec sign-off checklist
+
+- [x] P1 Hero headline rewritten & approved by John
+- [x] P1 Hero image swapped to a real/human image
+- [x] P1 All counters show real numbers (never zeros)
+- [x] P1 "How it works" + "Speed is the part…" headers rewritten
+- [x] P1 "Two offices. Every postcode." header rewritten
+- [ ] P1 Lender logo strip added — **built, awaiting logos**
+- [x] P1 Warm accent colour added — palette approved by John
+- [x] P2 Reviews/testimonials section added (built) or flagged to John
+- [ ] P2 Real team photo(s) / broker block — **built, awaiting photos**
+- [x] P2 Whole-page copy tone pass done
+- [x] P2 Header and footer nav match
+- [x] P2 Mobile QA passed
+- [ ] P3 Awards/accreditation badges — **needs the list of what Fintellect holds**
+- [x] P3 Reveal-on-scroll timing checked
+
+### The warm palette
+
+Clay `#B9633F` — the muted complement of the brand green. Green remains the
+base; clay carries labels, rules, step numbers, stat figures, icon badges and
+secondary buttons. Two warm neutrals (`paper-warm`, `sand-deep`) and a warmed
+dark (`forest-warm`) give the page tonal range, so consecutive sections no
+longer read as the same cream and the same green.
+
+### Still blocked on assets
+
+`src/data/proof.ts` holds three empty arrays — `lenders`, `reviews`, `team`.
+Each section checks its array and **renders nothing while it is empty**, so the
+live site never shows a hollow band. Filling one array in is the entire job
+once assets arrive.
+
+Nothing is fabricated. Inventing testimonials or displaying unapproved bank
+logos under ACL 515382 is not a shortcut worth taking — and it is exactly what
+would make the site read as AI-built again.
+
+**To finish FIN-08/09/10, three things are needed from the client:**
+
+1. The approved lender list plus logo files → `/public/brand/lenders/`
+2. Real Google reviews with names → `reviews` in `src/data/proof.ts`
+3. Broker photography and names → `/public/brand/team/` and `team`
+
+**Also outstanding:** which accreditations Fintellect actually holds
+(MFAA / FBAA / other) for FIN-11, and real client photography to replace the
+remaining stock situation images.
+
+### Kept, per the brief
+
+"Four situations", "The honest part", the credit-licence angle, the
+"Know the number before you talk" calculator section, and the "Straight
+answers" FAQ were all left alone.

@@ -14,6 +14,38 @@
   --color-green: #206943;    /* RGB(32,105,67)    CMYK(70,0,36,59) */
   --color-forest: #012412;   /* RGB(1,36,18)      CMYK(97,0,50,86) */
 
+  /* --- Warm accent (FIN-06) -------------------------------------------
+     Added at John's request: dark green plus cream is only two colours and
+     reads flat. Clay is the muted complement of the brand green, so it warms
+     the page without fighting it. Used sparingly — labels, rules, figures,
+     icon accents — never as a surface.
+
+     APPROVED by John, 31 August 2026. This is the one colour on the site
+     that is not from the original brand guideline — it exists because two
+     colours read flat, and it is applied as an accent, never as a brand
+     replacement. Green remains the base.
+     --------------------------------------------------------------------- */
+  --color-clay: #b9633f;
+  --color-clay-soft: #d99b74;
+  --color-clay-60: color-mix(in oklab, var(--color-clay) 60%, transparent);
+  --color-clay-20: color-mix(in oklab, var(--color-clay) 20%, transparent);
+  --color-clay-10: color-mix(in oklab, var(--color-clay) 10%, transparent);
+
+  /* Warmer neutrals, so the cream has somewhere to travel. */
+  --color-paper-warm: color-mix(in oklab, var(--color-offwhite) 92%, var(--color-clay));
+  --color-sand-deep: color-mix(in oklab, var(--color-sand) 88%, var(--color-clay));
+  /* A forest that has been warmed rather than neutral — used on dark bands
+     so they don't all read as the same flat green. */
+  --color-forest-warm: color-mix(in oklab, var(--color-forest) 94%, var(--color-clay));
+
+  /* Warm gradient companion to --gradient-dark. */
+  --gradient-warm: linear-gradient(
+    135deg,
+    var(--color-forest) 0%,
+    var(--color-forest-warm) 55%,
+    color-mix(in oklab, var(--color-forest) 88%, var(--color-clay)) 100%
+  );
+
   /* Semantic aliases — same four hues, named by role. */
   --color-paper: var(--color-offwhite);
   --color-ink: var(--color-forest);

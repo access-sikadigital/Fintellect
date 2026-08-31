@@ -41,7 +41,7 @@ const sizes: Record<Size, string> = {
 const variants: Record<Variant, string> = {
   primary: "bg-forest text-offwhite hover:text-offwhite",
   onDark: "bg-offwhite text-forest hover:text-forest",
-  outline: "border border-ink-30 text-forest hover:text-offwhite",
+  outline: "border border-clay-60 text-clay hover:text-offwhite",
   outlineDark: "border border-paper-40 text-offwhite hover:text-forest",
   ghost: "text-forest hover:text-green",
 };
@@ -50,7 +50,7 @@ const variants: Record<Variant, string> = {
 const sweep: Record<Variant, string> = {
   primary: "bg-green",
   onDark: "bg-sand",
-  outline: "bg-forest",
+  outline: "bg-clay",
   outlineDark: "bg-offwhite",
   ghost: "bg-transparent",
 };

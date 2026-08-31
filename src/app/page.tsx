@@ -1,6 +1,7 @@
 import { Hero } from "@/components/sections/Hero";
 import { Situations } from "@/components/sections/Situations";
 import { WhyUs } from "@/components/sections/WhyUs";
+import { LenderStrip, Reviews, Team } from "@/components/sections/Proof";
 import { Process } from "@/components/sections/Process";
 import { Numbers } from "@/components/sections/Numbers";
 import { CalculatorTeaser } from "@/components/sections/CalculatorTeaser";
@@ -12,10 +13,13 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <LenderStrip />
       <Situations />
       <Process />
       <Numbers />
       <WhyUs />
+      <Reviews />
+      <Team />
       <CalculatorTeaser />
       <Honesty />
       <Coverage />

@@ -56,7 +56,7 @@ export function LandingTemplate({ page }: { page: LandingPage }) {
             <Reveal variant="rise" delay={0.3}>
               <div className="mt-10 flex flex-wrap items-center gap-3">
                 <Button href="#enquire" variant="onDark" size="lg" magnetic>
-                  Check if we can help
+                  {site.cta.primary}
                 </Button>
                 <a href={site.phoneHref} className="type-label px-3 py-4 text-sand hover:text-offwhite">
                   or call {site.phone}

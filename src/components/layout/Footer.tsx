@@ -30,8 +30,8 @@ export function Footer() {
               so on that first call.
             </p>
             <div className="flex flex-wrap items-center gap-3">
-              <Button href="/contact" variant="onDark" size="lg" magnetic>
-                Start your assessment
+              <Button href={site.cta.href} variant="onDark" size="lg" magnetic>
+                {site.cta.primary}
               </Button>
               <a
                 href={site.phoneHref}
@@ -45,7 +45,7 @@ export function Footer() {
       </div>
 
       {/* Directory */}
-      <div className="container-wide relative z-10 grid gap-10 py-16 sm:grid-cols-2 lg:grid-cols-[1.2fr_repeat(4,1fr)]">
+      <div className="container-wide relative z-10 grid gap-10 py-16 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-[1.1fr_repeat(6,minmax(0,1fr))]">
         <div className="flex flex-col gap-5">
           <Logomark className="h-10 w-auto text-sand" />
           <p className="type-body max-w-[34ch] text-[0.9375rem] text-paper-60">

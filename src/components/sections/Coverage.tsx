@@ -22,14 +22,14 @@ export function Coverage() {
         <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-20">
           <div>
             <Reveal variant="fade">
-              <p className="type-label text-green">Where we work</p>
+              <p className="type-label text-clay">Where we work</p>
             </Reveal>
             <SplitLines
               as="h2"
               id="coverage-heading"
               className="type-display mt-5 max-w-[13ch] text-forest"
             >
-              Two offices. Every postcode.
+              We lend anywhere in Australia.
             </SplitLines>
             <Reveal variant="rise" delay={0.12}>
               <p className="type-body mt-7 max-w-[48ch] text-ink-70">
@@ -46,7 +46,7 @@ export function Coverage() {
                   <Link
                     key={c.label}
                     href={c.href}
-                    className="type-label rounded-pill border border-ink-30 px-5 py-3 text-forest transition-colors duration-300 hover:border-green hover:bg-green hover:text-offwhite"
+                    className="type-label rounded-pill border border-ink-30 px-5 py-3 text-forest transition-colors duration-300 hover:border-clay hover:bg-clay hover:text-offwhite"
                   >
                     {c.label}
                   </Link>
@@ -92,7 +92,7 @@ export function Coverage() {
                     key={city}
                     className="flex items-center gap-3 rounded-card border border-paper-20 bg-forest/85 px-4 py-3.5 backdrop-blur-md"
                   >
-                    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-sand text-forest">
+                    <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-clay text-offwhite">
                       <Icon name="location" className="h-4 w-4" />
                     </span>
                     <span>

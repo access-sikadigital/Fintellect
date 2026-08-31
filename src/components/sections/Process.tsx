@@ -82,13 +82,13 @@ export function Process() {
               id="process-heading"
               className="type-display mt-4 max-w-[12ch] text-offwhite"
             >
-              Four steps. No chasing.
+              From your first call to settlement.
             </SplitLines>
           </div>
           <Reveal variant="rise" delay={0.1} className="lg:pb-2">
             <p className="type-body max-w-[38ch] text-paper-60">
-              The whole process, exactly as it runs. The only part that needs
-              you is the first one.
+              The whole process, exactly as it runs. Only the first step
+              needs you.
             </p>
           </Reveal>
         </div>
@@ -154,13 +154,13 @@ export function Process() {
 
         {/* Closing statement */}
         <Reveal variant="rise" delay={0.1}>
-          <div className="mt-5 flex flex-col gap-7 rounded-panel bg-sand p-8 text-forest lg:mt-6 lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:p-11">
+          <div className="mt-5 flex flex-col gap-7 rounded-panel bg-sand-deep p-8 text-forest lg:mt-6 lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:p-11">
             <div className="flex items-start gap-5">
-              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-forest/20 text-green">
+              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-clay-20 text-clay">
                 <Icon name="thumb-up" className="h-5 w-5" />
               </span>
               <div>
-                <p className="type-label text-green">The honest part</p>
+                <p className="type-label text-clay">The honest part</p>
                 <p className="type-title mt-3 max-w-[26ch] text-[clamp(1.4rem,2.2vw,2rem)]">
                   If we can&rsquo;t beat what you already have, we&rsquo;ll tell
                   you to stay put.
@@ -170,8 +170,8 @@ export function Process() {
                 </p>
               </div>
             </div>
-            <Button href="/contact" variant="primary" size="md" className="shrink-0">
-              Start your assessment
+            <Button href={site.cta.href} variant="primary" size="sm" className="shrink-0">
+              {site.cta.primary}
             </Button>
           </div>
         </Reveal>

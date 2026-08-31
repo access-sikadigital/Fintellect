@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRef } from "react";
 import { gsap, registerGsap, prefersReducedMotion } from "@/lib/gsap";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
@@ -8,32 +9,34 @@ import { SplitLines } from "@/components/motion/SplitLines";
 import { Marquee } from "@/components/motion/Marquee";
 import { Button } from "@/components/ui/Button";
 import { Logomark } from "@/components/ui/Logo";
-import { HeroMedia } from "@/components/sections/HeroMedia";
-import { HOUSE_MASK } from "@/components/sections/houseMask";
 import { site } from "@/data/site";
 
+/*
+ * FIN-11 — the licence leads, because it is the one claim on this page a
+ * visitor can independently verify.
+ * SPEC — "22 minutes" deliberately does NOT appear here. It belongs once, in
+ * The Record, where the sourcing footnote sits directly beneath it.
+ */
 const marks = [
   `Our own credit licence — ACL ${site.acl}`,
   `~${site.callbackMinutes} minute callback`,
-  "Fastest approval: 22 minutes",
   "No fee on the loans on this site",
   "We compare five lenders, not forty",
   "One broker, start to settlement",
   "Not owned by a bank",
-  `${site.offices.join(" & ")} — lending Australia-wide`,
+  "Licensed to lend Australia-wide",
 ];
 
 /**
  * The hero.
  *
- * The footage is cut into the house from the brand's graphic elements. The
- * shot is parents forming a roof with their arms, so the gesture sits inside
- * the roof of the mask — the concept and the footage say the same thing, and
- * the result could not belong to another brand.
+ * Leads with the one claim a visitor can independently verify — Fintellect
+ * holds its own Australian Credit Licence rather than operating on a
+ * restricted panel — and pairs it with a photograph of real people.
  *
  * Sequence on load: label → headline lines rise from their masks → the rule
- * draws → copy and actions fade up → the house grows out of its own base
- * while its outline draws around it.
+ * under the second line draws → copy and actions fade up → the photograph
+ * settles in. On scroll the content and the image drift at different rates.
  */
 export function Hero() {
   const root = useRef<HTMLElement>(null);
@@ -51,12 +54,11 @@ export function Hero() {
         .timeline({ delay: 0.15 })
         .from("[data-hero='label']", { opacity: 0, y: 20, duration: 0.9 })
         .from(
-          "[data-hero='house']",
-          { opacity: 0, scale: 0.86, transformOrigin: "50% 100%", duration: 1.5, ease: "brand-out" },
+          "[data-hero='media']",
+          { opacity: 0, y: 34, duration: 1.4, ease: "brand-out" },
           0.15,
         )
-        .from("[data-hero='outline']", { drawSVG: "0%", duration: 1.8, ease: "brand-out" }, 0.4)
-        .from("[data-hero='rule']", { drawSVG: "0%", duration: 1.1, ease: "brand-out" }, 1.0)
+        .from("[data-hero='rule']", { drawSVG: "0%", duration: 1.1, ease: "brand-out" }, 0.95)
         .from(
           "[data-hero='copy'] > *",
           { opacity: 0, y: 28, duration: 1, stagger: 0.1 },
@@ -72,8 +74,8 @@ export function Hero() {
         ease: "none",
         scrollTrigger: { trigger: el, start: "top top", end: "bottom top", scrub: true },
       });
-      gsap.to("[data-hero='house']", {
-        yPercent: -12,
+      gsap.to("[data-hero='media']", {
+        yPercent: -8,
         ease: "none",
         scrollTrigger: { trigger: el, start: "top top", end: "bottom top", scrub: true },
       });
@@ -121,7 +123,7 @@ export function Hero() {
 
             <h1 id="hero-heading" className="type-hero mt-7 lg:mt-8">
               <SplitLines as="span" className="block text-offwhite" immediate>
-                The right loan,
+                We reach lenders
               </SplitLines>
               <span className="relative inline-block">
                 <SplitLines
@@ -130,15 +132,7 @@ export function Hero() {
                   immediate
                   delay={0.12}
                 >
-                  without the
-                </SplitLines>
-                <SplitLines
-                  as="span"
-                  className="type-accent block text-sand"
-                  immediate
-                  delay={0.2}
-                >
-                  runaround.
+                  other brokers can&rsquo;t.
                 </SplitLines>
                 <svg
                   aria-hidden="true"
@@ -149,7 +143,7 @@ export function Hero() {
                   <path
                     data-hero="rule"
                     d="M2 8C120 3 300 2 598 6"
-                    stroke="var(--color-green)"
+                    stroke="var(--color-clay)"
                     strokeWidth="4"
                     strokeLinecap="round"
                     fill="none"
@@ -159,14 +153,14 @@ export function Hero() {
             </h1>
 
             <div data-hero="copy" className="mt-10 grid gap-7 lg:mt-11">
-              <p className="type-subtitle max-w-[42ch] font-normal text-paper-60">
-                We hold our own credit licence, so we reach lenders other
-                brokers can&rsquo;t. Most enquiries get a call back in about{" "}
-                {site.callbackMinutes} minutes.
+              <p className="type-subtitle max-w-[44ch] font-normal text-paper-60">
+                We hold our own Australian Credit Licence, not a restricted
+                lender panel. That&rsquo;s the difference on the applications
+                a bank has already said no to.
               </p>
               <div className="flex flex-wrap items-center gap-3">
-                <Button href="/contact" variant="onDark" size="lg" magnetic>
-                  Get your free loan health check
+                <Button href={site.cta.href} variant="onDark" size="lg" magnetic>
+                  {site.cta.primary}
                 </Button>
                 <a
                   href={site.phoneHref}
@@ -223,45 +217,36 @@ export function Hero() {
             </div>
           </div>
 
-          {/* The house */}
-          <div data-hero="house" className="relative mx-auto w-full max-w-[30rem] lg:mx-0">
-            <div className="relative aspect-[125/130] w-full">
-              {/* Footage, cut to the brand's house silhouette */}
-              <div
-                className="absolute inset-0 overflow-hidden"
-                style={{
-                  maskImage: HOUSE_MASK,
-                  WebkitMaskImage: HOUSE_MASK,
-                  maskSize: "100% 100%",
-                  WebkitMaskSize: "100% 100%",
-                  maskRepeat: "no-repeat",
-                  WebkitMaskRepeat: "no-repeat",
-                }}
-              >
-                <HeroMedia />
-                <div
-                  aria-hidden="true"
-                  className="absolute inset-0 bg-gradient-to-t from-forest/55 via-transparent to-forest/15"
-                />
-              </div>
+          {/*
+            FIN-07 — was a concept clip ("parents forming a roof shape")
+            inside a house-shaped mask. John flagged that as AI-looking, so
+            both the clip and the mask were removed.
 
-              {/* Outline drawn around the same shape */}
-              <svg
+            The image is cut to the frame's own 4:5 ratio. That matters: a
+            landscape source in a portrait frame loses most of its width to
+            object-cover, which is what made the earlier version soft — a
+            1000px file was supplying about 600px to a slot needing 1024 at
+            2x. At 960x1200 in a 480px slot it renders at exactly 2x.
+
+            Still a stock photograph, but of real people in a real situation
+            rather than a concept shot. Swap the src when client photography
+            arrives; nothing else needs to change.
+          */}
+          <div data-hero="media" className="relative mx-auto w-full max-w-[30rem] lg:mx-0">
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-panel border border-paper-20">
+              <Image
+                src="/brand/photography/hero-portrait.webp"
+                alt="A couple going through their loan paperwork at home"
+                fill
+                priority
+                quality={88}
+                sizes="(min-width: 1024px) 30rem, 100vw"
+                className="object-cover"
+              />
+              <div
                 aria-hidden="true"
-                viewBox="0 0 125 130"
-                preserveAspectRatio="none"
-                className="absolute inset-0 h-full w-full overflow-visible"
-              >
-                <path
-                  data-hero="outline"
-                  d="M125 62.4009V124.8C125 126.179 124.451 127.502 123.474 128.477C122.498 129.452 121.173 130 119.792 130H5.20839C3.82706 130 2.5023 129.452 1.52555 128.477C0.548799 127.502 6.54523e-05 126.179 6.54523e-05 124.8V62.4009C-0.00480896 61.0336 0.262621 59.679 0.786806 58.4159C1.31099 57.1527 2.08147 56.0062 3.05345 55.043L55.1367 3.04364C57.09 1.09476 59.7385 0 62.5 0C65.2615 0 67.91 1.09476 69.8633 3.04364L121.947 55.043C122.919 56.0062 123.689 57.1527 124.213 58.4159C124.737 59.679 125.005 61.0336 125 62.4009Z"
-                  fill="none"
-                  stroke="var(--color-sand)"
-                  strokeOpacity="0.45"
-                  strokeWidth="0.6"
-                  vectorEffect="non-scaling-stroke"
-                />
-              </svg>
+                className="absolute inset-0 bg-gradient-to-t from-forest/35 via-transparent to-transparent"
+              />
             </div>
           </div>
         </div>

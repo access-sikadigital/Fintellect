@@ -174,7 +174,7 @@ export function Header() {
             icon={false}
             className="hidden sm:inline-flex"
           >
-            Free loan health check
+            {site.cta.short}
           </Button>
 
           <button
@@ -329,7 +329,7 @@ function MobilePanel({ open, onClose }: { open: boolean; onClose: () => void }) 
 
         <div className="mt-auto grid gap-3">
           <Button href="/contact" variant="primary" size="lg" onClick={onClose}>
-            Free loan health check
+            {site.cta.short}
           </Button>
           <a
             href={site.phoneHref}

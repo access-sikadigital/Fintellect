@@ -21,7 +21,7 @@ const reasons: { icon: IconName; title: string; body: string }[] = [
   {
     icon: "clock",
     title: `A call back in about ${site.callbackMinutes} minutes`,
-    body: "During business hours, and we try three times before we give up on you. Our fastest approval to date was 22 minutes from submission.",
+    body: "During business hours, and we try three times before we give up on you. You will know on that first call whether we can help.",
   },
   {
     icon: "search",
@@ -48,7 +48,7 @@ const reasons: { icon: IconName; title: string; body: string }[] = [
 export function WhyUs() {
   return (
     <section
-      className="on-dark grain relative overflow-hidden bg-forest text-offwhite"
+      className="on-dark grain relative overflow-hidden bg-forest-warm text-offwhite"
       aria-labelledby="why-heading"
     >
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
@@ -59,19 +59,19 @@ export function WhyUs() {
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between lg:gap-16">
           <div>
             <Reveal variant="fade">
-              <p className="type-label text-sand">Why people pick us</p>
+              <p className="type-label text-sand">Why people choose us</p>
             </Reveal>
             <SplitLines
               as="h2"
               id="why-heading"
               className="type-display mt-4 max-w-[14ch] text-offwhite"
             >
-              Six things most brokers can&rsquo;t say.
+              Six things you can check for yourself.
             </SplitLines>
           </div>
           <Reveal variant="rise" delay={0.1} className="lg:pb-2">
             <p className="type-body max-w-[36ch] text-paper-60">
-              Every one of these is checkable. That&rsquo;s the point of it.
+              None of these are opinions. Ask us to prove any of them.
             </p>
           </Reveal>
         </div>
@@ -86,7 +86,7 @@ export function WhyUs() {
               key={r.title}
               className="group flex h-full flex-col rounded-panel border border-paper-20 bg-paper-10 p-8 transition-colors duration-500 hover:border-sand/50"
             >
-              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-paper-20 text-sand transition-colors duration-500 group-hover:border-sand/60">
+              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-paper-20 text-clay-soft transition-colors duration-500 group-hover:border-clay-60">
                 <Icon name={r.icon} className="h-5 w-5" />
               </span>
               <h3 className="type-title mt-6 text-[clamp(1.15rem,1.6vw,1.4rem)] text-offwhite">

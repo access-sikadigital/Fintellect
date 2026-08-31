@@ -24,6 +24,10 @@ type RevealProps = {
 /**
  * The workhorse scroll reveal. Every non-headline element on the site enters
  * through this so timing and easing stay consistent.
+ *
+ * Fires at 92% rather than 88% and travels a shorter distance: the brief
+ * reported blank bands mid-scroll on slower devices, which is what happens
+ * when a tall section has to be well inside the viewport before it appears.
  */
 export function Reveal({
   children,
@@ -31,10 +35,10 @@ export function Reveal({
   className,
   variant = "rise",
   delay = 0,
-  duration = 1,
+  duration = 0.8,
   stagger,
-  start = "top 88%",
-  distance = 40,
+  start = "top 92%",
+  distance = 28,
   ...rest
 }: RevealProps) {
   const ref = useRef<HTMLElement>(null);

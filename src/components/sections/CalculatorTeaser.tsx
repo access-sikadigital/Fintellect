@@ -124,7 +124,7 @@ export function CalculatorTeaser() {
       <div className="container-wide grid gap-14 lg:grid-cols-[1fr_1.05fr] lg:items-center lg:gap-20">
         <div>
           <Reveal variant="fade">
-            <p className="type-label text-green">Run the numbers first</p>
+            <p className="type-label text-clay">Run the numbers first</p>
           </Reveal>
           <SplitLines
             as="h2"
@@ -137,10 +137,10 @@ export function CalculatorTeaser() {
             <p className="type-body max-w-[48ch] text-ink-70">
               Sixteen calculators. Stamp duty in every state, repayments,
               borrowing capacity, LMI and what refinancing would really save.
-              The number shows without an email address.
+              You get the number without handing over an email address.
             </p>
             <div className="flex flex-wrap gap-3">
-              <Button href="/calculators" variant="primary" size="md" magnetic>
+              <Button href="/calculators" variant="outline" size="md">
                 All calculators
               </Button>
               <Button
@@ -156,7 +156,7 @@ export function CalculatorTeaser() {
 
         {/* The live tool */}
         <Reveal variant="rise" delay={0.08}>
-          <div className="relative overflow-hidden rounded-panel border border-ink-12 bg-sand-warm p-7 shadow-[0_30px_80px_-40px_var(--color-ink-30)] sm:p-9">
+          <div className="relative overflow-hidden rounded-panel border border-ink-12 bg-sand-deep p-7 shadow-[0_30px_80px_-40px_var(--color-ink-30)] sm:p-9">
             <div className="flex items-center justify-between gap-4 border-b border-ink-12 pb-5">
               <h3 className="type-label text-forest">Repayment estimate</h3>
               <Link

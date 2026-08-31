@@ -1,12 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { useRef, useState } from "react";
 import { gsap, registerGsap, prefersReducedMotion } from "@/lib/gsap";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
 import { SplitLines } from "@/components/motion/SplitLines";
 import { Reveal } from "@/components/motion/Reveal";
-import { Parallax } from "@/components/motion/Parallax";
 import { cn } from "@/lib/utils";
 
 /* The three objections Robert says he hears most, answered plainly. */
@@ -34,42 +32,29 @@ export function Honesty() {
 
   return (
     <section
-      className="on-dark grain relative overflow-hidden bg-forest text-offwhite"
+      className="on-dark grain relative overflow-hidden bg-forest-warm text-offwhite"
       aria-labelledby="honesty-heading"
     >
       {/* Pull quote — taken from the brand's own stationery */}
       <div className="container-wide section-y relative border-b border-paper-20">
-        <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr] lg:items-center lg:gap-20">
-          <div>
-            <Reveal variant="fade">
-              <p className="type-label text-sand">Why people refer us</p>
-            </Reveal>
-            <SplitLines
-              as="blockquote"
-              id="honesty-heading"
-              className="type-title mt-6 max-w-[20ch] text-[clamp(1.85rem,4vw,3.4rem)] text-offwhite"
-            >
-              We&rsquo;re independent brokers who work for you. That means honest
-              advice, transparent options, and a person who picks up the phone
-              when you call.
-            </SplitLines>
-          </div>
-
-          <Reveal variant="clip" delay={0.15} className="hidden lg:block">
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-panel">
-              <Parallax speed={0.14} overscan>
-                <div className="relative aspect-[4/5] w-full">
-                  <Image
-                    src="/brand/photography/proof-portrait.webp"
-                    alt="A client taking a call from her broker"
-                    fill
-                    sizes="(min-width: 1024px) 34vw, 100vw"
-                    className="object-cover"
-                  />
-                </div>
-              </Parallax>
-            </div>
+        {/*
+          FIN-07 — the stock "client on a call" portrait that sat beside this
+          quote has been removed. A stranger standing in for a real client
+          undercuts the one section on the page about honesty.
+        */}
+        <div className="max-w-[54rem]">
+          <Reveal variant="fade">
+            <p className="type-label text-clay-soft">Why people refer us</p>
           </Reveal>
+          <SplitLines
+            as="blockquote"
+            id="honesty-heading"
+            className="type-title mt-6 text-[clamp(1.85rem,4vw,3.4rem)] text-offwhite"
+          >
+            We&rsquo;re independent brokers who work for you. That means honest
+            advice, transparent options, and a person who picks up the phone
+            when you call.
+          </SplitLines>
         </div>
       </div>
 
@@ -77,7 +62,7 @@ export function Honesty() {
       <div className="container-wide section-y">
         <div className="grid gap-12 lg:grid-cols-[auto_1.4fr] lg:gap-20">
           <div className="lg:sticky lg:top-32 lg:h-fit">
-            <p className="type-label text-sand">Straight answers</p>
+            <p className="type-label text-clay-soft">Straight answers</p>
             <h3 className="type-title mt-5 max-w-[12ch] text-[clamp(1.75rem,2.8vw,2.75rem)] text-offwhite">
               The questions people are too polite to ask.
             </h3>

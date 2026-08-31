@@ -57,7 +57,7 @@ export function PageHero({
                   size="lg"
                   magnetic
                 >
-                  {cta?.label ?? "Check if we can help"}
+                  {cta?.label ?? site.cta.primary}
                 </Button>
                 <a
                   href={site.phoneHref}

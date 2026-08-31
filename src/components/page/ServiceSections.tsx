@@ -19,10 +19,10 @@ export function QualifyingStrip({
   notForThem: string[];
 }) {
   return (
-    <section className="section-y bg-offwhite" aria-labelledby="qualify-heading">
+    <section className="section-y bg-paper-warm" aria-labelledby="qualify-heading">
       <div className="container-wide">
         <Reveal variant="fade">
-          <p className="type-label text-green">Is this you?</p>
+          <p className="type-label text-clay">Is this you?</p>
         </Reveal>
         <SplitLines
           as="h2"
@@ -35,7 +35,7 @@ export function QualifyingStrip({
         <div className="mt-12 grid gap-5 lg:mt-14 lg:grid-cols-2 lg:gap-6">
           <Reveal
             variant="rise"
-            className="rounded-panel border border-ink-12 bg-sand-warm p-8 lg:p-10"
+            className="rounded-panel border border-ink-12 bg-sand-deep p-8 lg:p-10"
           >
             <p className="type-label flex items-center gap-3 text-green">
               <span className="grid h-8 w-8 place-items-center rounded-full bg-green text-offwhite">
@@ -145,7 +145,7 @@ export function SpeedBand({ timeline }: { timeline?: { label: string; value: str
       <div className="container-wide grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-20">
         <div>
           <Reveal variant="fade">
-            <p className="type-label text-green">{speed.eyebrow}</p>
+            <p className="type-label text-clay">{speed.eyebrow}</p>
           </Reveal>
           <SplitLines
             as="h2"
@@ -167,7 +167,7 @@ export function SpeedBand({ timeline }: { timeline?: { label: string; value: str
                 className="flex items-baseline justify-between gap-6 bg-sand px-7 py-6"
               >
                 <dt className="type-label text-forest/60">{row.label}</dt>
-                <dd className="type-title text-[clamp(1.25rem,2vw,1.75rem)] text-green numeric">
+                <dd className="type-title text-[clamp(1.25rem,2vw,1.75rem)] text-clay numeric">
                   {row.value}
                 </dd>
               </div>
@@ -189,7 +189,7 @@ export function HowItWorks() {
     <section className="section-y bg-offwhite" aria-labelledby="how-heading">
       <div className="container-wide">
         <Reveal variant="fade">
-          <p className="type-label text-green">How it works</p>
+          <p className="type-label text-clay">How it works</p>
         </Reveal>
         <SplitLines
           as="h2"
@@ -287,7 +287,7 @@ export function RelatedLinks({
     <section className="section-y bg-offwhite" aria-labelledby="related-heading">
       <div className="container-wide">
         <Reveal variant="fade">
-          <p className="type-label text-green">Related</p>
+          <p className="type-label text-clay">Related</p>
         </Reveal>
         <h2 id="related-heading" className="type-title mt-4 text-[clamp(1.5rem,2.4vw,2rem)] text-forest">
           You might also need
@@ -336,7 +336,7 @@ export function ComplianceNote({ extra }: { extra?: string }) {
 export function CtaBand({
   heading,
   body,
-  cta = { label: "Check if we can help", href: "#enquire" },
+  cta = { label: site.cta.primary, href: "#enquire" },
 }: {
   heading: string;
   body?: string;
