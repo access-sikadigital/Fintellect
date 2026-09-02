@@ -3,6 +3,7 @@ import { allServices, servicePath } from "@/data/services";
 import { hubs } from "@/data/hubs";
 import { locations } from "@/data/locations";
 import { calculators } from "@/data/calculators";
+import { publishedGuides } from "@/data/guides";
 import { site } from "@/data/site";
 
 const base = `https://${site.domain}`;
@@ -56,6 +57,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: now,
       changeFrequency: "monthly" as const,
       priority: priorityForTier(l.tier),
+    })),
+
+    ...publishedGuides.map((g) => ({
+      url: `${base}/guides/${g.slug}`,
+      lastModified: now,
+      changeFrequency: "monthly" as const,
+      priority: 0.6,
     })),
 
     ...["about", "reviews", "contact", "guides"].map((slug) => ({

@@ -221,7 +221,7 @@ export function EnquiryForm({
         ? questions.every((q) => answers[q.id])
         : step === 2
           ? Boolean(timeframe)
-          : Boolean(contact.name && contact.phone);
+          : Boolean(contact.name && contact.phone && contact.email);
 
   function submit(e: React.FormEvent) {
     e.preventDefault();
@@ -248,7 +248,7 @@ export function EnquiryForm({
 
   if (submitted) {
     return (
-      <section id="enquire" className="section-y bg-sand">
+      <section id="enquire" className="on-dark section-y bg-forest text-offwhite">
         <div className="container-content">
           <div ref={stepRef} className="mx-auto max-w-[42rem] text-center">
             <span
@@ -257,17 +257,17 @@ export function EnquiryForm({
             >
               <Icon name="check" className="h-7 w-7" />
             </span>
-            <h2 data-step-item className="type-title mt-8 text-[clamp(1.75rem,3vw,2.5rem)] text-forest">
+            <h2 data-step-item className="type-title mt-8 text-[clamp(2rem,3vw,2.75rem)] text-offwhite">
               {timeframe === "Just looking for now"
                 ? "Noted — we'll check back in six months."
                 : `We'll call you within about ${site.callbackMinutes} minutes.`}
             </h2>
-            <p data-step-item className="type-body mt-5 text-forest/70">
+            <p data-step-item className="type-body mt-5 text-paper-60">
               {timeframe === "Just looking for now"
                 ? "No pressure and no chasing. If things change before then, call us any time."
                 : "During business hours. We try three times before we give up on you."}
             </p>
-            <p data-step-item className="type-label mt-8 text-green">
+            <p data-step-item className="type-label mt-8 text-sand">
               {site.phone}
             </p>
           </div>
@@ -277,22 +277,29 @@ export function EnquiryForm({
   }
 
   return (
-    <section id="enquire" className="section-y bg-sand" aria-labelledby="enquire-heading">
+    <section
+      id="enquire"
+      className="on-dark section-y bg-forest text-offwhite"
+      aria-labelledby="enquire-heading"
+    >
       <div className="container-content">
         <div className="grid gap-10 lg:grid-cols-[auto_1.4fr] lg:gap-16">
           <div className="lg:sticky lg:top-32 lg:h-fit">
             <Reveal variant="fade">
-              <p className="type-label text-green">{serviceName}</p>
+              <p className="type-label text-clay-soft">{serviceName}</p>
             </Reveal>
             <SplitLines
               as="h2"
               id="enquire-heading"
-              className="type-title mt-5 max-w-[12ch] text-[clamp(1.75rem,3vw,2.5rem)] text-forest"
+              /* 12ch broke "Tell us the situation" across two lines. Wide
+                 enough for it to sit on one, balanced if a longer heading
+                 ever has to wrap. */
+              className="type-title mt-5 max-w-[24ch] text-balance text-[clamp(1.75rem,3vw,2.75rem)] text-offwhite"
             >
               {heading}
             </SplitLines>
             <Reveal variant="rise" delay={0.1}>
-              <p className="type-body mt-5 max-w-[34ch] text-forest/70">
+              <p className="type-body mt-5 max-w-[34ch] text-paper-60">
                 Four short steps. We ask what you need before we ask who you
                 are.
               </p>
@@ -301,7 +308,9 @@ export function EnquiryForm({
 
           <form
             onSubmit={submit}
-            className="rounded-panel border border-ink-12 bg-offwhite p-7 sm:p-9"
+            /* White card on a dark ground — the form has to read as the
+               thing to do, not part of the page behind it. */
+            className="rounded-panel bg-form p-7 shadow-[0_30px_80px_-30px_rgba(1,36,18,0.5)] sm:p-9"
           >
             {/* Progress */}
             <div className="flex items-center gap-3">
@@ -310,7 +319,7 @@ export function EnquiryForm({
                   key={i}
                   className={cn(
                     "h-1 flex-1 rounded-pill transition-colors duration-500",
-                    i <= step ? "bg-green" : "bg-ink-12",
+                    i <= step ? "bg-clay" : "bg-ink-12",
                   )}
                 />
               ))}
@@ -380,11 +389,12 @@ export function EnquiryForm({
                       required
                     />
                     <Field
-                      label="Email (optional)"
+                      label="Email"
                       value={contact.email}
                       onChange={(v) => setContact((c) => ({ ...c, email: v }))}
                       type="email"
                       autoComplete="email"
+                      required
                     />
                     <p data-step-item className="type-body mt-2 text-[0.8125rem] text-ink-50">
                       We use these details to call you about this enquiry.
@@ -439,7 +449,7 @@ export function EnquiryForm({
 function Step({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <fieldset>
-      <legend data-step-item className="type-title mb-6 text-[clamp(1.25rem,2vw,1.6rem)] text-forest">
+      <legend data-step-item className="type-title mb-6 text-[clamp(1.75rem,2.4vw,2.25rem)] text-forest">
         {title}
       </legend>
       {children}
@@ -472,8 +482,8 @@ function Choices({
               "flex cursor-pointer items-center gap-3 rounded-card border px-5 transition-colors duration-300",
               small ? "py-3" : "py-4",
               active
-                ? "border-green bg-green/10 text-forest"
-                : "border-ink-12 text-ink-70 hover:border-ink-30 hover:text-forest",
+                ? "border-clay bg-clay-10 text-forest"
+                : "border-ink-30 text-ink-70 hover:border-clay-60 hover:text-forest",
             )}
           >
             <input
@@ -488,10 +498,10 @@ function Choices({
               aria-hidden="true"
               className={cn(
                 "grid h-4 w-4 shrink-0 place-items-center rounded-full border transition-colors",
-                active ? "border-green" : "border-ink-30",
+                active ? "border-clay" : "border-ink-30",
               )}
             >
-              {active && <span className="h-2 w-2 rounded-full bg-green" />}
+              {active && <span className="h-2 w-2 rounded-full bg-clay" />}
             </span>
             <span className={cn("type-body", small && "text-[0.9375rem]")}>{o}</span>
           </label>
@@ -529,7 +539,7 @@ function Field({
         required={required}
         autoComplete={autoComplete}
         onChange={(e) => onChange(e.target.value)}
-        className="type-body rounded-card border border-ink-12 bg-offwhite px-5 py-3.5 text-forest outline-none transition-colors focus:border-green"
+        className="type-body rounded-card border border-ink-30 bg-form-field px-5 py-3.5 text-forest outline-none transition-colors focus:border-clay"
       />
     </div>
   );

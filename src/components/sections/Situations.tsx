@@ -146,20 +146,20 @@ export function Situations() {
                 <span className="type-label pt-1.5 text-clay numeric">{s.n}</span>
 
                 <div className="grid gap-3">
-                  <h3 className="type-title text-[clamp(1.5rem,2.9vw,2.5rem)] text-forest transition-transform duration-500 ease-[var(--ease-brand)] md:group-hover/row:translate-x-3">
+                  <h3 className="type-title text-[clamp(2rem,2.9vw,2.5rem)] text-forest transition-transform duration-500 ease-[var(--ease-brand)] md:group-hover/row:translate-x-3">
                     {s.title}
                   </h3>
                   <p className="type-body max-w-[58ch] text-ink-70 transition-transform duration-500 ease-[var(--ease-brand)] md:group-hover/row:translate-x-3">
                     {s.detail}
                   </p>
                   {/* Mobile shows the image inline; desktop uses the cursor preview */}
-                  <div className="relative mt-2 aspect-[4/3] w-full overflow-hidden rounded-card md:hidden">
+                  <div className="relative mt-2 aspect-[4/5] w-full overflow-hidden rounded-card md:hidden">
                     <Image
                       src={s.image}
                       alt=""
                       fill
                       sizes="100vw"
-                      className="object-cover"
+                      className="object-cover object-[center_30%]"
                     />
                   </div>
                 </div>

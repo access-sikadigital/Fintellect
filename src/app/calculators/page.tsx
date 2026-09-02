@@ -28,7 +28,7 @@ function Grid({ items }: { items: { slug: string; h1: string; intro: string }[] 
           className="group flex h-full flex-col justify-between gap-7 rounded-panel border border-ink-12 p-7 transition-colors duration-500 hover:border-green"
         >
           <div>
-            <h3 className="type-title text-[1.2rem] text-forest">{c.h1}</h3>
+            <h3 className="type-title text-[1.375rem] text-forest">{c.h1}</h3>
             <p className="type-body mt-2.5 text-[0.9375rem] text-ink-70">{c.intro}</p>
           </div>
           <span className="type-label flex items-center gap-2 text-green">
@@ -58,10 +58,13 @@ export default function Page() {
       />
 
       <section className="section-y bg-offwhite">
-        <SplitLines as="h2" className="container-wide type-display max-w-[12ch] text-forest">
-          Loan and cost calculators
-        </SplitLines>
+        {/* The heading must live inside the container, not carry it. Putting
+            container-wide and max-w-[12ch] on one element let mx-auto centre
+            the narrow 12ch box, pushing the text into the middle of the page. */}
         <div className="container-wide">
+          <SplitLines as="h2" className="type-display max-w-[12ch] text-forest">
+            Loan and cost calculators
+          </SplitLines>
           <Grid items={otherCalculators} />
         </div>
       </section>

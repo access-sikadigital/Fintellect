@@ -16,7 +16,7 @@ export const commercialServices: ServicePage[] = [
     intro:
       "Full financials take weeks and your accountant is busy. Low doc lenders assess on bank statements and BAS instead, and they can move in days.",
     heroImage: "/brand/photography/svc-lowdoc.webp",
-    heroAlt: "A small business owner at work",
+    heroAlt: "A team of business professionals",
     qualify: {
       forThem: [
         "Trading at least two years",
@@ -89,7 +89,7 @@ export const commercialServices: ServicePage[] = [
     intro:
       "A business banker can offer what their bank sells. We compare secured and unsecured term loans, lines of credit and cashflow facilities across the market.",
     heroImage: "/brand/photography/svc-business.webp",
-    heroAlt: "A small business owner in their premises",
+    heroAlt: "Business colleagues together",
     qualify: {
       forThem: [
         "Trading at least two years",
@@ -152,7 +152,7 @@ export const commercialServices: ServicePage[] = [
     intro:
       "Shorter terms, lower LVRs, real covenants and a valuation that can change the deal late. Knowing that before you sign the contract is the difference.",
     heroImage: "/brand/photography/svc-commercial-property.webp",
-    heroAlt: "A commercial premises exterior",
+    heroAlt: "A professional team in an urban setting",
     qualify: {
       forThem: [
         "Office, retail, industrial or warehouse",
@@ -215,7 +215,7 @@ export const commercialServices: ServicePage[] = [
     intro:
       "Profitable businesses fail on timing, not margin. Cashflow facilities bridge the gap between doing the work and being paid for it.",
     heroImage: "/brand/photography/svc-working-capital.webp",
-    heroAlt: "A business owner reviewing accounts",
+    heroAlt: "A handshake closing a finance agreement",
     qualify: {
       forThem: [
         "Trading at least two years",

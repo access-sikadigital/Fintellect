@@ -88,8 +88,8 @@ export const assetFinanceServices: ServicePage[] = [
     h1: "The truck earns from the day it lands.",
     intro:
       "Prime movers, rigids, trailers and tippers. Owner-drivers and fleets, new and used, dealer or private sale.",
-    heroImage: "",
-    heroAlt: "A truck at a work site",
+    heroImage: "/brand/photography/svc-truck.webp",
+    heroAlt: "A finance agreement being signed",
     qualify: {
       forThem: [
         "Two-year ABN, GST registered",
@@ -210,8 +210,8 @@ export const assetFinanceServices: ServicePage[] = [
     h1: "You own it from day one.",
     intro:
       "Under a chattel mortgage the asset is yours immediately and the lender takes a registered interest. The GST is usually claimable up front, which is why most businesses choose it.",
-    heroImage: "",
-    heroAlt: "A commercial vehicle at a work site",
+    heroImage: "/brand/photography/svc-chattel.webp",
+    heroAlt: "A finance agreement being completed",
     qualify: {
       forThem: [
         "ABN registered, asset used predominantly for business",
@@ -272,8 +272,8 @@ export const assetFinanceServices: ServicePage[] = [
     h1: "The dealer's finance isn't your only option.",
     intro:
       "Dealer finance is convenient and rarely the sharpest number in the room. Comparing takes a day and usually pays for itself several times over.",
-    heroImage: "",
-    heroAlt: "A work vehicle on site",
+    heroImage: "/brand/photography/svc-vehicle.webp",
+    heroAlt: "A vehicle finance agreement at a desk",
     qualify: {
       forThem: [
         "ABN registered, business use",

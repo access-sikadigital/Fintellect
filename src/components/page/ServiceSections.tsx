@@ -1,3 +1,4 @@
+import { CallButton } from "@/components/ui/CallButton";
 import Link from "next/link";
 import { SplitLines } from "@/components/motion/SplitLines";
 import { Reveal } from "@/components/motion/Reveal";
@@ -117,20 +118,47 @@ export function Advantages({
           stagger={0.08}
           className="mt-12 grid gap-5 sm:grid-cols-2 sm:auto-rows-fr lg:mt-16 lg:gap-6"
         >
-          {items.map((item) => (
-            <article
-              key={item.title}
-              className="group flex h-full flex-col rounded-panel border border-paper-20 bg-paper-10 p-8 transition-colors duration-500 hover:border-sand/50 lg:p-9"
-            >
-              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-paper-20 text-sand transition-colors duration-500 group-hover:border-sand/60">
-                <Icon name={item.icon} className="h-5 w-5" />
-              </span>
-              <h3 className="type-title mt-7 text-[clamp(1.25rem,1.8vw,1.6rem)] text-offwhite">
-                {item.title}
-              </h3>
-              <p className="type-body mt-3 text-[0.9375rem] text-paper-60">{item.body}</p>
-            </article>
-          ))}
+          {items.map((item, i) => {
+            const light = i % 3 === 1;
+            return (
+              <article
+                key={item.title}
+                className={cn(
+                  "group flex h-full flex-col rounded-panel border p-8 transition-colors duration-500 lg:p-9",
+                  light
+                    ? "border-sand bg-sand"
+                    : "border-paper-20 bg-paper-10 hover:border-sand/50",
+                )}
+              >
+                <span
+                  className={cn(
+                    "grid h-12 w-12 shrink-0 place-items-center rounded-full border transition-colors duration-500",
+                    light
+                      ? "border-clay-60 text-clay"
+                      : "border-paper-20 text-clay-soft group-hover:border-clay-60",
+                  )}
+                >
+                  <Icon name={item.icon} className="h-5 w-5" />
+                </span>
+                <h3
+                  className={cn(
+                    "type-title mt-7 text-[clamp(1.75rem,2.2vw,2.125rem)]",
+                    light ? "text-forest" : "text-offwhite",
+                  )}
+                >
+                  {item.title}
+                </h3>
+                <p
+                  className={cn(
+                    "type-body mt-3",
+                    light ? "text-forest/70" : "text-paper-60",
+                  )}
+                >
+                  {item.body}
+                </p>
+              </article>
+            );
+          })}
         </Reveal>
       </div>
     </section>
@@ -167,7 +195,7 @@ export function SpeedBand({ timeline }: { timeline?: { label: string; value: str
                 className="flex items-baseline justify-between gap-6 bg-sand px-7 py-6"
               >
                 <dt className="type-label text-forest/60">{row.label}</dt>
-                <dd className="type-title text-[clamp(1.25rem,2vw,1.75rem)] text-clay numeric">
+                <dd className="type-title text-[clamp(1.75rem,2.4vw,2.25rem)] text-clay numeric">
                   {row.value}
                 </dd>
               </div>
@@ -204,10 +232,15 @@ export function HowItWorks() {
           stagger={0.08}
           className="mt-12 grid gap-5 sm:grid-cols-2 sm:auto-rows-fr lg:mt-14 lg:grid-cols-4"
         >
-          {howItWorks.map((s) => (
+          {howItWorks.map((s, i) => (
             <article
               key={s.n}
-              className="group flex h-full flex-col rounded-panel border border-ink-12 p-7 transition-colors duration-500 hover:border-ink-30"
+              className={cn(
+                "group flex h-full flex-col rounded-panel border p-7 transition-colors duration-500",
+                i % 2 === 0
+                  ? "border-ink-12 bg-offwhite hover:border-clay-60"
+                  : "border-clay-20 bg-sand-deep hover:border-clay",
+              )}
             >
               <div className="flex items-center justify-between">
                 <span className="grid h-11 w-11 place-items-center rounded-full border border-ink-12 text-green">
@@ -215,7 +248,7 @@ export function HowItWorks() {
                 </span>
                 <span className="type-label text-ink-30 numeric">{s.n}</span>
               </div>
-              <h3 className="type-title mt-6 text-[1.15rem] text-forest">{s.title}</h3>
+              <h3 className="type-title mt-6 text-[clamp(1.375rem,1.7vw,1.625rem)] text-forest">{s.title}</h3>
               <p className="type-body mt-2.5 text-[0.9375rem] text-ink-70">{s.body}</p>
             </article>
           ))}
@@ -238,7 +271,7 @@ export function Credentials({ proofNote }: { proofNote?: string }) {
             <SplitLines
               as="h2"
               id="credentials-heading"
-              className="type-title mt-4 max-w-[14ch] text-[clamp(1.6rem,2.6vw,2.25rem)] text-offwhite"
+              className="type-title mt-4 max-w-[14ch] text-[clamp(1.875rem,2.6vw,2.25rem)] text-offwhite"
             >
               Licensed in our own right, not on somebody else&rsquo;s panel.
             </SplitLines>
@@ -289,7 +322,7 @@ export function RelatedLinks({
         <Reveal variant="fade">
           <p className="type-label text-clay">Related</p>
         </Reveal>
-        <h2 id="related-heading" className="type-title mt-4 text-[clamp(1.5rem,2.4vw,2rem)] text-forest">
+        <h2 id="related-heading" className="type-title mt-4 text-[clamp(1.75rem,2.6vw,2.375rem)] text-forest">
           You might also need
         </h2>
 
@@ -300,7 +333,7 @@ export function RelatedLinks({
               href={l.href}
               className="group flex flex-col justify-between gap-8 rounded-panel border border-ink-12 p-7 transition-colors duration-500 hover:border-green"
             >
-              <span className="type-title text-[1.15rem] text-forest">{l.label}</span>
+              <span className="type-title text-[1.375rem] text-forest">{l.label}</span>
               <span className="type-label flex items-center gap-2 text-green">
                 Read more
                 <span
@@ -346,7 +379,7 @@ export function CtaBand({
     <section className="bg-sand">
       <div className="container-wide flex flex-col gap-7 py-14 lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:py-16">
         <div>
-          <SplitLines as="h2" className="type-title max-w-[18ch] text-[clamp(1.5rem,2.6vw,2.25rem)] text-forest">
+          <SplitLines as="h2" className="type-title max-w-[18ch] text-[clamp(2rem,2.6vw,2.25rem)] text-forest">
             {heading}
           </SplitLines>
           {body && (
@@ -359,12 +392,7 @@ export function CtaBand({
           <Button href={cta.href} variant="primary" size="lg" magnetic>
             {cta.label}
           </Button>
-          <a
-            href={site.phoneHref}
-            className="type-label px-3 py-4 text-green transition-colors hover:text-forest"
-          >
-            {site.phone}
-          </a>
+          <CallButton tone="light" />
         </Reveal>
       </div>
     </section>

@@ -60,7 +60,7 @@ export default function Page() {
               <Icon name="star" className="h-5 w-5" />
             </span>
             <div>
-              <p className="type-title text-[1.15rem] text-forest">
+              <p className="type-title text-[1.375rem] text-forest">
                 Reviews are being verified before publication
               </p>
               <p className="type-body mt-2 max-w-[54ch] text-[0.9375rem] text-ink-70">

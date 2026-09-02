@@ -156,7 +156,7 @@ export function Team() {
                 />
               </div>
               <div>
-                <h3 className="type-title text-[1.25rem] text-forest">{m.name}</h3>
+                <h3 className="type-title text-[1.5rem] text-forest">{m.name}</h3>
                 <p className="type-label mt-1.5 text-clay">{m.role}</p>
                 <p className="type-body mt-3 text-[0.9375rem] text-ink-70">{m.bio}</p>
               </div>

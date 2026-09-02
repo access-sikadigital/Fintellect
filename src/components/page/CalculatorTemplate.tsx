@@ -46,7 +46,7 @@ export function CalculatorTemplate({ page }: { page: CalculatorPage }) {
             <SplitLines
               as="h2"
               id="explainer-heading"
-              className="type-title mt-4 max-w-[12ch] text-[clamp(1.6rem,2.6vw,2.25rem)] text-forest"
+              className="type-title mt-4 max-w-[12ch] text-[clamp(1.875rem,2.6vw,2.25rem)] text-forest"
             >
               What this number does and doesn&rsquo;t include.
             </SplitLines>
@@ -55,7 +55,7 @@ export function CalculatorTemplate({ page }: { page: CalculatorPage }) {
           <Reveal variant="rise" stagger={0.08} className="grid gap-8">
             {page.explainer.map((block) => (
               <article key={block.heading} className="border-t border-ink-12 pt-7">
-                <h3 className="type-title text-[clamp(1.15rem,1.7vw,1.4rem)] text-forest">
+                <h3 className="type-title text-[clamp(1.375rem,1.7vw,1.4rem)] text-forest">
                   {block.heading}
                 </h3>
                 <p className="type-body mt-3 max-w-[64ch] text-forest/70">{block.body}</p>
@@ -77,7 +77,7 @@ export function CalculatorTemplate({ page }: { page: CalculatorPage }) {
       <section className="section-y bg-offwhite" aria-labelledby="other-calcs">
         <div className="container-wide">
           <p className="type-label text-green">More tools</p>
-          <h2 id="other-calcs" className="type-title mt-4 text-[clamp(1.5rem,2.4vw,2rem)] text-forest">
+          <h2 id="other-calcs" className="type-title mt-4 text-[clamp(1.75rem,2.6vw,2.375rem)] text-forest">
             Other calculators
           </h2>
           <Reveal variant="rise" stagger={0.06} className="mt-9 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">

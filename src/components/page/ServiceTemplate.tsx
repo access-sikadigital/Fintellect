@@ -62,6 +62,9 @@ export function ServiceTemplate({ page }: { page: ServicePage }) {
 
       <QualifyingStrip forThem={page.qualify.forThem} notForThem={page.qualify.notForThem} />
 
+      {/* Form sits high — people arrive ready to enquire, not to read. */}
+      <EnquiryForm formType={page.formType} serviceName={page.eyebrow} />
+
       <Advantages items={page.advantages} />
 
       <SpeedBand timeline={page.timeline} />
@@ -77,14 +80,12 @@ export function ServiceTemplate({ page }: { page: ServicePage }) {
 
       <FaqSection
         faqs={objections}
-        eyebrow="Straight answers"
-        heading="The questions people are too polite to ask"
+        eyebrow="Before you ask"
+        heading="The questions people are asking"
         tone="dark"
       />
 
       <FaqSection faqs={page.faqs} eyebrow="FAQ" heading={`${page.eyebrow} questions`} />
-
-      <EnquiryForm formType={page.formType} serviceName={page.eyebrow} />
 
       <RelatedLinks links={related} />
 

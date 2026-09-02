@@ -49,7 +49,7 @@ export function Honesty() {
           <SplitLines
             as="blockquote"
             id="honesty-heading"
-            className="type-title mt-6 text-[clamp(1.85rem,4vw,3.4rem)] text-offwhite"
+            className="type-title mt-6 text-[clamp(2.125rem,4vw,3.4rem)] text-offwhite"
           >
             We&rsquo;re independent brokers who work for you. That means honest
             advice, transparent options, and a person who picks up the phone
@@ -62,9 +62,9 @@ export function Honesty() {
       <div className="container-wide section-y">
         <div className="grid gap-12 lg:grid-cols-[auto_1.4fr] lg:gap-20">
           <div className="lg:sticky lg:top-32 lg:h-fit">
-            <p className="type-label text-clay-soft">Straight answers</p>
-            <h3 className="type-title mt-5 max-w-[12ch] text-[clamp(1.75rem,2.8vw,2.75rem)] text-offwhite">
-              The questions people are too polite to ask.
+            <p className="type-label text-clay-soft">Before you ask</p>
+            <h3 className="type-title mt-5 max-w-[12ch] text-[clamp(2rem,2.8vw,2.75rem)] text-offwhite">
+              The questions people are asking.
             </h3>
           </div>
 

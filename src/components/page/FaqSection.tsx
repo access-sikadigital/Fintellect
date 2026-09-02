@@ -40,7 +40,7 @@ export function FaqSection({
             as="h2"
             id="faq-heading"
             className={cn(
-              "type-title mt-5 max-w-[13ch] text-[clamp(1.75rem,3vw,2.75rem)]",
+              "type-title mt-5 max-w-[13ch] text-[clamp(2rem,3vw,2.75rem)]",
               dark ? "text-offwhite" : "text-forest",
             )}
           >

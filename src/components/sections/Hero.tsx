@@ -1,5 +1,6 @@
 "use client";
 
+import { CallButton } from "@/components/ui/CallButton";
 import Image from "next/image";
 import { useRef } from "react";
 import { gsap, registerGsap, prefersReducedMotion } from "@/lib/gsap";
@@ -108,7 +109,7 @@ export function Hero() {
 
       <div
         data-hero="content"
-        className="container-wide relative z-10 flex flex-1 flex-col justify-center pt-24 pb-14 lg:pt-28 lg:pb-16"
+        className="container-wide relative z-10 flex flex-1 flex-col justify-center pt-20 pb-10 sm:pt-24 lg:pt-28 lg:pb-16"
       >
         <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
           {/* Words */}
@@ -121,7 +122,7 @@ export function Hero() {
               <span className="type-label text-paper-40">ACL {site.acl}</span>
             </div>
 
-            <h1 id="hero-heading" className="type-hero mt-7 lg:mt-8">
+            <h1 id="hero-heading" className="type-hero mt-6 lg:mt-8">
               <SplitLines as="span" className="block text-offwhite" immediate>
                 We reach lenders
               </SplitLines>
@@ -162,12 +163,7 @@ export function Hero() {
                 <Button href={site.cta.href} variant="onDark" size="lg" magnetic>
                   {site.cta.primary}
                 </Button>
-                <a
-                  href={site.phoneHref}
-                  className="type-label px-3 py-4 text-sand transition-colors duration-300 hover:text-offwhite"
-                >
-                  {site.phone}
-                </a>
+                <CallButton tone="dark" />
               </div>
 
               {/* Scenario entry points — people arrive with a task, not a brand */}
@@ -218,30 +214,28 @@ export function Hero() {
           </div>
 
           {/*
-            FIN-07 — was a concept clip ("parents forming a roof shape")
-            inside a house-shaped mask. John flagged that as AI-looking, so
-            both the clip and the mask were removed.
+            FIN-07 — was a concept clip inside a house-shaped mask; John
+            flagged that as AI-looking, so both were removed.
 
-            The image is cut to the frame's own 4:5 ratio. That matters: a
-            landscape source in a portrait frame loses most of its width to
-            object-cover, which is what made the earlier version soft — a
-            1000px file was supplying about 600px to a slot needing 1024 at
-            2x. At 960x1200 in a 480px slot it renders at exactly 2x.
-
-            Still a stock photograph, but of real people in a real situation
-            rather than a concept shot. Swap the src when client photography
-            arrives; nothing else needs to change.
+            Cut to the frame's own 4:5 ratio so object-cover discards nothing.
+            Larger than before (John, 2 Sep: "can we make the images bigger?")
+            and now visible on mobile, where the page previously ran as plain
+            text with no imagery at all.
           */}
-          <div data-hero="media" className="relative mx-auto w-full max-w-[30rem] lg:mx-0">
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-panel border border-paper-20">
+          <div data-hero="media" className="relative mx-auto w-full max-w-[34rem] lg:mx-0">
+            <div /* Square on phones, the source's own 4:5 from sm up. The 4:3 frame it
+                 had was cropping ~40% off a portrait image and taking heads with it. */
+              className="relative aspect-square w-full overflow-hidden rounded-panel border border-paper-20 sm:aspect-[4/5]">
               <Image
                 src="/brand/photography/hero-portrait.webp"
-                alt="A couple going through their loan paperwork at home"
+                alt="A couple standing outside their home"
                 fill
                 priority
                 quality={88}
-                sizes="(min-width: 1024px) 30rem, 100vw"
-                className="object-cover"
+                sizes="(min-width: 1024px) 34rem, 100vw"
+                /* Faces sit around a third down; bias the crop upward so the
+                   square phone frame never cuts them. */
+                className="object-cover object-[center_28%]"
               />
               <div
                 aria-hidden="true"

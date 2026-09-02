@@ -5,6 +5,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { site } from "@/data/site";
+import { cn } from "@/lib/utils";
 
 type Step = {
   n: string;
@@ -100,34 +101,42 @@ export function Process() {
           delay={0.05}
           className="mt-12 grid gap-5 sm:grid-cols-2 sm:auto-rows-fr lg:mt-16 lg:gap-6"
         >
-          {steps.map((step) => (
+          {steps.map((step, i) => (
             <article
               key={step.n}
-              className="group relative flex h-full flex-col overflow-hidden rounded-panel border border-paper-20 bg-paper-10 p-7 backdrop-blur-sm transition-colors duration-500 hover:border-sand/50 lg:p-9"
+              /*
+                Both variants are light grounds, so every element inside is
+                dark. Changing a card's background without changing its
+                contents is what left the text unreadable.
+              */
+              className={cn(
+                "group relative flex h-full flex-col overflow-hidden rounded-panel border p-7 text-forest transition-colors duration-500 lg:p-9",
+                i % 2 === 1
+                  ? "border-ink-12 bg-offwhite hover:border-clay-60"
+                  : "border-clay-20 bg-sand-deep hover:border-clay",
+              )}
             >
               {/* Oversized numeral, clipped by the card edge */}
               <span
                 aria-hidden="true"
-                className="type-title pointer-events-none absolute -right-4 -bottom-10 text-[11rem] leading-none text-paper-10 numeric transition-colors duration-500 group-hover:text-paper-20"
+                className="type-title pointer-events-none absolute -right-4 -bottom-10 text-[11rem] leading-none text-ink-06 numeric transition-colors duration-500 group-hover:text-ink-12"
               >
                 {step.n}
               </span>
 
               {/* Head */}
               <div className="relative flex items-center gap-4">
-                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-paper-20 text-sand transition-colors duration-500 group-hover:border-sand/60">
+                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-clay-20 text-clay transition-colors duration-500 group-hover:border-clay-60">
                   <Icon name={step.icon} className="h-5 w-5" />
                 </span>
-                <span className="type-label text-paper-40 numeric">
-                  Step {step.n}
-                </span>
+                <span className="type-label text-ink-50 numeric">Step {step.n}</span>
               </div>
 
               {/* Copy */}
-              <h3 className="type-title relative mt-6 text-[clamp(1.4rem,2vw,1.85rem)] text-offwhite">
+              <h3 className="type-title relative mt-6 text-[clamp(1.875rem,2.6vw,2.375rem)] text-forest">
                 {step.lead}
               </h3>
-              <p className="type-body relative mt-3 max-w-[46ch] text-[0.9375rem] text-paper-60">
+              <p className="type-body relative mt-3 max-w-[46ch] text-ink-70">
                 {step.body}
               </p>
 
@@ -136,7 +145,7 @@ export function Process() {
                 {step.detail.map((d) => (
                   <li
                     key={d}
-                    className="type-label rounded-pill border border-paper-20 px-3.5 py-1.5 text-[0.6875rem] text-paper-60 transition-colors duration-500 group-hover:border-paper-40"
+                    className="type-label rounded-pill border border-ink-12 px-3.5 py-1.5 text-ink-70 transition-colors duration-500 group-hover:border-clay-60"
                   >
                     {d}
                   </li>
@@ -144,9 +153,9 @@ export function Process() {
               </ul>
 
               {/* Meta, pinned to the base so every card ends on the same line */}
-              <div className="relative mt-auto flex items-center gap-3 border-t border-paper-20 pt-6 lg:pt-7">
-                <span aria-hidden="true" className="h-px w-6 bg-sand/60" />
-                <span className="type-label text-sand">{step.meta}</span>
+              <div className="relative mt-auto flex items-center gap-3 border-t border-ink-12 pt-6 lg:pt-7">
+                <span aria-hidden="true" className="h-px w-6 bg-clay" />
+                <span className="type-label text-clay">{step.meta}</span>
               </div>
             </article>
           ))}
@@ -161,7 +170,7 @@ export function Process() {
               </span>
               <div>
                 <p className="type-label text-clay">The honest part</p>
-                <p className="type-title mt-3 max-w-[26ch] text-[clamp(1.4rem,2.2vw,2rem)]">
+                <p className="type-title mt-3 max-w-[26ch] text-[clamp(1.625rem,2.2vw,2rem)]">
                   If we can&rsquo;t beat what you already have, we&rsquo;ll tell
                   you to stay put.
                 </p>

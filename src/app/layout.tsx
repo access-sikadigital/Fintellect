@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { inter, fraunces } from "@/lib/fonts";
+import { ScrollToHash } from "@/components/motion/ScrollToHash";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
 import { SiteHeader, SiteFooter } from "@/components/layout/SiteChrome";
 import { Cursor } from "@/components/ui/Cursor";
@@ -46,6 +47,7 @@ export default function RootLayout({
         </a>
 
         <SmoothScroll>
+          <ScrollToHash />
           <Cursor />
           <SiteHeader />
           <main id="main">{children}</main>

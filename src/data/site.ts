@@ -8,8 +8,20 @@ export const site = {
   legalName: "Fintellect",
   acl: "515382",
   aggregator: "SFG",
-  phone: "0401 035 535",
-  phoneHref: "tel:+61401035535",
+  /**
+   * ⚠ DISPLAY AND DIAL NUMBERS DIFFER — supplied this way by John, 2 Sep 2026.
+   *
+   * The site shows 1300 366 639; the click-to-call dials 03 9386 3011.
+   *
+   * This is the exact discrepancy the website scope flagged under "Items to
+   * confirm" ("the number displayed in the current header and the number
+   * behind the click-to-call link differ"). It is implemented as instructed,
+   * but worth confirming it is deliberate — a 1300 line pointing at a
+   * landline is usually either a call-tracking arrangement or a leftover
+   * mistake, and it needs settling before call tracking is configured.
+   */
+  phone: "1300 366 639",
+  phoneHref: "tel:0393863011",
   email: "hello@fintellect.com.au",
   domain: "fintellect.com.au",
   offices: ["Melbourne", "Gold Coast"],
@@ -24,12 +36,14 @@ export const site = {
    * "Check if we can help". Everything primary now reads from here, so the
    * wording can only be changed in one place.
    *
-   * Approved by John, 31 August 2026.
+   * Approved by John, 31 August 2026. Changed to "Get your free assessment"
+   * on 2 September — a loan health check does not describe commercial,
+   * asset or SMSF enquiries, and this does.
    */
   cta: {
-    primary: "Get your free loan health check",
+    primary: "Get your free assessment",
     /** For tight spaces — the header bar. */
-    short: "Free loan health check",
+    short: "Free assessment",
     href: "/contact",
   },
 } as const;
@@ -86,6 +100,9 @@ export const nav: NavItem[] = [
     ],
   },
   { label: "About", href: "/about" },
+  // John, 2 Sep: "there's no contact in the header menu — let's just put a
+  // contact button there." Reviews stays in the footer only.
+  { label: "Contact", href: "/contact" },
 ];
 
 /**
@@ -135,6 +152,9 @@ export const footerNav = {
     { label: "Reviews", href: "/reviews" },
     { label: "Guides", href: "/guides" },
     { label: "Melbourne", href: "/mortgage-broker-melbourne" },
+    { label: "Sydney", href: "/mortgage-broker-sydney" },
+    { label: "Brisbane", href: "/mortgage-broker-brisbane" },
+    { label: "Perth", href: "/mortgage-broker-perth" },
     { label: "Gold Coast", href: "/mortgage-broker-gold-coast" },
     { label: "Contact", href: "/contact" },
   ],

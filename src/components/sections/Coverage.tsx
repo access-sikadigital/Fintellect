@@ -73,10 +73,10 @@ export function Coverage() {
                 <div className="relative aspect-[4/3] w-full">
                   <Image
                     src="/brand/photography/coverage.webp"
-                    alt="A family outside their home"
+                    alt="A family on the front porch of their home"
                     fill
                     sizes="(min-width:1024px) 46vw, 100vw"
-                    className="object-cover"
+                    className="object-cover object-[center_35%]"
                   />
                 </div>
               </Parallax>

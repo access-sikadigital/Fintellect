@@ -1,3 +1,4 @@
+import { CallButton } from "@/components/ui/CallButton";
 import Link from "next/link";
 import { Wordmark, Logomark } from "@/components/ui/Logo";
 import { Reveal } from "@/components/motion/Reveal";
@@ -33,12 +34,7 @@ export function Footer() {
               <Button href={site.cta.href} variant="onDark" size="lg" magnetic>
                 {site.cta.primary}
               </Button>
-              <a
-                href={site.phoneHref}
-                className="type-label px-2 py-4 text-sand transition-colors hover:text-offwhite"
-              >
-                {site.phone}
-              </a>
+              <CallButton tone="dark" />
             </div>
           </Reveal>
         </div>
@@ -59,12 +55,7 @@ export function Footer() {
             >
               {site.email}
             </a>
-            <a
-              href={site.phoneHref}
-              className="transition-colors hover:text-offwhite"
-            >
-              {site.phone}
-            </a>
+            <CallButton tone="dark" />
           </div>
         </div>
 

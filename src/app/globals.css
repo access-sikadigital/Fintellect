@@ -25,6 +25,21 @@
      colours read flat, and it is applied as an accent, never as a brand
      replacement. Green remains the base.
      --------------------------------------------------------------------- */
+  /*
+   * Pure white — form surfaces only.
+   *
+   * Not a brand colour. Added at John's request so the enquiry form reads as
+   * a distinct object sitting on the page rather than a panel of it: the
+   * off-white ground (#FBFEEE) is close enough to the page that the form was
+   * disappearing into it.
+   *
+   * Use it on form cards. Never as a section ground — that is what off-white
+   * is for, and mixing the two at section scale would look like a mistake.
+   */
+  /* Form surfaces: cream card on the forest section, white fields inside it. */
+  --color-form: var(--color-offwhite);
+  --color-form-field: #ffffff;
+
   --color-clay: #b9633f;
   --color-clay-soft: #d99b74;
   --color-clay-60: color-mix(in oklab, var(--color-clay) 60%, transparent);
@@ -79,16 +94,26 @@
 
   /* Fluid type scale. Titles use Fraunces, everything else Inter. */
   /* min(vw, vh) keeps the headline in frame on short, wide windows. */
-  --text-hero: clamp(2.5rem, min(7.2vw, 11.5vh), 7.5rem);
-  --text-display: clamp(2.5rem, min(5.4vw, 10vh), 5.25rem);
-  --text-h1: clamp(2.5rem, 5vw, 4.75rem);
-  --text-h2: clamp(2rem, 3.6vw, 3.5rem);
-  --text-h3: clamp(1.5rem, 2.2vw, 2.25rem);
-  --text-h4: clamp(1.25rem, 1.5vw, 1.5rem);
-  --text-lead: clamp(1.125rem, 1.45vw, 1.5rem);
+  /*
+   * Heading scale raised across the board (John, 2 Sep): headings were
+   * bottoming out too close to body size on small screens, so on mobile a
+   * heading and a paragraph looked like the same thing.
+   *
+   * The rule now enforced by these minimums: a heading is never smaller than
+   * 1.375rem, while body tops out at 1.125rem — so a heading is always
+   * visibly larger than the text beneath it, at every viewport.
+   */
+  --text-hero: clamp(3.25rem, min(7.6vw, 12vh), 7.75rem);
+  --text-display: clamp(2.75rem, min(5.8vw, 10.5vh), 5.5rem);
+  --text-h1: clamp(2.75rem, 5.2vw, 5rem);
+  --text-h2: clamp(2.25rem, 3.9vw, 3.75rem);
+  --text-h3: clamp(1.75rem, 2.4vw, 2.5rem);
+  --text-h4: clamp(1.375rem, 1.7vw, 1.75rem);
+  --text-lead: clamp(1.1875rem, 1.55vw, 1.5rem);
   --text-body: clamp(1rem, 1.05vw, 1.125rem);
   --text-small: 0.9375rem;
-  --text-label: 0.75rem;
+  /* Labels were 12px — too small to read comfortably on a phone. */
+  --text-label: 0.8125rem;
 
   /* Line heights, per the usage guidelines table. */
   --leading-title: 1.1;   /* Fraunces titles: 110–120% */

@@ -16,7 +16,7 @@ export const homeLoanServices: ServicePage[] = [
     intro:
       "Lenders reserve their sharpest pricing for people who are leaving. We find out what you're actually on, what you could be on, and whether the difference survives the switching costs.",
     heroImage: "/brand/photography/svc-refinance.webp",
-    heroAlt: "A couple reviewing their home loan at the kitchen table",
+    heroAlt: "A couple at home",
     qualify: {
       forThem: [
         "You've had the same loan more than two years",
@@ -108,7 +108,7 @@ export const homeLoanServices: ServicePage[] = [
     intro:
       "A major bank wants two years of tax returns that show a healthy profit. A good accountant's job is to make that profit look small. That contradiction is the whole problem, and it has a solution.",
     heroImage: "/brand/photography/svc-self-employed.webp",
-    heroAlt: "A self-employed carpenter working at a laptop in his workshop",
+    heroAlt: "A self-employed business owner",
     qualify: {
       forThem: [
         "You've been trading at least twelve months",
@@ -196,7 +196,7 @@ export const homeLoanServices: ServicePage[] = [
     intro:
       "The major banks waive lenders mortgage insurance for medical professionals up to 95% of the property value. On an $900,000 purchase that's tens of thousands of dollars nobody mentions unless you ask.",
     heroImage: "/brand/photography/svc-doctors.webp",
-    heroAlt: "A medical professional in warm natural light",
+    heroAlt: "A medical professional at work",
     qualify: {
       forThem: [
         "Specialists, GPs, registrars and residents",
@@ -284,7 +284,7 @@ export const homeLoanServices: ServicePage[] = [
     intro:
       "Accountants, lawyers and several other qualified professions have their own lenders mortgage insurance waivers. Smaller than the medical waiver, still worth thousands, and rarely volunteered.",
     heroImage: "/brand/photography/svc-professionals.webp",
-    heroAlt: "A professional working at a desk in natural light",
+    heroAlt: "A professional at their workplace",
     qualify: {
       forThem: [
         "CA, CPA and IPA qualified accountants",
@@ -358,7 +358,7 @@ export const homeLoanServices: ServicePage[] = [
     intro:
       "Serviceability, existing debt and how the last loan was structured all decide whether there's a third. We structure for the portfolio, not just the purchase in front of you.",
     heroImage: "/brand/photography/svc-investment.webp",
-    heroAlt: "A residential property exterior",
+    heroAlt: "A couple outside their investment property",
     qualify: {
       forThem: [
         "Buying your first or next investment property",
@@ -430,7 +430,7 @@ export const homeLoanServices: ServicePage[] = [
     intro:
       "Progress payments, valuations at each stage and a builder waiting to be paid. The loan itself is simple — the administration is what fails, and that's the part we run.",
     heroImage: "/brand/photography/svc-construction.webp",
-    heroAlt: "A construction site in progress",
+    heroAlt: "A couple outside a newly built home",
     qualify: {
       forThem: [
         "Fixed-price building contract with a licensed builder",
@@ -498,7 +498,7 @@ export const homeLoanServices: ServicePage[] = [
     intro:
       "Bridging finance covers the overlap. It's short term and it has to be planned backwards from how it ends, which is the part people skip.",
     heroImage: "/brand/photography/svc-bridging.webp",
-    heroAlt: "A residential street in daylight",
+    heroAlt: "A couple outside their home",
     qualify: {
       forThem: [
         "Buying before selling",
@@ -560,7 +560,7 @@ export const homeLoanServices: ServicePage[] = [
     intro:
       "Consolidating into your home loan lowers the monthly total immediately. It also stretches short-term debt over a long term, so the honest version of this conversation includes both numbers.",
     heroImage: "/brand/photography/svc-debt.webp",
-    heroAlt: "A couple going through household paperwork",
+    heroAlt: "A model house with a money bag and calculator",
     qualify: {
       forThem: [
         "Equity in your property",

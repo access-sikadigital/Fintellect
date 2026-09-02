@@ -8,7 +8,8 @@ import { useInert } from "@/hooks/useInert";
 import { useSmoothScroll } from "@/components/providers/SmoothScroll";
 import { Logomark, Wordmark } from "@/components/ui/Logo";
 import { Button } from "@/components/ui/Button";
-import { nav, site } from "@/data/site";
+import { CallButton } from "@/components/ui/CallButton";
+import { nav, site, type NavItem } from "@/data/site";
 import { cn } from "@/lib/utils";
 
 /**
@@ -35,6 +36,17 @@ export function Header() {
     if (!el) return;
 
     registerGsap();
+
+    // Publish the real header height so the mobile panel sits flush beneath
+    // it. The CSS fallback was a guess, and when it was wrong the top of the
+    // menu ended up off-screen.
+    const setHeaderHeight = () =>
+      document.documentElement.style.setProperty(
+        "--header-h",
+        `${el.getBoundingClientRect().height}px`,
+      );
+    setHeaderHeight();
+    window.addEventListener("resize", setHeaderHeight);
 
     const ctx = gsap.context(() => {
       // Swap to the solid bar once the hero is behind us.
@@ -65,7 +77,10 @@ export function Header() {
       });
     }, el);
 
-    return () => ctx.revert();
+    return () => {
+      window.removeEventListener("resize", setHeaderHeight);
+      ctx.revert();
+    };
   }, []);
 
   // Lock scrolling behind the mobile panel.
@@ -77,6 +92,7 @@ export function Header() {
   const onDark = !solid && !open;
 
   return (
+    <>
     <header
       ref={headerRef}
       className={cn(
@@ -132,15 +148,12 @@ export function Header() {
               >
                 {item.label}
                 {item.children && (
-                  <span
-                    aria-hidden="true"
+                  <Chevron
                     className={cn(
-                      "ml-1.5 inline-block text-[0.6em] transition-transform duration-300",
+                      "ml-1.5 inline-block h-3.5 w-3.5 align-middle transition-transform duration-300",
                       openMenu === item.label && "rotate-180",
                     )}
-                  >
-                    ▾
-                  </span>
+                  />
                 )}
               </Link>
 
@@ -158,15 +171,11 @@ export function Header() {
 
         {/* Actions */}
         <div className="flex shrink-0 items-center gap-3">
-          <a
-            href={site.phoneHref}
-            className={cn(
-              "type-label hidden transition-colors duration-300 md:inline-block",
-              onDark ? "text-sand hover:text-offwhite" : "text-green hover:text-forest",
-            )}
-          >
-            {site.phone}
-          </a>
+          <CallButton
+            tone={onDark ? "dark" : "light"}
+            size="sm"
+            className="hidden md:inline-flex"
+          />
           <Button
             href="/contact"
             variant={onDark ? "onDark" : "primary"}
@@ -213,8 +222,17 @@ export function Header() {
         </div>
       </div>
 
-      <MobilePanel open={open} onClose={() => setOpen(false)} />
     </header>
+
+      {/*
+        Deliberately a sibling of <header>, not a child. GSAP keeps a
+        transform on the header for the hide-on-scroll, and a transformed
+        ancestor becomes the containing block for any position:fixed
+        descendant — which collapsed this panel to the height of the header
+        bar. That is why the mobile menu opened onto nothing.
+      */}
+      <MobilePanel open={open} onClose={() => setOpen(false)} />
+    </>
   );
 }
 
@@ -271,72 +289,299 @@ function MegaMenu({
   );
 }
 
+function Chevron({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2.25"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className={className}
+    >
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  );
+}
+
+function Arrow({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className={className}
+    >
+      <path d="M5 12h14M13 6l6 6-6 6" />
+    </svg>
+  );
+}
+
 function MobilePanel({ open, onClose }: { open: boolean; onClose: () => void }) {
-  const ref = useInert<HTMLDivElement>(!open);
+  const panelRef = useRef<HTMLDivElement>(null);
+  const tlRef = useRef<gsap.core.Timeline | null>(null);
+
+  /* Build the open/close timeline once, paused. */
+  useIsomorphicLayoutEffect(() => {
+    const el = panelRef.current;
+    if (!el) return;
+
+    registerGsap();
+    gsap.set(el, { autoAlpha: 0 });
+
+    if (prefersReducedMotion()) return;
+
+    const ctx = gsap.context(() => {
+      tlRef.current = gsap
+        .timeline({ paused: true })
+        .fromTo(
+          el,
+          { autoAlpha: 0, clipPath: "inset(0 0 100% 0)" },
+          {
+            autoAlpha: 1,
+            clipPath: "inset(0 0 0% 0)",
+            duration: 0.55,
+            ease: "brand-out",
+          },
+        )
+        .fromTo(
+          "[data-m='item']",
+          { opacity: 0, y: 24 },
+          { opacity: 1, y: 0, duration: 0.5, stagger: 0.05, ease: "brand-out" },
+          0.12,
+        )
+        .fromTo(
+          "[data-m='foot']",
+          { opacity: 0, y: 18 },
+          { opacity: 1, y: 0, duration: 0.45, ease: "brand-out" },
+          0.32,
+        );
+    }, el);
+
+    return () => {
+      ctx.revert();
+      tlRef.current = null;
+    };
+  }, []);
+
+  /* Play forward on open, reverse on close. */
+  useIsomorphicLayoutEffect(() => {
+    const el = panelRef.current;
+    if (!el) return;
+
+    // Removed from the tab order and the a11y tree while closed.
+    el.inert = !open;
+
+    const tl = tlRef.current;
+    if (!tl) {
+      gsap.set(el, { autoAlpha: open ? 1 : 0 });
+      return;
+    }
+    if (open) tl.play();
+    else tl.reverse();
+  }, [open]);
+
+  /* Escape closes it. */
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open, onClose]);
 
   return (
     <div
-      ref={ref}
+      ref={panelRef}
       id="mobile-menu"
-      className={cn(
-        "fixed inset-x-0 top-[var(--header-h,4.5rem)] bottom-0 overflow-y-auto bg-offwhite lg:hidden",
-        "transition-[opacity,transform] duration-500 ease-[var(--ease-brand)]",
-        open
-          ? "pointer-events-auto translate-y-0 opacity-100"
-          : "pointer-events-none -translate-y-4 opacity-0",
-      )}
+      className="fixed inset-0 z-40 flex flex-col bg-offwhite pt-[var(--header-h,4.5rem)] text-forest lg:hidden"
       aria-hidden={!open}
     >
-      <div className="container-content flex min-h-full flex-col gap-8 py-10">
-        <nav aria-label="Mobile" className="grid gap-2">
-          {nav.map((item, i) => (
-            <div
-              key={item.href}
-              className="border-b border-ink-12 pb-4"
-              style={{
-                transitionDelay: open ? `${100 + i * 55}ms` : "0ms",
-                transitionProperty: "opacity, transform",
-                transitionDuration: "500ms",
-                transitionTimingFunction: "var(--ease-brand)",
-                opacity: open ? 1 : 0,
-                transform: open ? "none" : "translateY(1rem)",
-              }}
-            >
-              <Link
-                href={item.href}
-                onClick={onClose}
-                className="type-title block text-[1.75rem] text-forest"
-              >
-                {item.label}
-              </Link>
-              {item.children && (
-                <div className="mt-2 flex flex-wrap gap-x-4 gap-y-1">
-                  {item.children.slice(0, 5).map((c) => (
-                    <Link
-                      key={c.href}
-                      href={c.href}
-                      onClick={onClose}
-                      className="type-body text-[0.9375rem] text-ink-70 hover:text-green"
-                    >
-                      {c.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
-        </nav>
+      {/*
+        The scroll lives here, not on the panel, so the CTA footer stays put.
+        data-lenis-prevent is essential: Lenis listens on the document and
+        preventDefaults wheel/touch, so a nested scroller is dead without it.
+      */}
+      <div
+        data-lenis-prevent
+        className="flex-1 overflow-y-auto overscroll-contain"
+      >
+        <MobileNav key={String(open)} onNavigate={onClose} />
+      </div>
 
-        <div className="mt-auto grid gap-3">
-          <Button href="/contact" variant="primary" size="lg" onClick={onClose}>
-            {site.cta.short}
+      {/* Pinned so the primary action never scrolls out of reach. */}
+      <div
+        data-m="foot"
+        className="shrink-0 border-t border-ink-12 bg-sand/50 px-[var(--container-pad,1.25rem)] pt-4 pb-[max(1rem,env(safe-area-inset-bottom))]"
+      >
+        <div className="container-content grid gap-2.5 px-0">
+          <Button href={site.cta.href} variant="primary" size="lg" onClick={onClose}>
+            {site.cta.primary}
           </Button>
-          <a
-            href={site.phoneHref}
-            className="type-label block py-3 text-center text-green"
+          <CallButton tone="light" size="lg" className="w-full" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/**
+ * Owns which group is expanded. Keyed on `open` in the panel above, so
+ * closing the menu remounts it collapsed — no state-resetting effect.
+ */
+function MobileNav({ onNavigate }: { onNavigate: () => void }) {
+  const [openGroup, setOpenGroup] = useState<string | null>(null);
+
+  return (
+    <nav aria-label="Mobile" className="container-content py-2">
+      {nav.map((item) =>
+        item.children ? (
+          <MobileGroup
+            key={item.href}
+            item={item}
+            expanded={openGroup === item.label}
+            onToggle={() =>
+              setOpenGroup((v) => (v === item.label ? null : item.label))
+            }
+            onNavigate={onNavigate}
+          />
+        ) : (
+          <div key={item.href} data-m="item" className="border-b border-ink-12">
+            <Link
+              href={item.href}
+              onClick={onNavigate}
+              className="type-title flex items-center justify-between py-4 text-[1.25rem] text-forest"
+            >
+              {item.label}
+              <Arrow className="h-5 w-5 shrink-0 text-ink-50" />
+            </Link>
+          </div>
+        ),
+      )}
+    </nav>
+  );
+}
+
+/**
+ * One collapsible nav group. The hub link and the accordion toggle are
+ * separate controls, so tapping the label still reaches the hub page.
+ */
+function MobileGroup({
+  item,
+  expanded,
+  onToggle,
+  onNavigate,
+}: {
+  item: NavItem;
+  expanded: boolean;
+  onToggle: () => void;
+  onNavigate: () => void;
+}) {
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const first = useRef(true);
+  const panelId = `m-${item.href.replace(/\W+/g, "-")}`;
+
+  useIsomorphicLayoutEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return;
+
+    // No animation on the very first pass — just adopt the resting state.
+    if (first.current) {
+      first.current = false;
+      gsap.set(el, { height: expanded ? "auto" : 0 });
+      return;
+    }
+    if (prefersReducedMotion()) {
+      gsap.set(el, { height: expanded ? "auto" : 0 });
+      return;
+    }
+
+    gsap.to(el, {
+      height: expanded ? "auto" : 0,
+      duration: 0.45,
+      ease: "brand-out",
+      overwrite: true,
+    });
+    if (expanded) {
+      gsap.fromTo(
+        el.querySelectorAll("[data-m='child']"),
+        { opacity: 0, y: 12 },
+        { opacity: 1, y: 0, duration: 0.4, stagger: 0.035, ease: "brand-out" },
+      );
+    }
+  }, [expanded]);
+
+  return (
+    <div data-m="item" className="border-b border-ink-12">
+      <div className="flex items-center justify-between gap-2">
+        <Link
+          href={item.href}
+          onClick={onNavigate}
+          className="type-title flex-1 py-4 text-[1.25rem] text-forest"
+        >
+          {item.label}
+        </Link>
+        <button
+          type="button"
+          onClick={onToggle}
+          aria-expanded={expanded}
+          aria-controls={panelId}
+          aria-label={`${expanded ? "Collapse" : "Expand"} ${item.label}`}
+          /* 44px tap target, 34px visible circle — the ring shrinks, the
+             touchable area does not. */
+          className="grid h-11 w-11 shrink-0 place-items-center"
+        >
+          <span
+            className={cn(
+              "grid h-[2.125rem] w-[2.125rem] place-items-center rounded-full border transition-colors duration-300",
+              expanded
+                ? "border-green bg-green text-offwhite"
+                : "border-ink-30 text-forest",
+            )}
           >
-            Call {site.phone}
-          </a>
+            <Chevron
+              className={cn(
+                "h-5 w-5 transition-transform duration-400 ease-[var(--ease-brand)]",
+                expanded && "rotate-180",
+              )}
+            />
+          </span>
+        </button>
+      </div>
+
+      <div ref={wrapRef} id={panelId} className="overflow-hidden">
+        <div className="grid gap-0.5 pb-3">
+          <Link
+            href={item.href}
+            onClick={onNavigate}
+            data-m="child"
+            className="type-label rounded-card bg-sand/50 px-3 py-2.5 text-green"
+          >
+            All {item.label.toLowerCase()}
+          </Link>
+          {item.children?.map((c) => (
+            <Link
+              key={c.href}
+              href={c.href}
+              onClick={onNavigate}
+              data-m="child"
+              className="type-body flex items-baseline justify-between gap-3 rounded-card px-3 py-2.5 text-forest/80"
+            >
+              <span>{c.label}</span>
+              {c.note && (
+                <span className="type-body shrink-0 text-[0.75rem] text-ink-50">
+                  {c.note}
+                </span>
+              )}
+            </Link>
+          ))}
         </div>
       </div>
     </div>

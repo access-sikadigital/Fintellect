@@ -32,7 +32,7 @@ export default function Page() {
           className={ci % 2 === 0 ? "section-y bg-offwhite" : "section-y bg-sand"}
         >
           <div className="container-wide">
-            <p className="type-label text-green">{cluster}</p>
+            <p className="type-label text-clay">{cluster}</p>
             <SplitLines as="h2" className="type-display mt-4 max-w-[13ch] text-forest">
               {cluster} guides
             </SplitLines>
@@ -46,16 +46,16 @@ export default function Page() {
                 .map((g) => (
                   <Link
                     key={g.slug}
-                    href={g.href}
+                    href={g.body ? `/guides/${g.slug}` : "/contact"}
                     className="group flex h-full flex-col justify-between gap-7 rounded-panel border border-ink-12 bg-offwhite p-7 transition-colors duration-500 hover:border-green"
                   >
                     <div>
-                      <h3 className="type-title text-[1.15rem] text-forest">{g.title}</h3>
+                      <h3 className="type-title text-[1.375rem] text-forest">{g.title}</h3>
                       <p className="type-body mt-2.5 text-[0.9375rem] text-ink-70">{g.summary}</p>
                     </div>
-                    <span className="type-label flex items-center gap-2 text-green">
-                      {g.published ? "Read" : "Coming soon"}
-                      {g.published && (
+                    <span className="type-label flex items-center gap-2 text-clay">
+                      {g.body ? `Read · ${g.readMinutes} min` : "Coming soon"}
+                      {g.body && (
                         <span
                           aria-hidden="true"
                           className="transition-transform duration-400 ease-[var(--ease-brand)] group-hover:translate-x-1.5"

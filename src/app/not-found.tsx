@@ -1,8 +1,8 @@
+import { CallButton } from "@/components/ui/CallButton";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/Button";
 import { Logomark } from "@/components/ui/Logo";
-import { site } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Page not found",
@@ -37,12 +37,7 @@ export default function NotFound() {
           <Button href="/" variant="onDark" size="lg" magnetic>
             Back to home
           </Button>
-          <a
-            href={site.phoneHref}
-            className="type-label px-3 py-4 text-sand transition-colors hover:text-offwhite"
-          >
-            {site.phone}
-          </a>
+          <CallButton tone="dark" />
         </div>
 
         <div className="mt-14 border-t border-paper-20 pt-8">

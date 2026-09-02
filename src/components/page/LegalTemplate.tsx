@@ -59,7 +59,7 @@ export function LegalTemplate({
           <div className="grid gap-10">
             {blocks.map((b, i) => (
               <Reveal key={b.heading} variant="rise" id={`s-${i}`} className="scroll-mt-32">
-                <h2 className="type-title text-[clamp(1.35rem,2.2vw,1.85rem)] text-forest">
+                <h2 className="type-title text-[clamp(1.75rem,2.6vw,2.375rem)] text-forest">
                   {b.heading}
                 </h2>
                 {b.body.map((p, j) => (

@@ -124,8 +124,11 @@ is significantly lower and is not applied.
 
 ## Brand system
 
-`globals.css` contains **exactly four hex values** — the four in the
-guidelines. Every other surface is one of them mixed with transparency. Audit
+`globals.css` contains the four guideline hex values plus two additions,
+both deliberate and both documented in the file: **clay** `#B9633F` (the warm
+accent, approved 31 Aug) and **white** `#FFFFFF`, reserved for form surfaces
+only so the enquiry form reads as an object on the page rather than part of
+it. Every other surface is one of them mixed with transparency. Audit
 confirms zero off-brand Tailwind colour utilities in `src/`.
 
 | Token | Hex | Role |

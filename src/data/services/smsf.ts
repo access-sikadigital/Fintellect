@@ -16,7 +16,7 @@ export const smsfServices: ServicePage[] = [
     intro:
       "Limited recourse borrowing lets an established SMSF buy property. The rules are strict, the lender list is short, and getting the structure wrong is expensive to unwind.",
     heroImage: "/brand/photography/svc-smsf.webp",
-    heroAlt: "A couple reviewing investment documents",
+    heroAlt: "An adviser going through a property purchase with clients",
     qualify: {
       forThem: [
         "Fund already established",

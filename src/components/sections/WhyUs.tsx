@@ -2,6 +2,7 @@ import { SplitLines } from "@/components/motion/SplitLines";
 import { Reveal } from "@/components/motion/Reveal";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { site } from "@/data/site";
+import { cn } from "@/lib/utils";
 
 /*
  * Every competing broker site runs a version of this grid. Theirs read
@@ -81,20 +82,49 @@ export function WhyUs() {
           stagger={0.07}
           className="mt-12 grid gap-5 sm:grid-cols-2 sm:auto-rows-fr lg:mt-16 lg:grid-cols-3 lg:gap-6"
         >
-          {reasons.map((r) => (
-            <article
-              key={r.title}
-              className="group flex h-full flex-col rounded-panel border border-paper-20 bg-paper-10 p-8 transition-colors duration-500 hover:border-sand/50"
-            >
-              <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-paper-20 text-clay-soft transition-colors duration-500 group-hover:border-clay-60">
-                <Icon name={r.icon} className="h-5 w-5" />
-              </span>
-              <h3 className="type-title mt-6 text-[clamp(1.15rem,1.6vw,1.4rem)] text-offwhite">
-                {r.title}
-              </h3>
-              <p className="type-body mt-3 text-[0.9375rem] text-paper-60">{r.body}</p>
-            </article>
-          ))}
+          {reasons.map((r, i) => {
+            /* Every third tile inverts to sand. One flag drives the card and
+               everything in it, so the two can never drift apart again. */
+            const light = i % 3 === 1;
+            return (
+              <article
+                key={r.title}
+                className={cn(
+                  "group flex h-full flex-col rounded-panel border p-8 transition-colors duration-500",
+                  light
+                    ? "border-sand bg-sand"
+                    : "border-paper-20 bg-paper-10 hover:border-sand/50",
+                )}
+              >
+                <span
+                  className={cn(
+                    "grid h-12 w-12 shrink-0 place-items-center rounded-full border transition-colors duration-500",
+                    light
+                      ? "border-clay-60 text-clay"
+                      : "border-paper-20 text-clay-soft group-hover:border-clay-60",
+                  )}
+                >
+                  <Icon name={r.icon} className="h-5 w-5" />
+                </span>
+                <h3
+                  className={cn(
+                    "type-title mt-6 text-[clamp(1.75rem,2.2vw,2.125rem)]",
+                    light ? "text-forest" : "text-offwhite",
+                  )}
+                >
+                  {r.title}
+                </h3>
+                <p
+                  className={cn(
+                    "type-body mt-3",
+                    light ? "text-forest/70" : "text-paper-60",
+                  )}
+                >
+                  {r.body}
+                </p>
+              </article>
+            );
+          })}
         </Reveal>
       </div>
     </section>

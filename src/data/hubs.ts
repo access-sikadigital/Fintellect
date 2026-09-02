@@ -14,7 +14,7 @@ export const hubs: HubPage[] = [
     intro:
       "Straightforward applications go through anywhere. We're most useful when yours isn't one of them.",
     heroImage: "/brand/photography/hub-home-loans.webp",
-    heroAlt: "A family outside their home",
+    heroAlt: "A family outside their modern home",
     faqs: [
       {
         q: "What does a mortgage broker do?",
@@ -43,7 +43,7 @@ export const hubs: HubPage[] = [
     intro:
       "We compare the market — banks, non-banks and specialists — and tell you where the real difference sits.",
     heroImage: "/brand/photography/hub-commercial.webp",
-    heroAlt: "A small business owner at their premises",
+    heroAlt: "A team of business professionals",
     faqs: [
       {
         q: "What can a commercial finance broker arrange?",

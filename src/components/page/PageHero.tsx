@@ -1,3 +1,4 @@
+import { CallButton } from "@/components/ui/CallButton";
 import Image from "next/image";
 import { SplitLines } from "@/components/motion/SplitLines";
 import { Reveal } from "@/components/motion/Reveal";
@@ -33,10 +34,10 @@ export function PageHero({
         <div className="absolute -top-[16rem] -right-[10rem] h-[38rem] w-[38rem] rounded-full border border-paper-10" />
       </div>
 
-      <div className="container-wide relative z-10 pt-32 pb-16 lg:pt-40 lg:pb-20">
+      <div className="container-wide relative z-10 pt-24 pb-12 sm:pt-28 lg:pt-36 lg:pb-16">
         <Breadcrumbs trail={trail} />
 
-        <div className="mt-10 grid gap-12 lg:grid-cols-[1.25fr_1fr] lg:items-end lg:gap-16">
+        <div className="mt-8 grid gap-10 lg:mt-10 lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-16">
           <div>
             <Reveal variant="fade">
               <p className="type-label text-sand">{eyebrow}</p>
@@ -59,26 +60,29 @@ export function PageHero({
                 >
                   {cta?.label ?? site.cta.primary}
                 </Button>
-                <a
-                  href={site.phoneHref}
-                  className="type-label px-3 py-4 text-sand transition-colors hover:text-offwhite"
-                >
-                  {site.phone}
-                </a>
+                <CallButton tone="dark" />
               </div>
             </Reveal>
           </div>
 
+          {/* Shown on every breakpoint now — the page used to be plain text
+              on a phone, which is what made it feel bare. */}
           {image && (
-            <Reveal variant="clip" delay={0.1} className="hidden lg:block">
-              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-panel">
+            <Reveal variant="clip" delay={0.1}>
+              <div /* 4:3 at every breakpoint — every source in this slot is 4:3, so the
+                   image is shown whole rather than cropped to a wider frame. */
+                className="relative aspect-[4/3] w-full overflow-hidden rounded-panel border border-paper-20">
                 <Image
                   src={image}
                   alt={alt ?? ""}
                   fill
                   priority
-                  sizes="(min-width:1024px) 40vw, 100vw"
-                  className="object-cover"
+                  sizes="(min-width:1024px) 46vw, 100vw"
+                  className="object-cover object-[center_35%]"
+                />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-gradient-to-t from-forest/30 to-transparent"
                 />
               </div>
             </Reveal>

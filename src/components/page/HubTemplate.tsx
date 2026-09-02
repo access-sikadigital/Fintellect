@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { PageHero } from "@/components/page/PageHero";
 import { FaqSection } from "@/components/page/FaqSection";
+import { EnquiryForm } from "@/components/page/EnquiryForm";
 import { SplitLines } from "@/components/motion/SplitLines";
 import { Reveal } from "@/components/motion/Reveal";
 import {
@@ -15,6 +16,13 @@ import { site } from "@/data/site";
 import type { HubPage, ServicePage } from "@/data/types";
 
 /** A section hub: the children beneath it, plus the shared trust furniture. */
+/** Each hub asks the qualifying questions for its own product family. */
+const HUB_FORM_TYPE: Record<string, "residential" | "commercial" | "asset"> = {
+  "home-loans": "residential",
+  "commercial-finance": "commercial",
+  "asset-finance": "asset",
+};
+
 export function HubTemplate({ hub }: { hub: HubPage }) {
   const children = servicesInSection(
     hub.slug as ServicePage["section"],
@@ -57,7 +65,7 @@ export function HubTemplate({ hub }: { hub: HubPage }) {
               >
                 <div>
                   <p className="type-label text-green">{s.eyebrow}</p>
-                  <h3 className="type-title mt-4 text-[clamp(1.25rem,1.8vw,1.5rem)] text-forest">
+                  <h3 className="type-title mt-4 text-[clamp(1.75rem,2.4vw,2.25rem)] text-forest">
                     {s.h1}
                   </h3>
                   <p className="type-body mt-3 text-[0.9375rem] text-ink-70">{s.intro}</p>
@@ -86,6 +94,12 @@ export function HubTemplate({ hub }: { hub: HubPage }) {
       <HowItWorks />
       <Credentials />
       <FaqSection faqs={hub.faqs} eyebrow="FAQ" heading={`${hub.eyebrow} questions`} />
+      {/* The CTAs on this page point at #enquire, so the form has to be here.
+          Without it the hash resolved to nothing and the click went nowhere. */}
+      <EnquiryForm
+        formType={HUB_FORM_TYPE[hub.section] ?? "residential"}
+        serviceName={hub.eyebrow}
+      />
       <ComplianceNote />
 
       <script

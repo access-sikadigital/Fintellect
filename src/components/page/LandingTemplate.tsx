@@ -1,3 +1,4 @@
+import { CallButton } from "@/components/ui/CallButton";
 import Image from "next/image";
 import Link from "next/link";
 import { SplitLines } from "@/components/motion/SplitLines";
@@ -23,9 +24,7 @@ export function LandingTemplate({ page }: { page: LandingPage }) {
               ACL {site.acl}
             </span>
           </Link>
-          <a href={site.phoneHref} className="type-label text-sand transition-colors hover:text-offwhite">
-            {site.phone}
-          </a>
+          <CallButton tone="dark" />
         </div>
       </header>
 
@@ -58,9 +57,7 @@ export function LandingTemplate({ page }: { page: LandingPage }) {
                 <Button href="#enquire" variant="onDark" size="lg" magnetic>
                   {site.cta.primary}
                 </Button>
-                <a href={site.phoneHref} className="type-label px-3 py-4 text-sand hover:text-offwhite">
-                  or call {site.phone}
-                </a>
+                <CallButton tone="dark" />
               </div>
             </Reveal>
           </div>
@@ -73,7 +70,7 @@ export function LandingTemplate({ page }: { page: LandingPage }) {
                 fill
                 priority
                 sizes="(min-width:1024px) 42vw, 100vw"
-                className="object-cover"
+                className="object-cover object-[center_35%]"
               />
             </div>
           </Reveal>
