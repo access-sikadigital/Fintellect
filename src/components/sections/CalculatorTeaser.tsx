@@ -129,7 +129,7 @@ export function CalculatorTeaser() {
           <SplitLines
             as="h2"
             id="calc-heading"
-            className="type-display mt-5 max-w-[13ch] text-forest"
+            className="type-display mt-5 max-w-none sm:max-w-[13ch] text-forest"
           >
             Know the number before you talk to anyone.
           </SplitLines>

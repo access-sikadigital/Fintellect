@@ -39,7 +39,7 @@ export function LocationTemplate({ page }: { page: LocationPage }) {
             <SplitLines
               as="h2"
               id="local-heading"
-              className="type-display mt-4 max-w-[12ch] text-forest"
+              className="type-display mt-4 max-w-none sm:max-w-[12ch] text-forest"
             >
               {page.office
                 ? `We're based in ${page.city}.`
@@ -76,7 +76,7 @@ export function LocationTemplate({ page }: { page: LocationPage }) {
       <section className="section-y bg-sand">
         <div className="container-wide">
           <p className="type-label text-green">What we arrange</p>
-          <SplitLines as="h2" className="type-display mt-4 max-w-[13ch] text-forest">
+          <SplitLines as="h2" className="type-display mt-4 max-w-none sm:max-w-[13ch] text-forest">
             The situations we see most in {page.city}.
           </SplitLines>
           <Reveal variant="rise" stagger={0.07} className="mt-10 grid gap-4 sm:grid-cols-2 sm:auto-rows-fr lg:grid-cols-4">

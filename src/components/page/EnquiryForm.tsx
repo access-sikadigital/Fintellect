@@ -294,7 +294,7 @@ export function EnquiryForm({
               /* 12ch broke "Tell us the situation" across two lines. Wide
                  enough for it to sit on one, balanced if a longer heading
                  ever has to wrap. */
-              className="type-title mt-5 max-w-[24ch] text-balance text-[clamp(1.75rem,3vw,2.75rem)] text-offwhite"
+              className="type-title mt-5 max-w-none sm:max-w-[24ch] text-balance text-[clamp(1.75rem,3vw,2.75rem)] text-offwhite"
             >
               {heading}
             </SplitLines>

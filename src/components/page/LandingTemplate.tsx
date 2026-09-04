@@ -38,7 +38,7 @@ export function LandingTemplate({ page }: { page: LandingPage }) {
           {/* The photograph is the ground now, so the words take a single
               column and stop short of where it reads through on the right. */}
           <div className="max-w-[38rem] lg:max-w-[44rem]">
-            <SplitLines as="h1" className="type-display max-w-[15ch] text-offwhite" immediate>
+            <SplitLines as="h1" className="type-display max-w-none sm:max-w-[15ch] text-offwhite" immediate>
               {page.h1}
             </SplitLines>
             <Reveal variant="rise" delay={0.15}>

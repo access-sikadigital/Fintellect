@@ -28,6 +28,7 @@ export function FaqSection({
 
   return (
     <section
+      data-surface={dark ? "forest" : "offwhite"}
       className={cn("section-y", dark ? "on-dark bg-forest text-offwhite" : "bg-offwhite")}
       aria-labelledby="faq-heading"
     >
@@ -40,7 +41,7 @@ export function FaqSection({
             as="h2"
             id="faq-heading"
             className={cn(
-              "type-title mt-5 max-w-[13ch] text-[clamp(2rem,3vw,2.75rem)]",
+              "type-title mt-5 max-w-none sm:max-w-[13ch] text-[clamp(2rem,3vw,2.75rem)]",
               dark ? "text-offwhite" : "text-forest",
             )}
           >

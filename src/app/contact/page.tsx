@@ -28,7 +28,7 @@ export default function Page() {
 
       <section className="section-y bg-offwhite">
         <div className="container-wide">
-          <SplitLines as="h2" className="type-display max-w-[12ch] text-forest">
+          <SplitLines as="h2" className="type-display max-w-none sm:max-w-[12ch] text-forest">
             Three ways to reach us.
           </SplitLines>
 

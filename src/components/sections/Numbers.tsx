@@ -32,7 +32,7 @@ export function Numbers() {
           <SplitLines
             as="h2"
             id="numbers-heading"
-            className="type-display max-w-[14ch] text-forest"
+            className="type-display max-w-none sm:max-w-[14ch] text-forest"
           >
             What the last twelve months looked like.
           </SplitLines>

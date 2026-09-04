@@ -25,7 +25,7 @@ export default function NotFound() {
 
       <div className="container-wide py-32">
         <p className="type-label text-sand">Error 404</p>
-        <h1 className="type-display mt-6 max-w-[16ch] text-offwhite">
+        <h1 className="type-display mt-6 max-w-none sm:max-w-[16ch] text-offwhite">
           That page isn&rsquo;t here.
         </h1>
         <p className="type-body mt-7 max-w-[52ch] text-paper-60">

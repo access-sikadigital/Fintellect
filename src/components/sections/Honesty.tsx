@@ -63,7 +63,7 @@ export function Honesty() {
         <div className="grid gap-12 lg:grid-cols-[auto_1.4fr] lg:gap-20">
           <div className="lg:sticky lg:top-32 lg:h-fit">
             <p className="type-label text-clay-soft">Before you ask</p>
-            <h3 className="type-title mt-5 max-w-[12ch] text-[clamp(2rem,2.8vw,2.75rem)] text-offwhite">
+            <h3 className="type-title mt-5 max-w-none sm:max-w-[12ch] text-[clamp(2rem,2.8vw,2.75rem)] text-offwhite">
               The questions people are asking.
             </h3>
           </div>

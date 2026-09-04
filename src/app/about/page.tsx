@@ -44,7 +44,7 @@ export default function Page() {
             <Reveal variant="fade">
               <p className="type-label text-green">Why we exist</p>
             </Reveal>
-            <SplitLines as="h2" className="type-display mt-4 max-w-[13ch] text-forest">
+            <SplitLines as="h2" className="type-display mt-4 max-w-none sm:max-w-[13ch] text-forest">
               Every broker says they compare forty lenders.
             </SplitLines>
           </div>
@@ -72,7 +72,7 @@ export default function Page() {
       <section className="section-y bg-sand">
         <div className="container-wide">
           <p className="type-label text-green">The record</p>
-          <SplitLines as="h2" className="type-display mt-4 max-w-[12ch] text-forest">
+          <SplitLines as="h2" className="type-display mt-4 max-w-none sm:max-w-[12ch] text-forest">
             Twelve months, by the numbers.
           </SplitLines>
           <Reveal

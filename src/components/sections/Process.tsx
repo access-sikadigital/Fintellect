@@ -80,7 +80,7 @@ export function Process() {
             <SplitLines
               as="h2"
               id="process-heading"
-              className="type-display mt-4 max-w-[12ch] text-offwhite"
+              className="type-display mt-4 max-w-none sm:max-w-[12ch] text-offwhite"
             >
               From your first call to settlement.
             </SplitLines>
@@ -165,7 +165,7 @@ export function Process() {
               </span>
               <div>
                 <p className="type-label text-clay">The honest part</p>
-                <p className="type-title mt-3 max-w-[26ch] text-[clamp(1.625rem,2.2vw,2rem)]">
+                <p className="type-title mt-3 max-w-none sm:max-w-[26ch] text-[clamp(1.625rem,2.2vw,2rem)]">
                   If we can&rsquo;t beat what you already have, we&rsquo;ll tell
                   you to stay put.
                 </p>

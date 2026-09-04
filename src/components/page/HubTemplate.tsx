@@ -46,7 +46,7 @@ export function HubTemplate({ hub }: { hub: HubPage }) {
           <SplitLines
             as="h2"
             id="children-heading"
-            className="type-display mt-4 max-w-[12ch] text-forest"
+            className="type-display mt-4 max-w-none sm:max-w-[12ch] text-forest"
           >
             Pick the one that sounds like you.
           </SplitLines>

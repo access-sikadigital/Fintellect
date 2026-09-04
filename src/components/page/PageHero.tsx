@@ -3,7 +3,7 @@ import { ActionPair } from "@/components/ui/ActionPair";
 import { SplitLines } from "@/components/motion/SplitLines";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
-import { Breadcrumbs, type Crumb } from "@/components/page/Breadcrumbs";
+import { BreadcrumbSchema, type Crumb } from "@/components/page/Breadcrumbs";
 import { HeroBackdrop } from "@/components/page/HeroBackdrop";
 import { site } from "@/data/site";
 
@@ -35,16 +35,19 @@ export function PageHero({
         <div className="absolute -top-[16rem] -right-[10rem] h-[38rem] w-[38rem] rounded-full border border-paper-10" />
       </div>
 
-      <div className="container-wide relative z-10 pt-24 pb-16 sm:pt-28 lg:pt-36 lg:pb-24">
-        <Breadcrumbs trail={trail} />
+      {/* Top padding is measured off the real header height rather than
+          guessed, so removing the crumbs pulls the h1 up by exactly what
+          they occupied instead of leaving a hole. */}
+      <div className="container-wide relative z-10 pb-16 pt-[calc(var(--header-h,4.5rem)+2rem)] lg:pb-24 lg:pt-[calc(var(--header-h,4.5rem)+3.5rem)]">
+        <BreadcrumbSchema trail={trail} />
 
         {/* The photograph is the ground now, so the words get a single
             column and stop short of the right edge where it reads through. */}
-        <div className="mt-8 max-w-[38rem] lg:mt-10 lg:max-w-[44rem]">
+        <div className="max-w-[38rem] lg:max-w-[44rem]">
           <Reveal variant="fade">
             <p className="type-label text-sand">{eyebrow}</p>
           </Reveal>
-          <SplitLines as="h1" className="type-display mt-5 max-w-[16ch] text-offwhite">
+          <SplitLines as="h1" className="type-display mt-5 max-w-none sm:max-w-[16ch] text-offwhite">
             {h1}
           </SplitLines>
           <Reveal variant="rise" delay={0.12}>

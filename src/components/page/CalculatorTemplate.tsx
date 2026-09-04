@@ -67,7 +67,7 @@ export function CalculatorTemplate({ page }: { page: CalculatorPage }) {
             <SplitLines
               as="h2"
               id="explainer-heading"
-              className="type-title mt-4 max-w-[12ch] text-[clamp(1.875rem,2.6vw,2.25rem)] text-forest"
+              className="type-title mt-4 max-w-none sm:max-w-[12ch] text-[clamp(1.875rem,2.6vw,2.25rem)] text-forest"
             >
               What this number does and doesn&rsquo;t include.
             </SplitLines>

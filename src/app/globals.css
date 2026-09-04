@@ -103,7 +103,11 @@
    * 1.375rem, while body tops out at 1.125rem — so a heading is always
    * visibly larger than the text beneath it, at every viewport.
    */
-  --text-hero: clamp(3.25rem, min(7.6vw, 12vh), 7.75rem);
+  /* Capped at 6rem so the second line, "other brokers can't." (7.24em
+     wide in Fraunces at wght 600), always fits the 46rem column on one
+     line. Above ~1210px the old 7.75rem cap let it spill to a third
+     line. The lower bound tracks vw so it holds two lines on phones. */
+  --text-hero: clamp(min(2.85rem, 12vw), min(7.6vw, 12vh), 6rem);
   --text-display: clamp(2.75rem, min(5.8vw, 10.5vh), 5.5rem);
   --text-h1: clamp(2.75rem, 5.2vw, 5rem);
   --text-h2: clamp(2.25rem, 3.9vw, 3.75rem);
@@ -487,4 +491,22 @@ html.lenis body {
   .marquee-track {
     animation: none !important;
   }
+}
+
+/*
+ * Two sections on the same ground read as one block, so their facing
+ * paddings stack into a hole — most visibly between the speed table and the
+ * CTA that follows it, and again across the three consecutive dark sections.
+ * Drop the first one's bottom padding and let the second one's top padding
+ * be the single gap.
+ */
+[data-surface="sand"]:has(+ [data-surface="sand"]),
+[data-surface="forest"]:has(+ [data-surface="forest"]),
+[data-surface="offwhite"]:has(+ [data-surface="offwhite"]),
+[data-surface="paper-warm"]:has(+ [data-surface="paper-warm"]) {
+  padding-block-end: 0;
+}
+/* Credentials puts its padding on an inner wrapper, so reach that too. */
+[data-surface="forest"]:has(+ [data-surface="forest"]) > .section-y {
+  padding-block-end: 0;
 }

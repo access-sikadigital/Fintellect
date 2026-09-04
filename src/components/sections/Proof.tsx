@@ -62,7 +62,7 @@ export function Reviews() {
             <SplitLines
               as="h2"
               id="reviews-heading"
-              className="type-display mt-4 max-w-[13ch] text-forest"
+              className="type-display mt-4 max-w-none sm:max-w-[13ch] text-forest"
             >
               Nine in ten of our clients arrived by referral.
             </SplitLines>
@@ -134,7 +134,7 @@ export function Team() {
         <SplitLines
           as="h2"
           id="team-heading"
-          className="type-display mt-4 max-w-[13ch] text-forest"
+          className="type-display mt-4 max-w-none sm:max-w-[13ch] text-forest"
         >
           The broker you speak to is the one who settles it.
         </SplitLines>

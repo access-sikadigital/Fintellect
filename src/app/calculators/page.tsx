@@ -60,10 +60,10 @@ export default function Page() {
 
       <section className="section-y bg-offwhite">
         {/* The heading must live inside the container, not carry it. Putting
-            container-wide and max-w-[12ch] on one element let mx-auto centre
+            container-wide and max-w-none sm:max-w-[12ch] on one element let mx-auto centre
             the narrow 12ch box, pushing the text into the middle of the page. */}
         <div className="container-wide">
-          <SplitLines as="h2" className="type-display max-w-[12ch] text-forest">
+          <SplitLines as="h2" className="type-display max-w-none sm:max-w-[12ch] text-forest">
             Loan and cost calculators
           </SplitLines>
           <Grid items={otherCalculators} />
@@ -73,7 +73,7 @@ export default function Page() {
       <section className="section-y bg-sand">
         <div className="container-wide">
           <p className="type-label text-green">By state</p>
-          <SplitLines as="h2" className="type-display mt-4 max-w-[12ch] text-forest">
+          <SplitLines as="h2" className="type-display mt-4 max-w-none sm:max-w-[12ch] text-forest">
             Stamp duty, state by state.
           </SplitLines>
           <p className="type-body mt-6 max-w-[52ch] text-forest/70">

@@ -19,7 +19,7 @@ export function Footer() {
             </Reveal>
             <SplitLines
               as="h2"
-              className="type-display mt-5 max-w-[16ch] text-offwhite"
+              className="type-display mt-5 max-w-none sm:max-w-[16ch] text-offwhite"
             >
               Tell us the problem. We&rsquo;ll tell you if we can fix it.
             </SplitLines>

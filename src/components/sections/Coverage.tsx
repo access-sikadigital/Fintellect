@@ -27,7 +27,7 @@ export function Coverage() {
             <SplitLines
               as="h2"
               id="coverage-heading"
-              className="type-display mt-5 max-w-[13ch] text-forest"
+              className="type-display mt-5 max-w-none sm:max-w-[13ch] text-forest"
             >
               We lend anywhere in Australia.
             </SplitLines>

@@ -34,7 +34,7 @@ export default function Page() {
         >
           <div className="container-wide">
             <p className="type-label text-clay">{cluster}</p>
-            <SplitLines as="h2" className="type-display mt-4 max-w-[13ch] text-forest">
+            <SplitLines as="h2" className="type-display mt-4 max-w-none sm:max-w-[13ch] text-forest">
               {cluster} guides
             </SplitLines>
             <Reveal

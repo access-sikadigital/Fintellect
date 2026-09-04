@@ -65,7 +65,7 @@ export function WhyUs() {
             <SplitLines
               as="h2"
               id="why-heading"
-              className="type-display mt-4 max-w-[14ch] text-offwhite"
+              className="type-display mt-4 max-w-none sm:max-w-[14ch] text-offwhite"
             >
               Six things you can check for yourself.
             </SplitLines>

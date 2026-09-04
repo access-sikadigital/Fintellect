@@ -35,7 +35,7 @@ export default function Page() {
 
       <section className="section-y bg-offwhite">
         <div className="container-wide">
-          <SplitLines as="h2" className="type-display max-w-[13ch] text-forest">
+          <SplitLines as="h2" className="type-display max-w-none sm:max-w-[13ch] text-forest">
             Being worth referring is the whole business model.
           </SplitLines>
           <Reveal variant="rise" delay={0.1} className="mt-8 grid gap-5 lg:max-w-[62ch]">

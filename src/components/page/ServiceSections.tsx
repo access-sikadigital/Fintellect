@@ -21,7 +21,7 @@ export function QualifyingStrip({
   notForThem: string[];
 }) {
   return (
-    <section className="section-y bg-paper-warm" aria-labelledby="qualify-heading">
+    <section data-surface="paper-warm" className="section-y bg-paper-warm" aria-labelledby="qualify-heading">
       <div className="container-wide">
         <Reveal variant="fade">
           <p className="type-label text-clay">Is this you?</p>
@@ -29,7 +29,7 @@ export function QualifyingStrip({
         <SplitLines
           as="h2"
           id="qualify-heading"
-          className="type-display mt-4 max-w-[13ch] text-forest"
+          className="type-display mt-4 max-w-none sm:max-w-[13ch] text-forest"
         >
           We&rsquo;d rather tell you now than waste your afternoon.
         </SplitLines>
@@ -95,6 +95,7 @@ export function Advantages({
 }) {
   return (
     <section
+      data-surface="forest"
       className="on-dark grain relative overflow-hidden bg-forest text-offwhite"
       aria-labelledby="advantages-heading"
     >
@@ -109,7 +110,7 @@ export function Advantages({
         <SplitLines
           as="h2"
           id="advantages-heading"
-          className="type-display mt-4 max-w-[14ch] text-offwhite"
+          className="type-display mt-4 max-w-none sm:max-w-[14ch] text-offwhite"
         >
           {heading}
         </SplitLines>
@@ -173,7 +174,7 @@ export function Advantages({
 export function SpeedBand({ timeline }: { timeline?: { label: string; value: string }[] }) {
   const rows = timeline ?? speed.timeline;
   return (
-    <section className="section-y bg-sand" aria-labelledby="speed-heading">
+    <section data-surface="sand" className="section-y bg-sand" aria-labelledby="speed-heading">
       <div className="container-wide grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-20">
         <div>
           <Reveal variant="fade">
@@ -182,7 +183,7 @@ export function SpeedBand({ timeline }: { timeline?: { label: string; value: str
           <SplitLines
             as="h2"
             id="speed-heading"
-            className="type-display mt-4 max-w-[12ch] text-forest"
+            className="type-display mt-4 max-w-none sm:max-w-[12ch] text-forest"
           >
             {speed.heading}
           </SplitLines>
@@ -196,10 +197,15 @@ export function SpeedBand({ timeline }: { timeline?: { label: string; value: str
             {rows.map((row) => (
               <div
                 key={row.label}
-                className="flex items-baseline justify-between gap-6 bg-sand px-7 py-6"
+                /* Both cells can wrap on a phone, so each is pinned to its
+                   own edge — otherwise the wrapped value drifts into the
+                   middle and the row stops reading as a pair. */
+                className="flex items-baseline justify-between gap-4 bg-sand px-5 py-5 sm:gap-6 sm:px-7 sm:py-6"
               >
-                <dt className="type-label text-forest/60">{row.label}</dt>
-                <dd className="type-title text-[clamp(1.75rem,2.4vw,2.25rem)] text-clay numeric">
+                <dt className="type-label min-w-0 text-left text-forest/60">
+                  {row.label}
+                </dt>
+                <dd className="type-title numeric min-w-0 text-right text-[clamp(1.375rem,2.4vw,2.25rem)] text-clay">
                   {row.value}
                 </dd>
               </div>
@@ -218,7 +224,7 @@ export function SpeedBand({ timeline }: { timeline?: { label: string; value: str
 /* ── 5. How it works ─────────────────────────────────────────────────── */
 export function HowItWorks() {
   return (
-    <section className="section-y bg-offwhite" aria-labelledby="how-heading">
+    <section data-surface="offwhite" className="section-y bg-offwhite" aria-labelledby="how-heading">
       <div className="container-wide">
         <Reveal variant="fade">
           <p className="type-label text-clay">How it works</p>
@@ -226,7 +232,7 @@ export function HowItWorks() {
         <SplitLines
           as="h2"
           id="how-heading"
-          className="type-display mt-4 max-w-[11ch] text-forest"
+          className="type-display mt-4 max-w-none sm:max-w-[11ch] text-forest"
         >
           Four steps. No chasing.
         </SplitLines>
@@ -260,7 +266,7 @@ export function HowItWorks() {
 /* ── 6 + 7. Proof and credentials ───────────────────────────────────── */
 export function Credentials({ proofNote }: { proofNote?: string }) {
   return (
-    <section className="on-dark bg-forest text-offwhite" aria-labelledby="credentials-heading">
+    <section data-surface="forest" className="on-dark bg-forest text-offwhite" aria-labelledby="credentials-heading">
       <div className="container-wide section-y">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
           <div>
@@ -270,7 +276,7 @@ export function Credentials({ proofNote }: { proofNote?: string }) {
             <SplitLines
               as="h2"
               id="credentials-heading"
-              className="type-title mt-4 max-w-[14ch] text-[clamp(1.875rem,2.6vw,2.25rem)] text-offwhite"
+              className="type-title mt-4 max-w-none sm:max-w-[14ch] text-[clamp(1.875rem,2.6vw,2.25rem)] text-offwhite"
             >
               Licensed in our own right, not on somebody else&rsquo;s panel.
             </SplitLines>
@@ -316,7 +322,7 @@ export function RelatedLinks({
 }) {
   if (!links.length) return null;
   return (
-    <section className="section-y bg-offwhite" aria-labelledby="related-heading">
+    <section data-surface="offwhite" className="section-y bg-offwhite" aria-labelledby="related-heading">
       <div className="container-wide">
         <Reveal variant="fade">
           <p className="type-label text-clay">Related</p>
@@ -353,7 +359,7 @@ export function RelatedLinks({
 /* ── 11. Compliance footer ──────────────────────────────────────────── */
 export function ComplianceNote({ extra }: { extra?: string }) {
   return (
-    <section className={cn("border-t border-ink-12 bg-offwhite py-10")}>
+    <section data-surface="offwhite" className={cn("border-t border-ink-12 bg-offwhite py-10")}>
       <div className="container-wide">
         <p className="type-body text-[0.8125rem] leading-relaxed text-ink-50">
           {complianceNote}
@@ -375,10 +381,10 @@ export function CtaBand({
   cta?: { label: string; href: string };
 }) {
   return (
-    <section className="bg-sand">
-      <div className="container-wide flex flex-col gap-7 py-14 lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:py-16">
+    <section data-surface="sand" className="bg-sand py-14 lg:py-16">
+      <div className="container-wide flex flex-col gap-7 lg:flex-row lg:items-center lg:justify-between lg:gap-12">
         <div>
-          <SplitLines as="h2" className="type-title max-w-[18ch] text-[clamp(2rem,2.6vw,2.25rem)] text-forest">
+          <SplitLines as="h2" className="type-title max-w-none sm:max-w-[18ch] text-[clamp(2rem,2.6vw,2.25rem)] text-forest">
             {heading}
           </SplitLines>
           {body && (

@@ -112,7 +112,7 @@ export function Situations() {
             <SplitLines
               as="h2"
               id="situations-heading"
-              className="type-display mt-5 max-w-[13ch] text-forest"
+              className="type-display mt-5 max-w-none sm:max-w-[13ch] text-forest"
             >
               Four situations we deal with every week.
             </SplitLines>

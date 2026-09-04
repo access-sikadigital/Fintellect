@@ -126,7 +126,7 @@ export function Hero() {
       >
         {/* Words. The photograph is the ground now, so these take a single
             column and stop short of the right, where it reads through. */}
-        <div className="max-w-[42rem] lg:max-w-[44rem]">
+        <div className="max-w-[42rem] lg:max-w-[46rem]">
           <div>
             <div data-hero="label" className="flex flex-wrap items-center gap-x-4 gap-y-2">
               <span className="type-label text-sand">
