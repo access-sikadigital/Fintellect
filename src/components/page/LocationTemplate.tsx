@@ -24,8 +24,7 @@ export function LocationTemplate({ page }: { page: LocationPage }) {
         eyebrow={`${page.city} mortgage broker`}
         h1={page.h1}
         intro={page.intro}
-        image="/brand/photography/location-hero.webp"
-        alt={`A couple outside their home in ${page.city}`}
+        image={page.heroImage}
         trail={[{ label: page.city, href: `/${page.slug}` }]}
       />
 

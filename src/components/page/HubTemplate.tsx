@@ -35,7 +35,6 @@ export function HubTemplate({ hub }: { hub: HubPage }) {
         h1={hub.h1}
         intro={hub.intro}
         image={hub.heroImage}
-        alt={hub.heroAlt}
         trail={[{ label: hub.eyebrow, href: `/${hub.slug}` }]}
       />
 

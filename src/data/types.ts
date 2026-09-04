@@ -99,6 +99,13 @@ export type LocationPage = {
   intro: string;
   /** True where Fintellect has a physical office. */
   office: boolean;
+  /**
+   * Optional, and per city. All five pages used to share one generic
+   * photograph. A city page is the worst place for scenery from the wrong
+   * city — or the wrong country — so a page without a verified local shot
+   * shows no photograph rather than a misleading one.
+   */
+  heroImage?: string;
   suburbs: string[];
   faqs: Faq[];
 };
@@ -136,8 +143,14 @@ export type LandingPage = {
   title: string;
   h1: string;
   intro: string;
-  heroImage: string;
-  heroAlt: string;
+  /**
+   * Optional. These pages used to borrow the matching service page's
+   * photograph, which put the same image on two URLs. Each one now waits for
+   * its own `lp-*` image; without one the hero falls back to the plain
+   * gradient band.
+   */
+  heroImage?: string;
+  heroAlt?: string;
   bullets: string[];
   formType: ServicePage["formType"];
 };

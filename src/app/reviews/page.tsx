@@ -28,6 +28,7 @@ export default function Page() {
         eyebrow="Reviews"
         h1="Almost everyone here arrived by referral."
         intro="Ninety per cent of clients who come to us through someone they trust go on to settle. We're collecting those stories properly rather than paraphrasing them."
+        image="/brand/photography/page-reviews.webp"
         trail={[{ label: "Reviews", href: "/reviews" }]}
         cta={{ label: "Talk to us", href: "/contact" }}
       />

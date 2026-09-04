@@ -44,6 +44,7 @@ export default async function Page({
         eyebrow={g.cluster}
         h1={g.title}
         intro={g.summary}
+        image={g.heroImage}
         trail={[
           { label: "Guides", href: "/guides" },
           { label: g.title, href: `/guides/${g.slug}` },

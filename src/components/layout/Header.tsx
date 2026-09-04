@@ -401,7 +401,17 @@ function MobilePanel({ open, onClose }: { open: boolean; onClose: () => void }) 
     <div
       ref={panelRef}
       id="mobile-menu"
-      className="fixed inset-0 z-40 flex flex-col bg-offwhite pt-[var(--header-h,4.5rem)] text-forest lg:hidden"
+      /*
+        `invisible opacity-0` is the closed state, and it has to live in CSS
+        rather than in the effect below. The panel is an opaque, full-screen
+        layer: before hydration runs — and for anyone without JS — it was
+        covering every page under `lg` entirely, because the only thing
+        hiding it was gsap.set(autoAlpha: 0) after mount.
+
+        GSAP writes visibility and opacity inline when the menu opens, and
+        inline styles beat these classes, so the animation is unaffected.
+      */
+      className="invisible fixed inset-0 z-40 flex flex-col bg-offwhite pt-[var(--header-h,4.5rem)] text-forest opacity-0 lg:hidden"
       aria-hidden={!open}
     >
       {/*

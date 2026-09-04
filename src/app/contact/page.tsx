@@ -19,8 +19,9 @@ export default function Page() {
     <>
       <PageHero
         eyebrow="Contact"
-        h1="Tell us the problem."
-        intro="A call back in about ten minutes during business hours. If we can't help, we'll say so on that first call."
+        h1="Let’s find you a way forward."
+        intro="A call back in about ten minutes during business hours. If we can’t help, we’ll say so on that first call."
+        image="/brand/photography/page-contact.webp"
         trail={[{ label: "Contact", href: "/contact" }]}
         cta={{ label: "Start the form", href: "#enquire" }}
       />
@@ -47,7 +48,15 @@ export default function Page() {
                 </span>
                 <div>
                   <p className="type-label text-green">{c.label}</p>
-                  <p className="type-title mt-2.5 text-[1.15rem] text-forest">{c.value}</p>
+                  {/*
+                    Inter, not Fraunces. A phone number and an email address
+                    are the two things on this page a visitor has to read
+                    character by character, and the display serif is the wrong
+                    tool for that at this size.
+                  */}
+                  <p className="type-subtitle mt-2.5 text-[1.0625rem] text-forest">
+                    {c.value}
+                  </p>
                   <p className="type-body mt-2 text-[0.875rem] text-ink-50">{c.note}</p>
                 </div>
               </a>

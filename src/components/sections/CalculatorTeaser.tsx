@@ -156,7 +156,7 @@ export function CalculatorTeaser() {
 
         {/* The live tool */}
         <Reveal variant="rise" delay={0.08}>
-          <div className="relative overflow-hidden rounded-panel border border-ink-12 bg-sand-deep p-7 shadow-[0_30px_80px_-40px_var(--color-ink-30)] sm:p-9">
+          <div className="relative overflow-hidden rounded-panel border border-ink-12 bg-offwhite p-7 shadow-[0_30px_80px_-40px_var(--color-ink-30)] sm:p-9">
             <div className="flex items-center justify-between gap-4 border-b border-ink-12 pb-5">
               <h3 className="type-label text-forest">Repayment estimate</h3>
               <Link

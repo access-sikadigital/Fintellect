@@ -18,6 +18,8 @@ export type Guide = {
   kd?: number;
   updated: string;
   readMinutes: number;
+  /** Hero photograph. Only the published guides have one. */
+  heroImage?: string;
   /** Undefined means "planned but not written yet". */
   body?: { heading: string; paragraphs: string[] }[];
   faqs?: Faq[];
@@ -27,6 +29,7 @@ export type Guide = {
 export const guides: Guide[] = [
   {
     slug: "when-to-refinance",
+    heroImage: "/brand/photography/guide-when-to-refinance.webp",
     title: "When should you refinance your home loan?",
     summary: "The four triggers worth acting on — and when the honest answer is to stay put.",
     cluster: "Refinance",
@@ -82,6 +85,7 @@ export const guides: Guide[] = [
   },
   {
     slug: "self-employed-home-loans-explained",
+    heroImage: "/brand/photography/guide-low-doc-home-loans.webp",
     title: "Low doc and alt doc home loans, explained",
     summary: "What lenders accept instead of two years of tax returns, and who accepts what.",
     cluster: "Self-employed",
@@ -137,6 +141,7 @@ export const guides: Guide[] = [
   },
   {
     slug: "lmi-waiver-professionals",
+    heroImage: "/brand/photography/guide-lmi-waivers.webp",
     title: "LMI waivers for doctors, accountants and lawyers",
     summary: "Who qualifies, at what LVR, and why the answer differs at every lender.",
     cluster: "Professionals",
@@ -185,6 +190,7 @@ export const guides: Guide[] = [
   },
   {
     slug: "how-mortgage-brokers-get-paid",
+    heroImage: "/brand/photography/guide-broker-fees.webp",
     title: "How mortgage brokers get paid (and why it costs you nothing)",
     summary: "Upfront, trail, and why the lender pays rather than you.",
     cluster: "Trust",
@@ -238,6 +244,7 @@ export const guides: Guide[] = [
   },
   {
     slug: "low-doc-business-loans-explained",
+    heroImage: "/brand/photography/guide-low-doc-business.webp",
     title: "Low doc business loans: what lenders actually need",
     summary: "Six months of bank statements usually replaces a full set of financials.",
     cluster: "Commercial",
@@ -293,6 +300,7 @@ export const guides: Guide[] = [
   },
   {
     slug: "chattel-mortgage-vs-lease",
+    heroImage: "/brand/photography/guide-chattel-vs-lease.webp",
     title: "Chattel mortgage vs equipment lease",
     summary: "Ownership, GST treatment, and which one your accountant will point you at.",
     cluster: "Asset finance",

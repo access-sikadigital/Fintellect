@@ -1,5 +1,6 @@
 import { CallButton } from "@/components/ui/CallButton";
-import Image from "next/image";
+import { ActionPair } from "@/components/ui/ActionPair";
+import { HeroBackdrop } from "@/components/page/HeroBackdrop";
 import Link from "next/link";
 import { SplitLines } from "@/components/motion/SplitLines";
 import { Reveal } from "@/components/motion/Reveal";
@@ -29,9 +30,14 @@ export function LandingTemplate({ page }: { page: LandingPage }) {
       </header>
 
       <section className="on-dark grain relative overflow-hidden bg-forest text-offwhite">
-        <div aria-hidden="true" className="absolute inset-0" style={{ background: "var(--gradient-dark)" }} />
-        <div className="container-wide relative z-10 grid gap-12 py-16 lg:grid-cols-[1.15fr_1fr] lg:items-center lg:gap-16 lg:py-24">
-          <div>
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+          <div className="absolute inset-0" style={{ background: "var(--gradient-dark)" }} />
+          {page.heroImage && <HeroBackdrop src={page.heroImage} />}
+        </div>
+        <div className="container-wide relative z-10 py-16 lg:py-24">
+          {/* The photograph is the ground now, so the words take a single
+              column and stop short of where it reads through on the right. */}
+          <div className="max-w-[38rem] lg:max-w-[44rem]">
             <SplitLines as="h1" className="type-display max-w-[15ch] text-offwhite" immediate>
               {page.h1}
             </SplitLines>
@@ -53,27 +59,20 @@ export function LandingTemplate({ page }: { page: LandingPage }) {
             </Reveal>
 
             <Reveal variant="rise" delay={0.3}>
-              <div className="mt-10 flex flex-wrap items-center gap-3">
-                <Button href="#enquire" variant="onDark" size="lg" magnetic>
+              <ActionPair className="mt-10">
+                <Button
+                  href="#enquire"
+                  variant="onDark"
+                  size="lg"
+                  magnetic
+                  className="w-full"
+                >
                   {site.cta.primary}
                 </Button>
-                <CallButton tone="dark" />
-              </div>
+                <CallButton tone="dark" size="lg" />
+              </ActionPair>
             </Reveal>
           </div>
-
-          <Reveal variant="clip" delay={0.1}>
-            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-panel">
-              <Image
-                src={page.heroImage}
-                alt={page.heroAlt}
-                fill
-                priority
-                sizes="(min-width:1024px) 42vw, 100vw"
-                className="object-cover object-[center_35%]"
-              />
-            </div>
-          </Reveal>
         </div>
 
         {/* Credential strip */}

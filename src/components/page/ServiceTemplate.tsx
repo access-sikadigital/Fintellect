@@ -56,7 +56,6 @@ export function ServiceTemplate({ page }: { page: ServicePage }) {
         h1={page.h1}
         intro={page.intro}
         image={page.heroImage}
-        alt={page.heroAlt}
         trail={trail}
       />
 

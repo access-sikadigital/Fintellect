@@ -16,6 +16,26 @@ import type { CalculatorPage } from "@/data/types";
  * (a page of pure JavaScript cannot rank for its own term), and both
  * WebApplication and FAQPage schema.
  */
+/**
+ * Hero photographs, keyed by the calculator's engine rather than its slug.
+ *
+ * Sixteen calculator pages share five images. That is deliberate: the eight
+ * per-state stamp duty pages are one calculator with different brackets, and
+ * repayments, offset and extra repayments are three views of the same sum.
+ * They are instruments, not articles — a distinct photograph on each would be
+ * sixteen images doing the work of five, and nobody arrives at a stamp duty
+ * calculator for the picture.
+ */
+const HERO_BY_KIND: Record<CalculatorPage["kind"], string> = {
+  "stamp-duty": "/brand/photography/calc-stamp-duty.webp",
+  repayments: "/brand/photography/calc-repayments.webp",
+  offset: "/brand/photography/calc-repayments.webp",
+  "extra-repayments": "/brand/photography/calc-repayments.webp",
+  borrowing: "/brand/photography/calc-borrowing-capacity.webp",
+  lmi: "/brand/photography/calc-lmi.webp",
+  "refinance-savings": "/brand/photography/calc-refinance-savings.webp",
+};
+
 export function CalculatorTemplate({ page }: { page: CalculatorPage }) {
   const siblings = calculators
     .filter((c) => c.slug !== page.slug && !c.slug.startsWith("stamp-duty/"))
@@ -27,6 +47,7 @@ export function CalculatorTemplate({ page }: { page: CalculatorPage }) {
         eyebrow="Calculator"
         h1={page.h1}
         intro={page.intro}
+        image={HERO_BY_KIND[page.kind]}
         trail={[
           { label: "Calculators", href: "/calculators" },
           { label: page.h1, href: `/calculators/${page.slug}` },

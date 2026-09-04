@@ -22,6 +22,7 @@ export default function Page() {
         eyebrow="Guides"
         h1="The things nobody explains until it's too late."
         intro="Written to be useful rather than to rank. If a guide tells you not to do something, that's deliberate."
+        image="/brand/photography/page-guides.webp"
         trail={[{ label: "Guides", href: "/guides" }]}
         cta={{ label: "Talk to us", href: "/contact" }}
       />

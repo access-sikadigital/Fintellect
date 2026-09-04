@@ -1,4 +1,5 @@
 import { CallButton } from "@/components/ui/CallButton";
+import { ActionPair } from "@/components/ui/ActionPair";
 import Link from "next/link";
 import type { Metadata } from "next";
 import { Button } from "@/components/ui/Button";
@@ -33,12 +34,12 @@ export default function NotFound() {
           conversation.
         </p>
 
-        <div className="mt-10 flex flex-wrap items-center gap-3">
-          <Button href="/" variant="onDark" size="lg" magnetic>
+        <ActionPair className="mt-10">
+          <Button href="/" variant="onDark" size="lg" magnetic className="w-full">
             Back to home
           </Button>
-          <CallButton tone="dark" />
-        </div>
+          <CallButton tone="dark" size="lg" />
+        </ActionPair>
 
         <div className="mt-14 border-t border-paper-20 pt-8">
           <p className="type-label text-paper-40">Popular</p>

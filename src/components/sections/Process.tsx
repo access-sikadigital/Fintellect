@@ -5,7 +5,6 @@ import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/Button";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { site } from "@/data/site";
-import { cn } from "@/lib/utils";
 
 type Step = {
   n: string;
@@ -101,20 +100,16 @@ export function Process() {
           delay={0.05}
           className="mt-12 grid gap-5 sm:grid-cols-2 sm:auto-rows-fr lg:mt-16 lg:gap-6"
         >
-          {steps.map((step, i) => (
+          {steps.map((step) => (
             <article
               key={step.n}
               /*
-                Both variants are light grounds, so every element inside is
-                dark. Changing a card's background without changing its
-                contents is what left the text unreadable.
+                One ground for all four. The cards used to alternate offwhite
+                and sand-deep; the tan read as a different component rather
+                than the same card twice, so every card now takes the offwhite
+                ground its neighbour already had.
               */
-              className={cn(
-                "group relative flex h-full flex-col overflow-hidden rounded-panel border p-7 text-forest transition-colors duration-500 lg:p-9",
-                i % 2 === 1
-                  ? "border-ink-12 bg-offwhite hover:border-clay-60"
-                  : "border-clay-20 bg-sand-deep hover:border-clay",
-              )}
+              className="group relative flex h-full flex-col overflow-hidden rounded-panel border border-ink-12 bg-offwhite p-7 text-forest transition-colors duration-500 hover:border-clay-60 lg:p-9"
             >
               {/* Oversized numeral, clipped by the card edge */}
               <span
@@ -126,7 +121,7 @@ export function Process() {
 
               {/* Head */}
               <div className="relative flex items-center gap-4">
-                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-clay-20 text-clay transition-colors duration-500 group-hover:border-clay-60">
+                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-green text-green transition-colors duration-500">
                   <Icon name={step.icon} className="h-5 w-5" />
                 </span>
                 <span className="type-label text-ink-50 numeric">Step {step.n}</span>
@@ -163,9 +158,9 @@ export function Process() {
 
         {/* Closing statement */}
         <Reveal variant="rise" delay={0.1}>
-          <div className="mt-5 flex flex-col gap-7 rounded-panel bg-sand-deep p-8 text-forest lg:mt-6 lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:p-11">
+          <div className="mt-5 flex flex-col gap-7 rounded-panel border border-ink-12 bg-offwhite p-8 text-forest lg:mt-6 lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:p-11">
             <div className="flex items-start gap-5">
-              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-clay-20 text-clay">
+              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-green text-green">
                 <Icon name="thumb-up" className="h-5 w-5" />
               </span>
               <div>

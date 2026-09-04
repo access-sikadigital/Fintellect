@@ -7,10 +7,10 @@ import type { LandingPage } from "@/data/types";
 export const landingPages: LandingPage[] = [
   {
     slug: "refinance",
+    heroImage: "/brand/photography/lp-refinance.webp",
     title: "Refinance Your Home Loan | Free Loan Health Check",
     h1: "Find out if your rate is still competitive.",
     intro: "A free loan health check. We compare what you're on to what you could be on, and tell you straight whether moving is worth it.",
-    heroImage: "/brand/photography/svc-refinance.webp",
     heroAlt: "A couple reviewing their loan at the kitchen table",
     bullets: [
       "We price the whole move — discharge, application and valuation fees, not just the rate",
@@ -22,10 +22,10 @@ export const landingPages: LandingPage[] = [
   },
   {
     slug: "self-employed-home-loans",
+    heroImage: "/brand/photography/lp-self-employed.webp",
     title: "Self-Employed Home Loans | Low Doc & Alt Doc",
     h1: "Self-employed and the bank said no?",
     intro: "Alt doc lenders read your numbers differently. Twelve months of trading is often enough.",
-    heroImage: "/brand/photography/svc-self-employed.webp",
     heroAlt: "A self-employed tradesperson at work",
     bullets: [
       "BAS, bank statements or an accountant's letter instead of two years of returns",
@@ -37,10 +37,10 @@ export const landingPages: LandingPage[] = [
   },
   {
     slug: "doctors-home-loans",
+    heroImage: "/brand/photography/lp-doctors.webp",
     title: "Home Loans for Doctors | Up to 95% No LMI",
     h1: "Borrow up to 95% with no LMI.",
     intro: "The major banks waive lenders mortgage insurance for medical professionals. On a $900,000 purchase that's tens of thousands of dollars.",
-    heroImage: "/brand/photography/svc-doctors.webp",
     heroAlt: "A medical professional in natural light",
     bullets: [
       "Specialists, GPs, registrars and residents all qualify at some lenders",
@@ -52,10 +52,10 @@ export const landingPages: LandingPage[] = [
   },
   {
     slug: "equipment-finance",
+    heroImage: "/brand/photography/lp-equipment.webp",
     title: "Equipment Finance | Approval in 24–48 Hours",
     h1: "The gear has to be on site next week.",
     intro: "Two years of ABN, GST registration and the invoice. For most established businesses that's the whole conversation.",
-    heroImage: "/brand/photography/svc-equipment.webp",
     heroAlt: "Heavy equipment on a work site",
     bullets: [
       "Low doc approvals often back within 24 to 48 hours",
@@ -67,10 +67,10 @@ export const landingPages: LandingPage[] = [
   },
   {
     slug: "commercial-business-loans",
+    heroImage: "/brand/photography/lp-commercial.webp",
     title: "Business Loans | Bank & Non-Bank Compared",
     h1: "Your bank knows one product.",
     intro: "We compare secured and unsecured term loans, overdrafts and cashflow facilities across the market.",
-    heroImage: "/brand/photography/svc-lowdoc.webp",
     heroAlt: "A small business owner reviewing accounts",
     bullets: [
       "Low doc options on bank statements and BAS — no full financials needed",

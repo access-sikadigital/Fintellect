@@ -1,7 +1,6 @@
 import { Counter } from "@/components/motion/Counter";
 import { Reveal } from "@/components/motion/Reveal";
 import { SplitLines } from "@/components/motion/SplitLines";
-import { cn } from "@/lib/utils";
 
 /*
  * The Record.
@@ -47,16 +46,15 @@ export function Numbers() {
         </div>
 
         <dl className="mt-14 grid gap-px overflow-hidden rounded-panel border border-ink-12 bg-ink-12 sm:grid-cols-2 lg:grid-cols-4">
-          {stats.map((s, i) => (
+          {stats.map((s) => (
             <div
               key={s.label}
-              /* Alternating grounds so four figures don't read as one slab. */
-              className={cn(
-                "group flex flex-col gap-3 p-8 transition-colors duration-500",
-                i % 2 === 0
-                  ? "bg-offwhite hover:bg-paper-warm"
-                  : "bg-sand-deep hover:bg-sand",
-              )}
+              /*
+                One ground for all four. The gap-px over bg-ink-12 already
+                draws the hairline between cells, so the tiles no longer need
+                alternating fills to stop reading as a single slab.
+              */
+              className="group flex flex-col gap-3 bg-offwhite p-8 transition-colors duration-500 hover:bg-paper-warm"
             >
               <dd className="type-title text-[clamp(2.75rem,4.5vw,4rem)] leading-none text-clay">
                 <Counter

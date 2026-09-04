@@ -3,6 +3,7 @@ import type { LocationPage } from "@/data/types";
 export const locations: LocationPage[] = [
   {
     slug: "mortgage-broker-melbourne",
+    heroImage: "/brand/photography/loc-melbourne.webp",
     city: "Melbourne",
     state: "VIC",
     tier: 1,
@@ -39,6 +40,7 @@ export const locations: LocationPage[] = [
   },
   {
     slug: "mortgage-broker-gold-coast",
+    heroImage: "/brand/photography/loc-gold-coast.webp",
     city: "Gold Coast",
     state: "QLD",
     tier: 1,
@@ -75,6 +77,7 @@ export const locations: LocationPage[] = [
   },
   {
     slug: "mortgage-broker-sydney",
+    heroImage: "/brand/photography/loc-sydney.webp",
     city: "Sydney",
     state: "NSW",
     tier: 3,
@@ -107,6 +110,7 @@ export const locations: LocationPage[] = [
   },
   {
     slug: "mortgage-broker-brisbane",
+    heroImage: "/brand/photography/loc-brisbane.webp",
     city: "Brisbane",
     state: "QLD",
     tier: 3,
@@ -139,6 +143,7 @@ export const locations: LocationPage[] = [
   },
   {
     slug: "mortgage-broker-perth",
+    heroImage: "/brand/photography/loc-perth.webp",
     city: "Perth",
     state: "WA",
     tier: 3,

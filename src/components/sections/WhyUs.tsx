@@ -98,10 +98,13 @@ export function WhyUs() {
               >
                 <span
                   className={cn(
+                    /* The badge takes its colour from the card it sits on:
+                       green ring and glyph on the light card, white on the
+                       dark one. */
                     "grid h-12 w-12 shrink-0 place-items-center rounded-full border transition-colors duration-500",
                     light
-                      ? "border-clay-60 text-clay"
-                      : "border-paper-20 text-clay-soft group-hover:border-clay-60",
+                      ? "border-green text-green"
+                      : "border-offwhite text-offwhite",
                   )}
                 >
                   <Icon name={r.icon} className="h-5 w-5" />

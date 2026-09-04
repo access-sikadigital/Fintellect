@@ -53,6 +53,7 @@ export default function Page() {
         eyebrow="Calculators"
         h1="Run the numbers before you talk to anyone."
         intro="Stamp duty in every state, repayments, borrowing capacity, LMI and what refinancing would actually save. Free, and no email required to see the result."
+        image="/brand/photography/page-calculators.webp"
         trail={[{ label: "Calculators", href: "/calculators" }]}
         cta={{ label: "Talk to a broker", href: "/contact" }}
       />

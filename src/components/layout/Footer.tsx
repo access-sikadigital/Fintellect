@@ -1,3 +1,4 @@
+import { AwardsStrip } from "@/components/layout/AwardsStrip";
 import { CallButton } from "@/components/ui/CallButton";
 import Link from "next/link";
 import { Wordmark, Logomark } from "@/components/ui/Logo";
@@ -39,6 +40,9 @@ export function Footer() {
           </Reveal>
         </div>
       </div>
+
+      {/* Awards / recognition — a light band, see the note in AwardsStrip. */}
+      <AwardsStrip />
 
       {/* Directory */}
       <div className="container-wide relative z-10 grid gap-10 py-16 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-[1.1fr_repeat(6,minmax(0,1fr))]">

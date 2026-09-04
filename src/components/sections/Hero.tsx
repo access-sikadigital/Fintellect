@@ -1,7 +1,8 @@
 "use client";
 
 import { CallButton } from "@/components/ui/CallButton";
-import Image from "next/image";
+import { ActionPair } from "@/components/ui/ActionPair";
+import { HeroBackdrop } from "@/components/page/HeroBackdrop";
 import { useRef } from "react";
 import { gsap, registerGsap, prefersReducedMotion } from "@/lib/gsap";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
@@ -99,6 +100,18 @@ export function Hero() {
       {/* Ground */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute inset-0" style={{ background: "var(--gradient-dark)" }} />
+        {/*
+          FIN-07 — was a concept clip inside a house-shaped mask; John flagged
+          that as AI-looking, so both were removed. It then ran as a framed
+          panel on the right, which read as a card sitting on the band rather
+          than part of it. The photograph now occupies the right 70% of the band
+          itself, under one wash that runs the full width of the section, so
+          its left edge falls inside solid forest and never reads as an edge.
+
+          `parallax` tags the photograph itself for the GSAP drift, so the wash
+          over it stays pinned to the section and cannot slide out of register.
+        */}
+        <HeroBackdrop src="/brand/photography/home-hero.webp" parallax />
         <Logomark
           data-hero="ghost"
           className="absolute -left-[12%] top-1/2 h-[78vh] w-auto -translate-y-1/2 text-green/12"
@@ -111,8 +124,9 @@ export function Hero() {
         data-hero="content"
         className="container-wide relative z-10 flex flex-1 flex-col justify-center pt-20 pb-10 sm:pt-24 lg:pt-28 lg:pb-16"
       >
-        <div className="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
-          {/* Words */}
+        {/* Words. The photograph is the ground now, so these take a single
+            column and stop short of the right, where it reads through. */}
+        <div className="max-w-[42rem] lg:max-w-[44rem]">
           <div>
             <div data-hero="label" className="flex flex-wrap items-center gap-x-4 gap-y-2">
               <span className="type-label text-sand">
@@ -159,12 +173,18 @@ export function Hero() {
                 lender panel. That&rsquo;s the difference on the applications
                 a bank has already said no to.
               </p>
-              <div className="flex flex-wrap items-center gap-3">
-                <Button href={site.cta.href} variant="onDark" size="lg" magnetic>
+              <ActionPair>
+                <Button
+                  href={site.cta.href}
+                  variant="onDark"
+                  size="lg"
+                  magnetic
+                  className="w-full"
+                >
                   {site.cta.primary}
                 </Button>
-                <CallButton tone="dark" />
-              </div>
+                <CallButton tone="dark" size="lg" />
+              </ActionPair>
 
               {/* Scenario entry points — people arrive with a task, not a brand */}
               <div className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-1">
@@ -213,36 +233,6 @@ export function Hero() {
             </div>
           </div>
 
-          {/*
-            FIN-07 — was a concept clip inside a house-shaped mask; John
-            flagged that as AI-looking, so both were removed.
-
-            Cut to the frame's own 4:5 ratio so object-cover discards nothing.
-            Larger than before (John, 2 Sep: "can we make the images bigger?")
-            and now visible on mobile, where the page previously ran as plain
-            text with no imagery at all.
-          */}
-          <div data-hero="media" className="relative mx-auto w-full max-w-[34rem] lg:mx-0">
-            <div /* Square on phones, the source's own 4:5 from sm up. The 4:3 frame it
-                 had was cropping ~40% off a portrait image and taking heads with it. */
-              className="relative aspect-square w-full overflow-hidden rounded-panel border border-paper-20 sm:aspect-[4/5]">
-              <Image
-                src="/brand/photography/hero-portrait.webp"
-                alt="A couple standing outside their home"
-                fill
-                priority
-                quality={88}
-                sizes="(min-width: 1024px) 34rem, 100vw"
-                /* Faces sit around a third down; bias the crop upward so the
-                   square phone frame never cuts them. */
-                className="object-cover object-[center_28%]"
-              />
-              <div
-                aria-hidden="true"
-                className="absolute inset-0 bg-gradient-to-t from-forest/35 via-transparent to-transparent"
-              />
-            </div>
-          </div>
         </div>
       </div>
 

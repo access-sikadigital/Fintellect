@@ -1,4 +1,5 @@
 import { CallButton } from "@/components/ui/CallButton";
+import { ActionPair } from "@/components/ui/ActionPair";
 import Link from "next/link";
 import { SplitLines } from "@/components/motion/SplitLines";
 import { Reveal } from "@/components/motion/Reveal";
@@ -36,7 +37,7 @@ export function QualifyingStrip({
         <div className="mt-12 grid gap-5 lg:mt-14 lg:grid-cols-2 lg:gap-6">
           <Reveal
             variant="rise"
-            className="rounded-panel border border-ink-12 bg-sand-deep p-8 lg:p-10"
+            className="rounded-panel border border-ink-12 bg-offwhite p-8 lg:p-10"
           >
             <p className="type-label flex items-center gap-3 text-green">
               <span className="grid h-8 w-8 place-items-center rounded-full bg-green text-offwhite">
@@ -57,7 +58,7 @@ export function QualifyingStrip({
           <Reveal
             variant="rise"
             delay={0.08}
-            className="rounded-panel border border-ink-12 p-8 lg:p-10"
+            className="rounded-panel border border-ink-12 bg-offwhite p-8 lg:p-10"
           >
             <p className="type-label flex items-center gap-3 text-ink-50">
               <span className="grid h-8 w-8 place-items-center rounded-full border border-ink-30 text-ink-50">
@@ -132,10 +133,13 @@ export function Advantages({
               >
                 <span
                   className={cn(
+                    /* The badge takes its colour from the card it sits on:
+                       green ring and glyph on the light card, white on the
+                       dark one. */
                     "grid h-12 w-12 shrink-0 place-items-center rounded-full border transition-colors duration-500",
                     light
-                      ? "border-clay-60 text-clay"
-                      : "border-paper-20 text-clay-soft group-hover:border-clay-60",
+                      ? "border-green text-green"
+                      : "border-offwhite text-offwhite",
                   )}
                 >
                   <Icon name={item.icon} className="h-5 w-5" />
@@ -232,18 +236,13 @@ export function HowItWorks() {
           stagger={0.08}
           className="mt-12 grid gap-5 sm:grid-cols-2 sm:auto-rows-fr lg:mt-14 lg:grid-cols-4"
         >
-          {howItWorks.map((s, i) => (
+          {howItWorks.map((s) => (
             <article
               key={s.n}
-              className={cn(
-                "group flex h-full flex-col rounded-panel border p-7 transition-colors duration-500",
-                i % 2 === 0
-                  ? "border-ink-12 bg-offwhite hover:border-clay-60"
-                  : "border-clay-20 bg-sand-deep hover:border-clay",
-              )}
+              className="group flex h-full flex-col rounded-panel border border-ink-12 bg-offwhite p-7 transition-colors duration-500 hover:border-clay-60"
             >
               <div className="flex items-center justify-between">
-                <span className="grid h-11 w-11 place-items-center rounded-full border border-ink-12 text-green">
+                <span className="grid h-11 w-11 place-items-center rounded-full border border-green text-green">
                   <Icon name={s.icon} className="h-5 w-5" />
                 </span>
                 <span className="type-label text-ink-30 numeric">{s.n}</span>
@@ -388,11 +387,19 @@ export function CtaBand({
             </Reveal>
           )}
         </div>
-        <Reveal variant="rise" delay={0.1} className="flex flex-wrap items-center gap-3">
-          <Button href={cta.href} variant="primary" size="lg" magnetic>
-            {cta.label}
-          </Button>
-          <CallButton tone="light" />
+        <Reveal variant="rise" delay={0.1}>
+          <ActionPair>
+            <Button
+              href={cta.href}
+              variant="primary"
+              size="lg"
+              magnetic
+              className="w-full"
+            >
+              {cta.label}
+            </Button>
+            <CallButton tone="light" size="lg" />
+          </ActionPair>
         </Reveal>
       </div>
     </section>

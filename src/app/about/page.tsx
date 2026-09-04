@@ -33,8 +33,7 @@ export default function Page() {
         eyebrow="About"
         h1="We work for you, not the bank."
         intro="Independent brokers holding our own credit licence. Almost all of our business has come by referral, which is a standard we'd like to keep."
-        image="/brand/photography/hub-home-loans.webp"
-        alt="A family outside their home"
+        image="/brand/photography/page-about.webp"
         trail={[{ label: "About", href: "/about" }]}
         cta={{ label: "Talk to us", href: "/contact" }}
       />

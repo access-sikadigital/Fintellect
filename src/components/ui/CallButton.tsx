@@ -26,7 +26,7 @@ export function CallButton({
   const sizes = {
     sm: "px-4 py-2.5 text-[0.75rem] gap-2",
     md: "px-6 py-3.5 text-[0.8125rem] gap-2.5",
-    lg: "px-7 py-4.5 text-[0.875rem] gap-3",
+    lg: "px-7 py-4.5 text-[0.8125rem] gap-3",
   } as const;
 
   return (

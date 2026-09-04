@@ -33,6 +33,13 @@ export function LegalTemplate({
         eyebrow={eyebrow}
         h1={h1}
         intro={intro}
+        /*
+          One photograph across the credit guide, the privacy policy and the
+          complaints page. They are a single set of disclosures — linked
+          together in the footer and read as a group — so a shared image reads
+          as the set it is rather than three unrelated pages.
+        */
+        image="/brand/photography/legal-compliance.webp"
         trail={[{ label: eyebrow, href: `/${slug}` }]}
         cta={{ label: "Contact us", href: "/contact" }}
       />
