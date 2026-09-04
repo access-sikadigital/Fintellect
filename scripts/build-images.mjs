@@ -26,14 +26,23 @@ const OUT = "public/brand/photography";
 
 const JOBS = [
   // ── Home page ──────────────────────────────────────────────────────────
-  {
-    out: "home-hero.webp",
-    from: "Home page/happy-family-together-on-the-porch-of-house-2026-01-05-06-08-46-utc.jpg",
-    // Whole frame. The family sits at 38–62% across, which is compact enough
-    // to survive the hero's mobile crop; the focal point does the rest.
-    crop: null,
-    size: [2400, 1600],
-  },
+  /*
+    home-hero.webp is deliberately NOT built here at the moment.
+    John asked for the group-of-professionals shot on the home hero. The only
+    copy of it in the project is the 1200x900 crop recovered from commit
+    ec396ad (it used to be svc-commercial-property.webp before the Sydney
+    photograph replaced it), and there is no JPG for it in the supplied
+    folders. Regenerating from the entry below would overwrite that file with
+    the family-on-porch shot, so the job stays commented out until the
+    full-resolution original lands in "Home page/".
+
+    {
+      out: "home-hero.webp",
+      from: "Home page/happy-family-together-on-the-porch-of-house-2026-01-05-06-08-46-utc.jpg",
+      crop: null,
+      size: [2400, 1600],
+    },
+  */
   {
     out: "sit-refinance.webp",
     from: "Home page/concerned-couple-reviewing-documents-at-kitchen-ta-2026-03-26-04-01-28-utc.jpg",

@@ -102,7 +102,7 @@ export function Header() {
           : "bg-transparent",
       )}
     >
-      <div className="container-wide flex items-center justify-between gap-6 py-4 lg:py-5">
+      <div className="container-wide flex items-center justify-between gap-3 py-4 lg:py-5 min-[1400px]:gap-6">
         {/* Brand */}
         <Link
           href="/"
@@ -118,7 +118,7 @@ export function Header() {
           />
           <Wordmark
             className={cn(
-              "hidden h-[0.5rem] w-auto transition-colors duration-500 sm:block",
+              "hidden h-[0.5rem] w-auto transition-colors duration-500 sm:block lg:hidden min-[1400px]:block",
               onDark ? "text-offwhite" : "text-green",
             )}
           />
@@ -139,7 +139,12 @@ export function Header() {
               <Link
                 href={item.href}
                 className={cn(
-                  "type-body relative inline-block px-4 py-2 text-[0.9375rem] font-medium transition-colors duration-300",
+                  /* whitespace-nowrap is the fix: without it "Home loans"
+                     and "Asset finance" broke across two lines the moment the
+                     row ran short, which pushed the chevron under the label
+                     and doubled the header height. Padding and size step up
+                     again once there is room. */
+                  "type-body relative inline-block whitespace-nowrap px-2.5 py-2 text-[0.875rem] font-medium transition-colors duration-300 min-[1400px]:px-4 min-[1400px]:text-[0.9375rem]",
                   onDark
                     ? "text-offwhite/85 hover:text-offwhite"
                     : "text-forest/75 hover:text-green",
@@ -174,7 +179,9 @@ export function Header() {
           <CallButton
             tone={onDark ? "dark" : "light"}
             size="sm"
-            className="hidden md:inline-flex"
+            /* Hidden in the cramped 1024-1280 band; the number is
+               still one tap away in the CTA and the footer. */
+            className="hidden min-[1400px]:inline-flex"
           />
           <Button
             href="/contact"

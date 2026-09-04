@@ -28,12 +28,12 @@ export type Focus = { mobile: string; desktop: string };
 export const DEFAULT_FOCUS: Focus = { mobile: "50% 40%", desktop: "55% 38%" };
 
 const FOCUS: Record<string, Focus> = {
-  /* The family is clustered at 38–62% across the frame. The homepage hero is
-     full height, so it crops horizontally rather than vertically — hard enough
-     on a phone (about 67% of the width) that these two values are doing real
-     work. Desktop pushes the family into the right third, clear of the
-     headline; mobile centres on them, which is the only window they fit in. */
-  "/brand/photography/home-hero.webp": { mobile: "50% 38%", desktop: "30% 42%" },
+  /* Six faces spread right across a 4:3 frame at roughly 12, 24, 37, 57, 73
+     and 88 per cent. The homepage hero is full height, so it crops on the
+     horizontal axis: desktop keeps about 70% of the width and holds four of
+     them, while the phone keeps only 29% — room for two. Mobile therefore
+     centres on the middle pair rather than slicing the row. */
+  "/brand/photography/home-hero.webp": { mobile: "46% 30%", desktop: "50% 30%" },
 
   /* A couple, faces spanning 24–72%. The phone crop leaves a window barely
      wider than that pair, so this is close to the only value that keeps both
@@ -91,7 +91,7 @@ const FOCUS: Record<string, Focus> = {
   "/brand/photography/svc-equipment.webp": { mobile: "70% 45%", desktop: "55% 45%" },
   /* The cab is the subject and sits at 5–55%, so this pans left — far enough
      to hold the cab, not so far that it disappears under the dark wash. */
-  "/brand/photography/svc-truck.webp": { mobile: "12% 50%", desktop: "50% 50%" },
+  "/brand/photography/svc-truck.webp": { mobile: "40% 50%", desktop: "50% 38%" },
   /* Excavator body at 55–90% with sky filling the top 40%. */
   "/brand/photography/svc-machinery.webp": { mobile: "86% 55%", desktop: "55% 55%" },
   /* He sits on the ute tray at 28–58%, face high in the frame. */
@@ -152,10 +152,10 @@ const FOCUS: Record<string, Focus> = {
 
   /* Calculators and legal — objects and desks, so these only keep the crop
      off the empty half of the frame. */
-  "/brand/photography/calc-stamp-duty.webp": { mobile: "54% 55%", desktop: "50% 50%" },
+  "/brand/photography/calc-stamp-duty.webp": { mobile: "37% 55%", desktop: "50% 50%" },
   "/brand/photography/calc-repayments.webp": { mobile: "65% 55%", desktop: "50% 50%" },
   "/brand/photography/calc-borrowing-capacity.webp": { mobile: "57% 55%", desktop: "50% 50%" },
-  "/brand/photography/calc-lmi.webp": { mobile: "54% 40%", desktop: "50% 40%" },
+  "/brand/photography/calc-lmi.webp": { mobile: "62% 45%", desktop: "55% 45%" },
   "/brand/photography/calc-refinance-savings.webp": { mobile: "55% 55%", desktop: "50% 50%" },
   "/brand/photography/legal-compliance.webp": { mobile: "57% 50%", desktop: "50% 50%" },
 };
