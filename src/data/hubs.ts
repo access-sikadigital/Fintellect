@@ -10,7 +10,7 @@ export const hubs: HubPage[] = [
       "Independent home loan brokers. Refinancing, self-employed and professional lending, investment and construction. Called back in about ten minutes. ACL 515382.",
     primaryKeyword: "home loan broker",
     eyebrow: "Home loans",
-    h1: "Home loans for people the banks find complicated.",
+    h1: "Home loan brokers for Australian borrowers",
     intro:
       "Straightforward applications go through anywhere. We're most useful when yours isn't one of them.",
     heroImage: "/brand/photography/hub-home-loans.webp",
@@ -39,7 +39,7 @@ export const hubs: HubPage[] = [
       "Commercial property, business loans, low doc facilities and working capital. Independent brokers comparing bank and non-bank lenders. ACL 515382.",
     primaryKeyword: "commercial loan broker",
     eyebrow: "Commercial finance",
-    h1: "Your business banker sells one bank's products.",
+    h1: "Commercial finance for Australian business",
     intro:
       "We compare the market — banks, non-banks and specialists — and tell you where the real difference sits.",
     heroImage: "/brand/photography/hub-commercial.webp",
@@ -64,7 +64,7 @@ export const hubs: HubPage[] = [
       "Asset and equipment finance for trucks, machinery, excavators and vehicles. New and used, private or dealer sale, low doc to $100,000. ACL 515382.",
     primaryKeyword: "asset finance broker",
     eyebrow: "Asset & equipment finance",
-    h1: "The fastest lending we do.",
+    h1: "Asset and equipment finance for business",
     intro:
       "Two years of ABN, GST registration and an invoice. For most established businesses that's the whole conversation.",
     heroImage: "/brand/photography/hub-asset.webp",

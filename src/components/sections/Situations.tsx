@@ -104,21 +104,21 @@ export function Situations() {
       aria-labelledby="situations-heading"
     >
       <div className="container-wide">
-        <div className="grid gap-6 border-b border-ink-12 pb-12 lg:grid-cols-[auto_1fr] lg:items-end lg:gap-16">
-          <div>
-            <Reveal variant="fade">
-              <p className="type-label text-clay">Where we&rsquo;re strongest</p>
-            </Reveal>
-            <SplitLines
-              as="h2"
-              id="situations-heading"
-              className="type-display mt-5 max-w-none sm:max-w-[13ch] text-forest"
-            >
-              Four situations we deal with every week.
-            </SplitLines>
-          </div>
-          <Reveal variant="rise" delay={0.1} className="lg:pb-3">
-            <p className="type-body max-w-[46ch] text-ink-70">
+        {/* One column: the description reads directly under the heading it
+            belongs to, rather than sitting off to the side of it. */}
+        <div className="border-b border-ink-12 pb-12">
+          <Reveal variant="fade">
+            <p className="type-label text-clay">Where we&rsquo;re strongest</p>
+          </Reveal>
+          <SplitLines
+            as="h2"
+            id="situations-heading"
+            className="type-display mt-5 max-w-none sm:max-w-[13ch] text-forest"
+          >
+            Four situations we deal with every week.
+          </SplitLines>
+          <Reveal variant="rise" delay={0.1}>
+            <p className="type-body mt-6 max-w-[52ch] text-ink-70">
               Straightforward applications go through anywhere. These are the
               ones that get declined, and they&rsquo;re the ones we&rsquo;re good at.
             </p>

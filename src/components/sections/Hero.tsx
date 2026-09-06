@@ -1,33 +1,14 @@
 "use client";
 
-import { CallButton } from "@/components/ui/CallButton";
 import { ActionPair } from "@/components/ui/ActionPair";
 import { HeroBackdrop } from "@/components/page/HeroBackdrop";
 import { useRef } from "react";
 import { gsap, registerGsap, prefersReducedMotion } from "@/lib/gsap";
 import { useIsomorphicLayoutEffect } from "@/hooks/useIsomorphicLayoutEffect";
-import { useSmoothScroll } from "@/components/providers/SmoothScroll";
 import { SplitLines } from "@/components/motion/SplitLines";
-import { Marquee } from "@/components/motion/Marquee";
 import { Button } from "@/components/ui/Button";
 import { Logomark } from "@/components/ui/Logo";
 import { site } from "@/data/site";
-
-/*
- * FIN-11 — the licence leads, because it is the one claim on this page a
- * visitor can independently verify.
- * SPEC — "22 minutes" deliberately does NOT appear here. It belongs once, in
- * The Record, where the sourcing footnote sits directly beneath it.
- */
-const marks = [
-  `Our own credit licence — ACL ${site.acl}`,
-  `~${site.callbackMinutes} minute callback`,
-  "No fee on the loans on this site",
-  "We compare five lenders, not forty",
-  "One broker, start to settlement",
-  "Not owned by a bank",
-  "Licensed to lend Australia-wide",
-];
 
 /**
  * The hero.
@@ -42,7 +23,6 @@ const marks = [
  */
 export function Hero() {
   const root = useRef<HTMLElement>(null);
-  const { scrollTo } = useSmoothScroll();
 
   useIsomorphicLayoutEffect(() => {
     const el = root.current;
@@ -128,17 +108,22 @@ export function Hero() {
             column and stop short of the right, where it reads through. */}
         <div className="max-w-[42rem] lg:max-w-[46rem]">
           <div>
+            {/* No ACL number here — client asked twice for it to come out of
+                the hero. It remains in the credential band, the footer and
+                the compliance note, which is where it belongs legally. */}
             <div data-hero="label" className="flex flex-wrap items-center gap-x-4 gap-y-2">
               <span className="type-label text-sand">
-                Independent mortgage &amp; finance brokers
+                Award-winning independent brokers
               </span>
               <span aria-hidden="true" className="h-px w-10 bg-paper-20" />
-              <span className="type-label text-paper-40">ACL {site.acl}</span>
+              <span className="type-label text-paper-40">
+                Not owned by a bank
+              </span>
             </div>
 
             <h1 id="hero-heading" className="type-hero mt-6 lg:mt-8">
               <SplitLines as="span" className="block text-offwhite" immediate>
-                We reach lenders
+                Australian mortgage
               </SplitLines>
               <span className="relative inline-block">
                 <SplitLines
@@ -147,7 +132,7 @@ export function Hero() {
                   immediate
                   delay={0.12}
                 >
-                  other brokers can&rsquo;t.
+                  and finance brokers.
                 </SplitLines>
                 <svg
                   aria-hidden="true"
@@ -169,9 +154,9 @@ export function Hero() {
 
             <div data-hero="copy" className="mt-10 grid gap-7 lg:mt-11">
               <p className="type-subtitle max-w-[44ch] font-normal text-paper-60">
-                We hold our own Australian Credit Licence, not a restricted
-                lender panel. That&rsquo;s the difference on the applications
-                a bank has already said no to.
+                Home loans, commercial finance and asset finance. Fast
+                approvals, one broker from your first call through to
+                settlement, and no fee to you on the loans on this site.
               </p>
               <ActionPair>
                 <Button
@@ -183,33 +168,12 @@ export function Hero() {
                 >
                   {site.cta.primary}
                 </Button>
-                <CallButton tone="dark" size="lg" />
               </ActionPair>
 
-              {/* Scenario entry points — people arrive with a task, not a brand */}
+              {/* Scenario entry points — people arrive with a task, not a
+                  brand. Clay rather than paper: the client asked for the
+                  orange to break up the green. */}
               <div className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-1">
-                <button
-                  type="button"
-                  onClick={() => scrollTo("#situations", -40)}
-                  className="group flex items-center gap-2.5"
-                  aria-label="Scroll to see how we can help"
-                >
-                  <span className="grid h-8 w-8 place-items-center rounded-full border border-paper-20 transition-colors duration-300 group-hover:border-sand">
-                    <svg viewBox="0 0 16 16" fill="none" className="h-3.5 w-3.5 text-sand">
-                      <path
-                        d="M8 2v11M4 9l4 4 4-4"
-                        stroke="currentColor"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="transition-transform duration-400 ease-[var(--ease-brand)] group-hover:translate-y-0.5"
-                      />
-                    </svg>
-                  </span>
-                  <span className="type-label text-paper-40 transition-colors group-hover:text-sand">
-                    Scroll
-                  </span>
-                </button>
                 {[
                   { label: "I want to refinance", href: "/home-loans/refinance" },
                   { label: "What can I borrow?", href: "/calculators/borrowing-capacity" },
@@ -218,7 +182,7 @@ export function Hero() {
                   <a
                     key={l.href}
                     href={l.href}
-                    className="group type-label flex items-center gap-2 text-paper-40 underline decoration-paper-20 underline-offset-[6px] transition-colors hover:text-sand hover:decoration-sand"
+                    className="group type-label flex items-center gap-2 text-clay-soft transition-colors hover:text-offwhite"
                   >
                     {l.label}
                     <span
@@ -234,21 +198,6 @@ export function Hero() {
           </div>
 
         </div>
-      </div>
-
-      {/* Credentials, moving along the base of the hero */}
-      <div
-        data-hero="strip"
-        className="relative z-20 mt-auto border-t border-paper-20 bg-forest py-4"
-      >
-        <Marquee speed={55} fade>
-          {marks.map((m) => (
-            <span key={m} className="flex items-center">
-              <span className="type-label px-7 whitespace-nowrap text-paper-40">{m}</span>
-              <span aria-hidden="true" className="h-1 w-1 rounded-full bg-sand/50" />
-            </span>
-          ))}
-        </Marquee>
       </div>
 
     </section>

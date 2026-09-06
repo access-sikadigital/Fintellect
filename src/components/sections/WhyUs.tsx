@@ -103,7 +103,7 @@ export function WhyUs() {
                        dark one. */
                     "grid h-12 w-12 shrink-0 place-items-center rounded-full border transition-colors duration-500",
                     light
-                      ? "border-green text-green"
+                      ? "border-clay text-clay"
                       : "border-offwhite text-offwhite",
                   )}
                 >

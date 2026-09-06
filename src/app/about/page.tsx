@@ -30,6 +30,7 @@ export default function Page() {
   return (
     <>
       <PageHero
+        showCall
         eyebrow="About"
         h1="We work for you, not the bank."
         intro="Independent brokers holding our own credit licence. Almost all of our business has come by referral, which is a standard we'd like to keep."

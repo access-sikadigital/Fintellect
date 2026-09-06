@@ -14,10 +14,24 @@ export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
 };
 
+/*
+ * Both office cards previously printed one sentence word for word, which reads
+ * as a template error rather than as information.
+ */
+const OFFICE_NOTE: Record<string, string> = {
+  Melbourne:
+    "Our main office. You're welcome to come in, though most clients never do \u2014 identification is verified electronically and documents are signed online.",
+  "Gold Coast":
+    "Serving south-east Queensland and northern New South Wales. Meetings by appointment; everything else is handled by phone and online.",
+  default:
+    "You're welcome to come in, though most clients never do \u2014 identification is verified electronically and documents are signed online.",
+};
+
 export default function Page() {
   return (
     <>
       <PageHero
+        showCall
         eyebrow="Contact"
         h1="Let’s find you a way forward."
         intro="A call back in about ten minutes during business hours. If we can’t help, we’ll say so on that first call."
@@ -41,9 +55,9 @@ export default function Page() {
               <a
                 key={c.label}
                 href={c.href}
-                className="group flex h-full flex-col justify-between gap-8 rounded-panel border border-ink-12 p-8 transition-colors duration-500 hover:border-green"
+                className="group flex h-full flex-col justify-between gap-8 rounded-panel border border-sand-deep/40 bg-sand p-8 transition-colors duration-500 hover:border-clay"
               >
-                <span className="grid h-12 w-12 place-items-center rounded-full border border-ink-12 text-green">
+                <span className="grid h-12 w-12 place-items-center rounded-full border border-clay-60 bg-offwhite text-clay">
                   <Icon name={c.icon} className="h-5 w-5" />
                 </span>
                 <div>
@@ -54,7 +68,7 @@ export default function Page() {
                     character by character, and the display serif is the wrong
                     tool for that at this size.
                   */}
-                  <p className="type-subtitle mt-2.5 text-[1.0625rem] text-forest">
+                  <p className="type-subtitle mt-2.5 text-[1.0625rem] text-clay-ink transition-colors duration-300 group-hover:text-forest">
                     {c.value}
                   </p>
                   <p className="type-body mt-2 text-[0.875rem] text-ink-50">{c.note}</p>
@@ -65,12 +79,13 @@ export default function Page() {
 
           <Reveal variant="rise" delay={0.1} className="mt-10 grid gap-4 sm:grid-cols-2">
             {site.offices.map((city) => (
-              <div key={city} className="rounded-panel border border-ink-12 p-8">
-                <p className="type-label text-green">{city} office</p>
+              <div
+                key={city}
+                className="rounded-panel border border-sand-deep/40 bg-paper-warm p-8"
+              >
+                <p className="type-label text-clay">{city} office</p>
                 <p className="type-body mt-3 text-ink-70">
-                  You&rsquo;re welcome to come in, and almost nobody does —
-                  identification is verified electronically and documents are
-                  signed online.
+                  {OFFICE_NOTE[city] ?? OFFICE_NOTE.default}
                 </p>
               </div>
             ))}

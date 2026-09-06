@@ -106,12 +106,12 @@ export function CalculatorTemplate({ page }: { page: CalculatorPage }) {
               <Link
                 key={c.slug}
                 href={`/calculators/${c.slug}`}
-                className="group flex items-center justify-between gap-4 rounded-card border border-ink-12 px-6 py-5 transition-colors duration-500 hover:border-green"
+                className="group flex items-center justify-between gap-4 rounded-card border border-ink-12 bg-form px-6 py-5 transition-colors duration-500 hover:border-clay"
               >
                 <span className="type-body font-medium text-forest">{c.h1}</span>
                 <span
                   aria-hidden="true"
-                  className="text-green transition-transform duration-400 ease-[var(--ease-brand)] group-hover:translate-x-1.5"
+                  className="text-clay transition-transform duration-400 ease-[var(--ease-brand)] group-hover:translate-x-1.5"
                 >
                   →
                 </span>

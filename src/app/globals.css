@@ -42,6 +42,13 @@
 
   --color-clay: #b9633f;
   --color-clay-soft: #d99b74;
+  /*
+   * The same clay, darkened, for clay TEXT on the light grounds. The brand
+   * clay is 3.35:1 on sand — fine for a rule, an icon or a border, under the
+   * 4.5:1 a body-size link needs. This reads as the same colour and clears
+   * AA at 4.81:1 on sand and 5.79:1 on cream.
+   */
+  --color-clay-ink: #944f32;
   --color-clay-60: color-mix(in oklab, var(--color-clay) 60%, transparent);
   --color-clay-20: color-mix(in oklab, var(--color-clay) 20%, transparent);
   --color-clay-10: color-mix(in oklab, var(--color-clay) 10%, transparent);
@@ -107,7 +114,10 @@
      wide in Fraunces at wght 600), always fits the 46rem column on one
      line. Above ~1210px the old 7.75rem cap let it spill to a third
      line. The lower bound tracks vw so it holds two lines on phones. */
-  --text-hero: clamp(min(2.85rem, 12vw), min(7.6vw, 12vh), 6rem);
+  /* Sized so BOTH lines of the hero headline fit their column at every
+     width. The longest line is 7.68em in Fraunces at wght 600, and the
+     column is 46rem, so the cap is 5.5rem with room to spare. */
+  --text-hero: clamp(min(2.6rem, 11vw), min(7.6vw, 12vh), 5.5rem);
   --text-display: clamp(2.75rem, min(5.8vw, 10.5vh), 5.5rem);
   --text-h1: clamp(2.75rem, 5.2vw, 5rem);
   --text-h2: clamp(2.25rem, 3.9vw, 3.75rem);
@@ -306,9 +316,13 @@ html.lenis body {
   font-family: var(--font-display);
   font-weight: 600;
   font-size: var(--text-hero);
-  /* Must clear the descenders: SplitText masks each line to its line box,
-     so anything tighter than ~1.0 clips the tails on "g", "y" and ",". */
-  line-height: 1.06;
+  /*
+   * 1.0 exactly. This used to sit at 1.06 because the SplitText mask clips
+   * each line to its line box and the descenders were being cut. The mask
+   * now carries its own padding (see .line-mask), so the tails on "g", "y"
+   * and "," survive, so this is free to sit tight.
+   */
+  line-height: 1.25;
   letter-spacing: -0.025em;
   font-variation-settings: "opsz" 144, "SOFT" 0, "WONK" 1;
 }
@@ -411,8 +425,20 @@ html.lenis body {
   .line-mask {
     display: block;
     overflow: hidden;
-    padding-bottom: 0.12em;
-    margin-bottom: -0.12em;
+    /* The mask clips to the line box, and at line-height 1.06 a display face
+       overshoots it at both ends. Pad each side and pull it back with a
+       negative margin so nothing is cut and the spacing is unchanged. */
+    /*
+     * Measured from the font, not guessed. Fraunces at wght 600 has an hhea
+     * ascent/descent of 0.978/0.255em — a 1.233em font box. At line-height 1
+     * the half-leading is negative, so the box overflows 0.117em each side,
+     * and the deepest ink ("g", "y", ",") reaches 0.246em below the baseline.
+     * That is 0.108em past the line box, so 0.16em of bottom padding clears
+     * it with room. The negative margin pulls the space back, leaving the
+     * spacing between lines exactly as the line-height sets it.
+     */
+    padding-block: 0.08em 0.16em;
+    margin-block: -0.08em -0.16em;
   }
 
   .line-inner {

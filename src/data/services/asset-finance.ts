@@ -12,11 +12,36 @@ export const assetFinanceServices: ServicePage[] = [
     volume: 1000,
     kd: 20,
     eyebrow: "Equipment finance",
-    h1: "The gear has to be on site next week.",
+    h1: "Equipment finance for Australian businesses",
     intro:
       "Equipment finance is the fastest lending we do. Two years of ABN, GST registration and the invoice is usually the whole conversation.",
     heroImage: "/brand/photography/svc-equipment.webp",
     heroAlt: "Heavy equipment working on a site",
+    angle: {
+      heading: "The gear has to be on site next week.",
+      body: "The job is booked, the machine is sitting at a dealer three states away, and paying cash for it would empty the account you run wages from. Equipment finance is what stops a growth job turning into a cash flow problem. The asset secures the loan, so the lender is looking at the equipment and your trading history rather than asking you to put the house up.",
+    },
+    explainer: {
+      heading: "What equipment finance is",
+      body: "A loan secured against the equipment you are buying, repaid over two to seven years. Because the asset is the security, approval leans on your ABN history and the invoice rather than on full financials. Most established businesses with a two-year ABN and GST registration are assessed low doc, which is why it is the fastest lending we arrange.",
+      steps: [
+        {
+          n: "01",
+          title: "Send us the invoice",
+          body: "The supplier quote or invoice, your ABN, and roughly what the business turns over. That is the whole application for most low doc deals.",
+        },
+        {
+          n: "02",
+          title: "We take it to the lenders that fund your asset",
+          body: "Not every lender funds used gear, private sales or your industry. We go to the ones that do, so a decline does not sit on your credit file.",
+        },
+        {
+          n: "03",
+          title: "Settle and get it on site",
+          body: "Approvals commonly come back in 24 to 48 hours. We pay the supplier directly and the machine goes to work.",
+        },
+      ],
+    },
     qualify: {
       forThem: [
         "Two-year ABN, GST registered",
@@ -85,11 +110,36 @@ export const assetFinanceServices: ServicePage[] = [
     volume: 2900,
     kd: 23,
     eyebrow: "Truck finance",
-    h1: "The truck earns from the day it lands.",
+    h1: "Truck finance for owner-drivers and transport operators",
     intro:
       "Prime movers, rigids, trailers and tippers. Owner-drivers and fleets, new and used, dealer or private sale.",
     heroImage: "/brand/photography/svc-truck.webp",
     heroAlt: "A finance agreement being signed",
+    angle: {
+      heading: "The truck earns from the day it lands.",
+      body: "Every week a prime mover sits unfinanced is a week it is not billing. Transport is one of the industries banks quietly rate as higher risk, which is why owner-drivers get slow answers from the branch and fast ones from lenders who actually understand freight.",
+    },
+    explainer: {
+      heading: "What truck finance is",
+      body: "A chattel mortgage or lease secured against the truck or trailer, over two to seven years. Lenders will fund new and used, dealer or private sale, and most will consider units up to around ten to fifteen years old at the end of the term. First-time owner-drivers can be funded, though usually with a deposit or a property-owning position.",
+      steps: [
+        {
+          n: "01",
+          title: "Tell us the truck and the work",
+          body: "Make, model, age, and what it will be carrying. Freight type changes which lenders will look at it.",
+        },
+        {
+          n: "02",
+          title: "We match it to transport lenders",
+          body: "Some will not touch tippers or tautliners; others specialise in them. We go where the asset and the industry both fit.",
+        },
+        {
+          n: "03",
+          title: "Settle and start earning",
+          body: "We handle the dealer or private vendor, the transfer and the payout, so the truck is on the road rather than in a yard.",
+        },
+      ],
+    },
     qualify: {
       forThem: [
         "Two-year ABN, GST registered",
@@ -148,11 +198,36 @@ export const assetFinanceServices: ServicePage[] = [
     volume: 1900,
     kd: 25,
     eyebrow: "Machinery",
-    h1: "The job starts Monday. The machine isn't financed.",
+    h1: "Machinery finance for excavators and earthmoving gear",
     intro:
       "Excavators, loaders, skid steers and attachments. Low doc to $100,000, private sales accepted, and approval usually inside a couple of days.",
     heroImage: "/brand/photography/svc-machinery.webp",
     heroAlt: "An excavator working on a construction site",
+    angle: {
+      heading: "The job starts Monday. The machine isn't financed.",
+      body: "Earthmoving work is won at short notice and lost the same way. When the contract depends on having a machine on site, an approval that takes three weeks is the same as a decline. Getting the finance conversation started before you win the tender is usually the difference.",
+    },
+    explainer: {
+      heading: "What machinery finance is",
+      body: "A loan secured against the excavator, loader, skid steer or attachment, typically over three to five years. Yellow goods hold value well, so lenders lend against them readily — but they care about hours, age and whether the sale is private or through a dealer, and those three answers decide who will fund it.",
+      steps: [
+        {
+          n: "01",
+          title: "Send the machine details",
+          body: "Make, model, year, hours and the invoice or auction listing. Private and auction purchases are both fine.",
+        },
+        {
+          n: "02",
+          title: "We place it with the right lender",
+          body: "Machine age and hours rule some lenders out entirely. We only submit where it fits, which keeps your credit file clean.",
+        },
+        {
+          n: "03",
+          title: "On site for the start date",
+          body: "Funds go to the vendor or auction house directly, so the machine is released and you make the Monday start.",
+        },
+      ],
+    },
     qualify: {
       forThem: [
         "Two-year ABN, GST registered",
@@ -207,11 +282,36 @@ export const assetFinanceServices: ServicePage[] = [
     volume: 3600,
     kd: 23,
     eyebrow: "Chattel mortgage",
-    h1: "You own it from day one.",
+    h1: "Chattel mortgage for business vehicles and equipment",
     intro:
       "Under a chattel mortgage the asset is yours immediately and the lender takes a registered interest. The GST is usually claimable up front, which is why most businesses choose it.",
     heroImage: "/brand/photography/svc-chattel.webp",
     heroAlt: "A finance agreement being completed",
+    angle: {
+      heading: "You own it from day one.",
+      body: "The structure you choose changes your tax position more than the interest rate does. A chattel mortgage puts the asset on your balance sheet immediately, which is what makes the GST and depreciation treatment work the way most accountants prefer.",
+    },
+    explainer: {
+      heading: "What a chattel mortgage is",
+      body: "You take ownership of the asset at purchase and the lender registers a security interest over it until the loan is paid out. For a GST-registered business on a cash basis, the GST on the purchase price is generally claimable in the next BAS, and you can usually claim depreciation and the interest portion. A lease works differently. Your accountant should make the call and we will build to their answer.",
+      steps: [
+        {
+          n: "01",
+          title: "Talk to your accountant first",
+          body: "Chattel mortgage, lease or rental changes what you can claim and when. It is a tax question before it is a finance question.",
+        },
+        {
+          n: "02",
+          title: "We structure the facility to match",
+          body: "Term, balloon and ownership set up the way your accountant asked for, across the lenders that offer it.",
+        },
+        {
+          n: "03",
+          title: "Settle and claim",
+          body: "You own the asset from settlement. We give you the documents your bookkeeper needs for the BAS.",
+        },
+      ],
+    },
     qualify: {
       forThem: [
         "ABN registered, asset used predominantly for business",
@@ -269,11 +369,36 @@ export const assetFinanceServices: ServicePage[] = [
     volume: 2400,
     kd: 46,
     eyebrow: "Vehicle finance",
-    h1: "The dealer's finance isn't your only option.",
+    h1: "Vehicle finance for business and personal buyers",
     intro:
       "Dealer finance is convenient and rarely the sharpest number in the room. Comparing takes a day and usually pays for itself several times over.",
     heroImage: "/brand/photography/svc-vehicle.webp",
     heroAlt: "A vehicle finance agreement at a desk",
+    angle: {
+      heading: "The dealer's finance isn't your only option.",
+      body: "Dealer finance is convenient at exactly the moment you are least able to compare it — sitting in the office, keys almost in hand. The rate is often carrying a margin the dealership sets, and you are unlikely to be told what it is. An approval in your pocket before you walk in changes the conversation.",
+    },
+    explainer: {
+      heading: "What vehicle finance is",
+      body: "A loan secured against the car or ute, over one to seven years. Business buyers usually take a chattel mortgage for the tax treatment; personal buyers take a secured consumer loan, where the rate depends on credit history, the age of the vehicle and whether it is a dealer or private sale.",
+      steps: [
+        {
+          n: "01",
+          title: "Tell us the vehicle and who is buying it",
+          body: "Business or personal changes both the product and the paperwork. So does dealer versus private sale.",
+        },
+        {
+          n: "02",
+          title: "We get you approved before you negotiate",
+          body: "Walking in pre-approved means you are negotiating the price of the car, not the price of the finance.",
+        },
+        {
+          n: "03",
+          title: "Settle wherever you are buying",
+          body: "Dealer, private seller or auction — we handle the payout and the transfer either way.",
+        },
+      ],
+    },
     qualify: {
       forThem: [
         "ABN registered, business use",

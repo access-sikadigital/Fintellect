@@ -16,6 +16,12 @@ type PageHeroProps = {
   trail: Crumb[];
   /** Overrides the default enquiry CTA. */
   cta?: { label: string; href: string };
+  /**
+   * Phone button beside the primary CTA. Off everywhere by default — client
+   * direction, 6 Sep: the number should not sit in the hero. About and
+   * Contact are the exceptions, where calling IS the point of the page.
+   */
+  showCall?: boolean;
 };
 
 /** Standard top of every interior page. */
@@ -26,6 +32,7 @@ export function PageHero({
   image,
   trail,
   cta,
+  showCall = false,
 }: PageHeroProps) {
   return (
     <section className="on-dark grain relative overflow-hidden bg-forest text-offwhite">
@@ -66,7 +73,7 @@ export function PageHero({
               >
                 {cta?.label ?? site.cta.primary}
               </Button>
-              <CallButton tone="dark" size="lg" />
+              {showCall && <CallButton tone="dark" size="lg" />}
             </ActionPair>
           </Reveal>
         </div>

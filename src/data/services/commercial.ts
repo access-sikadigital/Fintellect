@@ -12,11 +12,36 @@ export const commercialServices: ServicePage[] = [
     volume: 1000,
     kd: 9,
     eyebrow: "Low doc business",
-    h1: "The business is fine. The paperwork is behind.",
+    h1: "Low doc business loans for self-employed owners",
     intro:
       "Full financials take weeks and your accountant is busy. Low doc lenders assess on bank statements and BAS instead, and they can move in days.",
     heroImage: "/brand/photography/svc-lowdoc.webp",
     heroAlt: "A team of business professionals",
+    angle: {
+      heading: "The business is fine. The paperwork is behind.",
+      body: "Trading well and being able to prove it on a bank's timetable are two different things. Accountants are busy, returns get lodged late, and a strong business ends up looking unfundable on paper for six months of the year. Low doc lending exists precisely for that gap.",
+    },
+    explainer: {
+      heading: "What a low doc business loan is",
+      body: "Lending assessed on bank statements, BAS and an accountant's declaration rather than two years of finalised financials. Rates sit above full doc because the lender is carrying more uncertainty, and the sensible use of one is short term — fund the opportunity now, refinance to a full doc facility once the returns are lodged.",
+      steps: [
+        {
+          n: "01",
+          title: "Send bank statements and BAS",
+          body: "Usually six to twelve months of trading statements and your most recent BAS. No finalised financials needed.",
+        },
+        {
+          n: "02",
+          title: "We match you to low doc lenders",
+          body: "Each one weighs turnover, industry and ATO position differently. We go to the ones your file suits.",
+        },
+        {
+          n: "03",
+          title: "Fund now, refinance later",
+          body: "Take the facility when you need it, then move to a cheaper full doc loan once the accountant catches up.",
+        },
+      ],
+    },
     qualify: {
       forThem: [
         "Trading at least two years",
@@ -85,11 +110,36 @@ export const commercialServices: ServicePage[] = [
     volume: 1900,
     kd: 35,
     eyebrow: "Business loans",
-    h1: "Your bank knows one product. There are dozens.",
+    h1: "Business loans, arranged by an independent broker",
     intro:
       "A business banker can offer what their bank sells. We compare secured and unsecured term loans, lines of credit and cashflow facilities across the market.",
     heroImage: "/brand/photography/svc-business.webp",
     heroAlt: "Business colleagues together",
+    angle: {
+      heading: "Your bank knows one product. There are dozens.",
+      body: "A business banker can only offer what is on their own shelf, which is usually an overdraft and a term loan secured by your home. There are lenders funding equipment, invoices, stock and expansion on their own terms — and no single bank will tell you about the ones that are not theirs.",
+    },
+    explainer: {
+      heading: "What a business loan is",
+      body: "An umbrella term covering several very different products: unsecured term loans, secured term loans, overdrafts and lines of credit, and facilities secured by property or equipment. Which one is right depends on what the money is for and how quickly it turns back into cash. Matching the product to the purpose matters more than shaving the rate.",
+      steps: [
+        {
+          n: "01",
+          title: "Start with what the money is for",
+          body: "Equipment, stock, a hire, a tax bill or a shortfall. The purpose decides the product, and the product decides the price.",
+        },
+        {
+          n: "02",
+          title: "We compare the lenders who fund it",
+          body: "Bank and non-bank, secured and unsecured, so you can see the real trade-off between cost and speed.",
+        },
+        {
+          n: "03",
+          title: "Settle with the terms explained",
+          body: "You will know the rate, the fees, the term and what happens if you repay early, before you sign.",
+        },
+      ],
+    },
     qualify: {
       forThem: [
         "Trading at least two years",
@@ -148,11 +198,36 @@ export const commercialServices: ServicePage[] = [
     volume: 1600,
     kd: 28,
     eyebrow: "Commercial property",
-    h1: "Commercial lending doesn't work like a home loan.",
+    h1: "Commercial property loans for investors and owner-occupiers",
     intro:
       "Shorter terms, lower LVRs, real covenants and a valuation that can change the deal late. Knowing that before you sign the contract is the difference.",
     heroImage: "/brand/photography/svc-commercial-property.webp",
     heroAlt: "A professional team in an urban setting",
+    angle: {
+      heading: "Commercial lending doesn't work like a home loan.",
+      body: "Borrowers who have only ever bought houses are routinely caught by the deposit, the shorter term and the valuation coming in under contract. None of it is unusual in commercial — it is just nothing like the residential process they are expecting.",
+    },
+    explainer: {
+      heading: "What a commercial property loan is",
+      body: "Finance secured against commercial real estate: offices, retail, industrial units, warehouses. Expect to contribute around 30 to 35 per cent, terms shorter than residential, and assessment that weighs the lease and the tenant as heavily as your own income. Owner-occupiers buying premises for their own business are often treated more favourably than passive investors.",
+      steps: [
+        {
+          n: "01",
+          title: "Bring the contract and the lease",
+          body: "The tenant, the lease term and the property type drive the assessment as much as your income does.",
+        },
+        {
+          n: "02",
+          title: "We test it with commercial lenders",
+          body: "Appetite varies sharply by asset class and location. We find out who is lending on yours before you are committed.",
+        },
+        {
+          n: "03",
+          title: "Settle with the structure right",
+          body: "Interest only, principal and interest, or a mix — set up around how the property is meant to perform.",
+        },
+      ],
+    },
     qualify: {
       forThem: [
         "Office, retail, industrial or warehouse",
@@ -211,11 +286,36 @@ export const commercialServices: ServicePage[] = [
     volume: 590,
     kd: 52,
     eyebrow: "Working capital",
-    h1: "The work is done. The invoice isn't paid.",
+    h1: "Working capital and cash flow finance for business",
     intro:
       "Profitable businesses fail on timing, not margin. Cashflow facilities bridge the gap between doing the work and being paid for it.",
     heroImage: "/brand/photography/svc-working-capital.webp",
     heroAlt: "A handshake closing a finance agreement",
+    angle: {
+      heading: "The work is done. The invoice isn't paid.",
+      body: "Profitable businesses fail on timing, not on margin. You have delivered, you have invoiced, and the terms say sixty days — but wages, fuel and the ATO do not wait sixty days. That gap is a funding problem, not a trading problem.",
+    },
+    explainer: {
+      heading: "What working capital finance is",
+      body: "Short-term facilities that bridge the gap between paying out and being paid: overdrafts, lines of credit, invoice finance that advances against unpaid invoices, and short-term unsecured loans. The right one depends on whether the gap is a one-off or a permanent feature of your terms of trade.",
+      steps: [
+        {
+          n: "01",
+          title: "Show us the cash flow gap",
+          body: "Bank statements and your debtor ledger. We are looking at the timing, not just the totals.",
+        },
+        {
+          n: "02",
+          title: "We match the facility to the gap",
+          body: "A recurring gap wants a line of credit or invoice finance. A one-off wants a short-term loan. They are priced very differently.",
+        },
+        {
+          n: "03",
+          title: "Draw it when you need it",
+          body: "Most facilities let you draw and repay as invoices land, so you only pay for what you actually use.",
+        },
+      ],
+    },
     qualify: {
       forThem: [
         "Trading at least two years",

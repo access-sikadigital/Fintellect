@@ -1,6 +1,7 @@
 import { PageHero } from "@/components/page/PageHero";
 import { FaqSection } from "@/components/page/FaqSection";
 import { EnquiryForm } from "@/components/page/EnquiryForm";
+import { ServiceIntro } from "@/components/page/ServiceIntro";
 import {
   QualifyingStrip,
   Advantages,
@@ -58,6 +59,11 @@ export function ServiceTemplate({ page }: { page: ServicePage }) {
         image={page.heroImage}
         trail={trail}
       />
+
+      {/* What the product actually is, then the angle. The page used to jump
+          from the hero straight to the qualifying strip and the form, which
+          told a first-time visitor nothing about the service. */}
+      <ServiceIntro page={page} />
 
       <QualifyingStrip forThem={page.qualify.forThem} notForThem={page.qualify.notForThem} />
 

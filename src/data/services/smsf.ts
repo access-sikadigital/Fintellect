@@ -12,11 +12,36 @@ export const smsfServices: ServicePage[] = [
     volume: 1000,
     kd: 28,
     eyebrow: "SMSF lending",
-    h1: "Your fund can borrow. Within limits.",
+    h1: "SMSF loans for property inside your super fund",
     intro:
       "Limited recourse borrowing lets an established SMSF buy property. The rules are strict, the lender list is short, and getting the structure wrong is expensive to unwind.",
     heroImage: "/brand/photography/svc-smsf.webp",
     heroAlt: "An adviser going through a property purchase with clients",
+    angle: {
+      heading: "Your fund can borrow. Within limits.",
+      body: "SMSF lending is legal, well-established and tightly constrained. The rules on what the fund may buy, how it must be held and what may be done to it are unforgiving, and getting the structure wrong is a compliance problem rather than merely an expensive one.",
+    },
+    explainer: {
+      heading: "What an SMSF loan is",
+      body: "Borrowing by a self-managed super fund under a limited recourse borrowing arrangement. The property is held in a separate bare trust, and the lender's recourse is limited to that asset. Expect a larger deposit than a personal loan, a higher rate, and a firm rule that the property cannot be improved or developed while the loan is in place. Your accountant and the fund's adviser lead; we arrange the finance behind their advice.",
+      steps: [
+        {
+          n: "01",
+          title: "Start with your accountant and adviser",
+          body: "The fund's deed, structure and strategy have to permit it. That is their call, not ours.",
+        },
+        {
+          n: "02",
+          title: "We arrange the bare trust and the lender",
+          body: "Fewer lenders write SMSF loans than used to. We work with the ones still active and the structures they require.",
+        },
+        {
+          n: "03",
+          title: "Settle inside the rules",
+          body: "Limited recourse, correctly held, with the restrictions on improvements clear to everyone before settlement.",
+        },
+      ],
+    },
     qualify: {
       forThem: [
         "Fund already established",

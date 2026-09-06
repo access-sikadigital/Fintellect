@@ -121,7 +121,7 @@ export function Process() {
 
               {/* Head */}
               <div className="relative flex items-center gap-4">
-                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-green text-green transition-colors duration-500">
+                <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-clay text-clay transition-colors duration-500">
                   <Icon name={step.icon} className="h-5 w-5" />
                 </span>
                 <span className="type-label text-ink-50 numeric">Step {step.n}</span>
@@ -160,7 +160,7 @@ export function Process() {
         <Reveal variant="rise" delay={0.1}>
           <div className="mt-5 flex flex-col gap-7 rounded-panel border border-ink-12 bg-offwhite p-8 text-forest lg:mt-6 lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:p-11">
             <div className="flex items-start gap-5">
-              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-green text-green">
+              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-clay text-clay">
                 <Icon name="thumb-up" className="h-5 w-5" />
               </span>
               <div>

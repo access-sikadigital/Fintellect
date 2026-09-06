@@ -60,7 +60,7 @@ export function HubTemplate({ hub }: { hub: HubPage }) {
               <Link
                 key={s.slug}
                 href={servicePath(s)}
-                className="group flex h-full flex-col justify-between gap-8 rounded-panel border border-ink-12 p-8 transition-colors duration-500 hover:border-green"
+                className="group flex h-full flex-col justify-between gap-8 rounded-panel border border-ink-12 bg-form p-8 transition-colors duration-500 hover:border-clay"
               >
                 <div>
                   <p className="type-label text-green">{s.eyebrow}</p>
@@ -69,7 +69,7 @@ export function HubTemplate({ hub }: { hub: HubPage }) {
                   </h3>
                   <p className="type-body mt-3 text-[0.9375rem] text-ink-70">{s.intro}</p>
                 </div>
-                <span className="type-label flex items-center gap-2 text-green">
+                <span className="type-label flex items-center gap-2 text-clay">
                   Read more
                   <span
                     aria-hidden="true"

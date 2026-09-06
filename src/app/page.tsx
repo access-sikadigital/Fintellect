@@ -1,3 +1,4 @@
+import { AwardsStrip } from "@/components/layout/AwardsStrip";
 import { Hero } from "@/components/sections/Hero";
 import { Situations } from "@/components/sections/Situations";
 import { WhyUs } from "@/components/sections/WhyUs";
@@ -13,6 +14,8 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      {/* Proof immediately under the hero, not buried in the footer. */}
+      <AwardsStrip />
       <LenderStrip />
       <Situations />
       <Process />

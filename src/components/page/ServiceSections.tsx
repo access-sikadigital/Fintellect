@@ -31,7 +31,7 @@ export function QualifyingStrip({
           id="qualify-heading"
           className="type-display mt-4 max-w-none sm:max-w-[13ch] text-forest"
         >
-          We&rsquo;d rather tell you now than waste your afternoon.
+          Who this suits, and who it doesn&rsquo;t.
         </SplitLines>
 
         <div className="mt-12 grid gap-5 lg:mt-14 lg:grid-cols-2 lg:gap-6">
@@ -139,7 +139,7 @@ export function Advantages({
                        dark one. */
                     "grid h-12 w-12 shrink-0 place-items-center rounded-full border transition-colors duration-500",
                     light
-                      ? "border-green text-green"
+                      ? "border-clay text-clay"
                       : "border-offwhite text-offwhite",
                   )}
                 >
@@ -248,7 +248,7 @@ export function HowItWorks() {
               className="group flex h-full flex-col rounded-panel border border-ink-12 bg-offwhite p-7 transition-colors duration-500 hover:border-clay-60"
             >
               <div className="flex items-center justify-between">
-                <span className="grid h-11 w-11 place-items-center rounded-full border border-green text-green">
+                <span className="grid h-11 w-11 place-items-center rounded-full border border-clay text-clay">
                   <Icon name={s.icon} className="h-5 w-5" />
                 </span>
                 <span className="type-label text-ink-30 numeric">{s.n}</span>
@@ -336,10 +336,10 @@ export function RelatedLinks({
             <Link
               key={l.href}
               href={l.href}
-              className="group flex flex-col justify-between gap-8 rounded-panel border border-ink-12 p-7 transition-colors duration-500 hover:border-green"
+              className="group flex flex-col justify-between gap-8 rounded-panel border border-ink-12 bg-form p-7 transition-colors duration-500 hover:border-clay"
             >
               <span className="type-title text-[1.375rem] text-forest">{l.label}</span>
-              <span className="type-label flex items-center gap-2 text-green">
+              <span className="type-label flex items-center gap-2 text-clay">
                 Read more
                 <span
                   aria-hidden="true"

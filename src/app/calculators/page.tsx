@@ -31,7 +31,7 @@ function Grid({ items }: { items: { slug: string; h1: string; intro: string }[] 
             <h3 className="type-title text-[1.375rem] text-forest">{c.h1}</h3>
             <p className="type-body mt-2.5 text-[0.9375rem] text-ink-70">{c.intro}</p>
           </div>
-          <span className="type-label flex items-center gap-2 text-green">
+          <span className="type-label flex items-center gap-2 text-clay">
             Open
             <span
               aria-hidden="true"

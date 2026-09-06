@@ -84,7 +84,7 @@ export function LocationTemplate({ page }: { page: LocationPage }) {
               <Link
                 key={s.slug}
                 href={servicePath(s)}
-                className="group flex h-full flex-col justify-between gap-6 rounded-panel border border-ink-12 bg-offwhite p-7 transition-colors duration-500 hover:border-green"
+                className="group flex h-full flex-col justify-between gap-6 rounded-panel border border-ink-12 bg-form p-7 transition-colors duration-500 hover:border-clay"
               >
                 <div>
                   <p className="type-label text-green">{s.eyebrow}</p>
@@ -92,7 +92,7 @@ export function LocationTemplate({ page }: { page: LocationPage }) {
                 </div>
                 <span
                   aria-hidden="true"
-                  className="type-label text-green transition-transform duration-400 ease-[var(--ease-brand)] group-hover:translate-x-1.5"
+                  className="type-label text-clay transition-transform duration-400 ease-[var(--ease-brand)] group-hover:translate-x-1.5"
                 >
                   →
                 </span>

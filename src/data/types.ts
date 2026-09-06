@@ -34,13 +34,35 @@ export type ServicePage = {
   volume?: number;
   kd?: number;
 
-  /** 1 — Hero. The borrower's problem, not the product name. */
+  /*
+   * 1 — Hero. The PRODUCT NAME, plainly, with the keyword someone actually
+   * typed. Client direction, 6 Sep: the headline's job is to confirm you are
+   * on the right page and to carry the keyword for search. Persuasion happens
+   * further down, in `angle`.
+   */
   h1: string;
   intro: string;
   heroImage: string;
   heroAlt: string;
   /** Short label shown above the H1. */
   eyebrow: string;
+
+  /**
+   * 1b — The angle. The line that used to be the H1: kept, because it is
+   * good writing, but moved to where persuasion belongs — after the reader
+   * knows what page they are on.
+   */
+  angle?: { heading: string; body: string };
+
+  /**
+   * 1c — Plain explanation of the product. Most visitors arrive from a search
+   * for the product name and are not certain what it covers or how it runs.
+   */
+  explainer?: {
+    heading: string;
+    body: string;
+    steps: { n: string; title: string; body: string }[];
+  };
 
   /** 2 — Qualifying strip. Where lead quality is won or lost. */
   qualify: {

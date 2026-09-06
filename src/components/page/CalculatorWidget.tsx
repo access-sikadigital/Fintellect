@@ -181,7 +181,7 @@ export function CalculatorWidget({ page }: { page: CalculatorPage }) {
             <p className="type-label text-forest/60">Next step</p>
             <Link
               href={page.nextStep.href}
-              className="type-label group flex items-center gap-2 text-green transition-colors hover:text-forest"
+              className="type-label group flex items-center gap-2 text-clay transition-colors hover:text-forest"
             >
               {page.nextStep.label}
               <span

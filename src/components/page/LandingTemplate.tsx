@@ -69,7 +69,6 @@ export function LandingTemplate({ page }: { page: LandingPage }) {
                 >
                   {site.cta.primary}
                 </Button>
-                <CallButton tone="dark" size="lg" />
               </ActionPair>
             </Reveal>
           </div>

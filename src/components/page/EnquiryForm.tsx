@@ -169,7 +169,7 @@ const timeframes = [
 export function EnquiryForm({
   formType,
   serviceName,
-  heading = "Tell us the situation",
+  heading = "Get your free assessment",
 }: {
   formType: FormType;
   serviceName: string;

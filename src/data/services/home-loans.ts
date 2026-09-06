@@ -12,11 +12,36 @@ export const homeLoanServices: ServicePage[] = [
     volume: 8100,
     kd: 42,
     eyebrow: "Refinance",
-    h1: "Your rate crept up and nobody called.",
+    h1: "Refinance your home loan with an independent broker",
     intro:
       "Lenders reserve their sharpest pricing for people who are leaving. We find out what you're actually on, what you could be on, and whether the difference survives the switching costs.",
     heroImage: "/brand/photography/svc-refinance.webp",
     heroAlt: "A couple at home",
+    angle: {
+      heading: "Your rate crept up and nobody called.",
+      body: "Lenders price sharply to win you and quietly less well to keep you. The gap between what a new customer is offered and what an existing one pays is real, it widens every year you stay, and nobody at the bank is going to ring and point it out.",
+    },
+    explainer: {
+      heading: "What refinancing is",
+      body: "Moving your loan to a different lender, or renegotiating with your current one, to get a better rate or restructure the debt. It is worth checking whenever your rate has drifted, your fixed term is ending, your property has gained value, or your income has changed. The switch costs are usually a few hundred dollars, and it is only worth doing when the saving clearly beats them.",
+      steps: [
+        {
+          n: "01",
+          title: "Send your current statement",
+          body: "The rate, the balance and the lender. That is enough for us to tell you whether there is anything in it.",
+        },
+        {
+          n: "02",
+          title: "We compare against the market",
+          body: "Including what your current lender will do to keep you, which is sometimes the fastest win available.",
+        },
+        {
+          n: "03",
+          title: "Switch, or stay on better terms",
+          body: "We handle the discharge and the new application. If moving is not worth it, we will tell you that instead.",
+        },
+      ],
+    },
     qualify: {
       forThem: [
         "You've had the same loan more than two years",
@@ -104,11 +129,36 @@ export const homeLoanServices: ServicePage[] = [
     volume: 880,
     kd: 24,
     eyebrow: "Self-employed & low doc",
-    h1: "You work for yourself and the bank said no.",
+    h1: "Low doc home loans for self-employed borrowers",
     intro:
       "A major bank wants two years of tax returns that show a healthy profit. A good accountant's job is to make that profit look small. That contradiction is the whole problem, and it has a solution.",
     heroImage: "/brand/photography/svc-self-employed.webp",
     heroAlt: "A self-employed business owner",
+    angle: {
+      heading: "You work for yourself and the bank said no.",
+      body: "Business owners are the borrowers banks understand worst. Income is written down legitimately for tax, the last return is eighteen months old, and a computer reads that as risk. The same file, in front of a lender who assesses self-employed income properly, is often a straightforward approval.",
+    },
+    explainer: {
+      heading: "What a low doc home loan is",
+      body: "A home loan assessed on BAS, business bank statements or an accountant's declaration instead of two years of tax returns. Aimed at self-employed borrowers whose returns do not reflect what the business actually earns, or who are not yet two full years in. Expect a slightly higher rate and more deposit than full doc, and treat it as a stepping stone you refinance out of.",
+      steps: [
+        {
+          n: "01",
+          title: "Send what you do have",
+          body: "BAS, business statements, or a letter from your accountant. Two years of tax returns are not the only route.",
+        },
+        {
+          n: "02",
+          title: "We take it to lenders who assess it properly",
+          body: "Some lenders read add-backs and retained profit correctly. Most branches do not. That difference is the whole game.",
+        },
+        {
+          n: "03",
+          title: "Buy now, refinance later",
+          body: "Get into the property on low doc terms, then move to a full doc rate once the returns support it.",
+        },
+      ],
+    },
     qualify: {
       forThem: [
         "You've been trading at least twelve months",
@@ -192,11 +242,36 @@ export const homeLoanServices: ServicePage[] = [
     volume: 260,
     kd: 18,
     eyebrow: "Medical professionals",
-    h1: "You're a doctor paying LMI you don't owe.",
+    h1: "Home loans for doctors and medical professionals",
     intro:
       "The major banks waive lenders mortgage insurance for medical professionals up to 95% of the property value. On an $900,000 purchase that's tens of thousands of dollars nobody mentions unless you ask.",
     heroImage: "/brand/photography/svc-doctors.webp",
     heroAlt: "A medical professional at work",
+    angle: {
+      heading: "You're a doctor paying LMI you don't owe.",
+      body: "Several lenders will waive lenders mortgage insurance entirely for medical professionals borrowing up to 95 per cent. On an $800,000 purchase that is tens of thousands of dollars — and it is not advertised, because a waiver is worth more to the bank kept quiet than given away.",
+    },
+    explainer: {
+      heading: "What the medical professional waiver is",
+      body: "A concession offered by certain lenders to specified medical occupations — GPs, specialists, surgeons, dentists, and at some lenders veterinarians and optometrists — allowing borrowing up to 90 or 95 per cent of the property value with no LMI. Eligibility turns on your registration and occupation code, and each lender's list of accepted occupations is different.",
+      steps: [
+        {
+          n: "01",
+          title: "Confirm your occupation and registration",
+          body: "AHPRA registration and your exact occupation decide which lenders' waiver lists you appear on.",
+        },
+        {
+          n: "02",
+          title: "We check the waiver lists",
+          body: "The lists differ by lender and change without notice. We check them at the time you apply, not from memory.",
+        },
+        {
+          n: "03",
+          title: "Borrow to 95 per cent with no LMI",
+          body: "Where you qualify, that is a five-figure saving kept in your pocket rather than paid to an insurer.",
+        },
+      ],
+    },
     qualify: {
       forThem: [
         "Specialists, GPs, registrars and residents",
@@ -280,11 +355,36 @@ export const homeLoanServices: ServicePage[] = [
     volume: 170,
     kd: 22,
     eyebrow: "Professionals",
-    h1: "Your profession is worth a discount nobody offered you.",
+    h1: "Home loans for accountants, lawyers and other professionals",
     intro:
       "Accountants, lawyers and several other qualified professions have their own lenders mortgage insurance waivers. Smaller than the medical waiver, still worth thousands, and rarely volunteered.",
     heroImage: "/brand/photography/svc-professionals.webp",
     heroAlt: "A professional at their workplace",
+    angle: {
+      heading: "Your profession is worth a discount nobody offered you.",
+      body: "The LMI waiver is not only for doctors. Accountants, lawyers, actuaries and a handful of other professions qualify at particular lenders — usually with a minimum income and membership of the relevant professional body. It is one of the few genuine advantages that goes unclaimed simply because nobody mentions it.",
+    },
+    explainer: {
+      heading: "What the professional waiver is",
+      body: "Certain lenders waive lenders mortgage insurance for members of specified professions borrowing up to 85 or 90 per cent. Typical requirements are current membership of a recognised body — CA ANZ, CPA Australia, a state law society — and an income threshold. Which professions and which thresholds vary by lender and are reviewed regularly.",
+      steps: [
+        {
+          n: "01",
+          title: "Tell us your profession and body",
+          body: "Membership of a recognised body is normally the qualifying test, alongside an income floor.",
+        },
+        {
+          n: "02",
+          title: "We check who is honouring it now",
+          body: "These lists are quietly changed. We check them live rather than trusting last year's version.",
+        },
+        {
+          n: "03",
+          title: "Keep the LMI premium",
+          body: "Where a waiver applies, that premium stays with you instead of going to an insurer.",
+        },
+      ],
+    },
     qualify: {
       forThem: [
         "CA, CPA and IPA qualified accountants",
@@ -354,11 +454,36 @@ export const homeLoanServices: ServicePage[] = [
     volume: 1300,
     kd: 29,
     eyebrow: "Investment",
-    h1: "The second property is harder than the first.",
+    h1: "Investment property loans for Australian investors",
     intro:
       "Serviceability, existing debt and how the last loan was structured all decide whether there's a third. We structure for the portfolio, not just the purchase in front of you.",
     heroImage: "/brand/photography/svc-investment.webp",
     heroAlt: "A couple outside their investment property",
+    angle: {
+      heading: "The second property is harder than the first.",
+      body: "The first investment usually goes through on the strength of your salary. The second and third run into serviceability: every lender assesses your existing debt at an inflated buffer rate, and they do not all assess rental income the same way. That is where a portfolio stalls, and where lender choice matters most.",
+    },
+    explainer: {
+      heading: "What an investment property loan is",
+      body: "A loan secured against a property you intend to rent out. Assessment counts rental income — but at only 70 to 80 per cent of it, and every lender differs on how much they shade existing debts and negative gearing. Interest-only is common for tax reasons, though it costs more overall. Structure matters here more than headline rate, particularly across several properties.",
+      steps: [
+        {
+          n: "01",
+          title: "Map the whole portfolio",
+          body: "Existing loans, rents and equity. Serviceability, not deposit, is what usually caps the next purchase.",
+        },
+        {
+          n: "02",
+          title: "We find the lender who assesses you best",
+          body: "The same file can differ by hundreds of thousands in borrowing capacity between lenders. That gap is the opportunity.",
+        },
+        {
+          n: "03",
+          title: "Structure it to keep buying",
+          body: "Loan splits, ownership and interest-only periods set up so the next purchase is still possible.",
+        },
+      ],
+    },
     qualify: {
       forThem: [
         "Buying your first or next investment property",
@@ -426,11 +551,36 @@ export const homeLoanServices: ServicePage[] = [
     volume: 320,
     kd: 10,
     eyebrow: "Construction",
-    h1: "Building is where finance usually goes wrong.",
+    h1: "Construction loans for building and major renovation",
     intro:
       "Progress payments, valuations at each stage and a builder waiting to be paid. The loan itself is simple — the administration is what fails, and that's the part we run.",
     heroImage: "/brand/photography/svc-construction.webp",
     heroAlt: "A couple outside a newly built home",
+    angle: {
+      heading: "Building is where finance usually goes wrong.",
+      body: "Construction lending fails on process, not on price. Progress payments have to line up with the builder's schedule, valuations are done on plans rather than bricks, and a variation halfway through can stall the whole draw. Getting the structure right at the start is what stops a build stopping.",
+    },
+    explainer: {
+      heading: "What a construction loan is",
+      body: "A loan released in stages as the build progresses — usually slab, frame, lock-up, fixing and completion — rather than as one lump at settlement. You pay interest only on what has been drawn. The lender values the property on completion from the plans and fixed-price contract, so a licensed builder and a proper contract are effectively mandatory.",
+      steps: [
+        {
+          n: "01",
+          title: "Bring the contract and the plans",
+          body: "A fixed-price contract with a licensed builder is what lenders will actually value against.",
+        },
+        {
+          n: "02",
+          title: "We align the draws to the build",
+          body: "Progress payments matched to the builder's schedule, so the trades are never waiting on the bank.",
+        },
+        {
+          n: "03",
+          title: "Draw stage by stage",
+          body: "We manage each valuation and release, and interest is only charged on what has been drawn.",
+        },
+      ],
+    },
     qualify: {
       forThem: [
         "Fixed-price building contract with a licensed builder",
@@ -494,11 +644,36 @@ export const homeLoanServices: ServicePage[] = [
     volume: 4400,
     kd: 43,
     eyebrow: "Bridging",
-    h1: "You found the next house before you sold this one.",
+    h1: "Bridging loans for buying before you sell",
     intro:
       "Bridging finance covers the overlap. It's short term and it has to be planned backwards from how it ends, which is the part people skip.",
     heroImage: "/brand/photography/svc-bridging.webp",
     heroAlt: "A couple outside their home",
+    angle: {
+      heading: "You found the next house before you sold this one.",
+      body: "The right house rarely appears on the schedule that suits your sale. Bridging finance buys you the weeks in between — but it is expensive, and it needs a credible exit before you take it, not after.",
+    },
+    explainer: {
+      heading: "What a bridging loan is",
+      body: "Short-term finance covering the gap between buying the next property and selling the current one, usually for six to twelve months. The lender looks at your peak debt — both properties combined — and at the end debt left once the sale settles. Most bridging is interest-only or capitalised, meaning nothing is paid until the sale completes.",
+      steps: [
+        {
+          n: "01",
+          title: "Show us both properties",
+          body: "The purchase, the existing property and a realistic sale figure. The end debt is what the lender is actually assessing.",
+        },
+        {
+          n: "02",
+          title: "We agree the exit before you start",
+          body: "A bridge without a credible exit is the one that hurts. We would rather say no early than watch it go wrong.",
+        },
+        {
+          n: "03",
+          title: "Settle, sell, close the bridge",
+          body: "The sale proceeds pay out the bridge and you carry on with the ordinary loan underneath it.",
+        },
+      ],
+    },
     qualify: {
       forThem: [
         "Buying before selling",
@@ -556,11 +731,36 @@ export const homeLoanServices: ServicePage[] = [
     volume: 5400,
     kd: 37,
     eyebrow: "Debt consolidation",
-    h1: "Six repayments, six due dates, one problem.",
+    h1: "Debt consolidation loans for one simple repayment",
     intro:
       "Consolidating into your home loan lowers the monthly total immediately. It also stretches short-term debt over a long term, so the honest version of this conversation includes both numbers.",
     heroImage: "/brand/photography/svc-debt.webp",
     heroAlt: "A model house with a money bag and calculator",
+    angle: {
+      heading: "Six repayments, six due dates, one problem.",
+      body: "Credit cards, a car loan, a personal loan and buy-now-pay-later charge very different rates on very different days, and the total is often invisible until it is written down in one place. Consolidating can cut the monthly cost sharply — but only if the behaviour that created the debt changes with it.",
+    },
+    explainer: {
+      heading: "What debt consolidation is",
+      body: "Rolling several debts into one facility, usually against your home, at a much lower rate. The catch is honest and worth stating: stretching a five-year card balance over twenty-five years can cost more in total interest even at a far lower rate, and it converts unsecured debt into debt secured by your house. Done deliberately, with the cards closed, it works well.",
+      steps: [
+        {
+          n: "01",
+          title: "List every debt",
+          body: "Balances, rates and minimum repayments. Seeing the true total in one place is usually the useful part.",
+        },
+        {
+          n: "02",
+          title: "We show you both totals",
+          body: "The new monthly repayment, and the lifetime cost, so you can see the trade-off rather than only the relief.",
+        },
+        {
+          n: "03",
+          title: "Consolidate and close the accounts",
+          body: "This only works once. We will say so plainly, and we will help you set the term to match.",
+        },
+      ],
+    },
     qualify: {
       forThem: [
         "Equity in your property",
