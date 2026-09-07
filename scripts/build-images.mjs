@@ -17,7 +17,7 @@
  * Add the next batch to JOBS as folders arrive; keep the finished ones, so
  * the set can always be rebuilt from the originals.
  */
-import { promises as fs } from "node:fs";
+import { promises as fs, existsSync } from "node:fs";
 import path from "node:path";
 import sharp from "sharp";
 
@@ -306,6 +306,105 @@ const JOBS = [
     crop: null,
     size: [2400, null],
   },
+  /* ── Guides ──────────────────────────────────────────────────────────────
+     Two per guide: a hero backdrop and a figure that sits inside the article.
+     These are new files under new names — several re-crop a source that also
+     appears elsewhere on the site, which is fine, because nothing existing is
+     overwritten and a guide and a service page are never seen side by side.
+     The `-2` files are the in-article figures, so they are wider and shorter
+     than a hero and get no focal entry.
+     ───────────────────────────────────────────────────────────────────── */
+
+  // How much can I borrow
+  {
+    out: "guide-borrowing-capacity.webp",
+    from: "Guide articles/analyzing-stock-trends-and-making-notes-on-data-2026-01-08-22-07-43-utc.jpg",
+    crop: null,
+    size: [2400, null],
+  },
+  {
+    out: "guide-borrowing-capacity-2.webp",
+    from: "Remaining site pages/modern-home-office-desk-with-laptop-calculator-a-2026-06-16-06-30-35-utc.jpg",
+    crop: null,
+    size: [1600, 900],
+  },
+
+  // Fixed rate ending
+  {
+    out: "guide-fixed-rate.webp",
+    from: "Home page/concerned-couple-reviewing-documents-at-kitchen-ta-2026-03-26-04-01-28-utc.jpg",
+    crop: null,
+    size: [2400, null],
+  },
+  {
+    out: "guide-fixed-rate-2.webp",
+    from: "Guide articles/couple-reviewing-documents-together-at-home-2026-03-17-02-45-31-utc.jpg",
+    crop: null,
+    size: [1600, 900],
+  },
+
+  // Debt consolidation
+  {
+    out: "guide-debt-consolidation.webp",
+    from: "Guide articles/managing-finances-with-calculator-and-invoices-ove-2026-03-18-10-44-26-utc.jpg",
+    crop: null,
+    size: [2400, null],
+  },
+  {
+    out: "guide-debt-consolidation-2.webp",
+    // Same top-15% trim as svc-debt: the source cuts her head at the frame
+    // edge, and left in it reads as a botched crop rather than a detail shot.
+    from: "Home loan services/woman-works-on-laptop-with-calculator-and-receipts-2026-03-19-10-42-59-utc.jpg",
+    crop: [0, 568, 5683, 3221],
+    size: [1600, 900],
+  },
+
+  // The bank said no
+  {
+    out: "guide-bank-said-no.webp", // /guides/bank-said-no-home-loan
+    // A sole trader in his own workshop — the guide is about self-employed
+    // income being misread, so the subject is the borrower, not a bank.
+    from: "Home page/confident-man-standing-in-a-woodworking-shop-2026-03-24-23-10-06-utc.jpg",
+    crop: null,
+    size: [2400, null],
+  },
+  {
+    out: "guide-bank-said-no-2.webp",
+    from: "Home page/smiling-man-in-work-clothes-in-messy-workshop-2026-03-26-05-10-39-utc.jpg",
+    crop: null,
+    size: [1600, 900],
+  },
+
+  // How much is LMI
+  {
+    out: "guide-lmi-cost.webp",
+    from: "Guide articles/handing-over-new-home-keys-to-new-owner-2026-03-20-00-21-03-utc.jpg",
+    crop: null,
+    size: [2400, null],
+  },
+  {
+    out: "guide-lmi-cost-2.webp",
+    from: "Section hubs/smiling-couple-holding-keys-in-new-home-2026-01-09-11-24-44-utc.jpg",
+    crop: null,
+    size: [1600, 900],
+  },
+
+  // SMSF property
+  {
+    out: "guide-smsf.webp",
+    from: "SMSF/mature-couple-reviewing-finances-together-on-couch-2026-03-10-03-21-29-utc.jpg",
+    crop: null,
+    size: [2400, null],
+  },
+  {
+    out: "guide-smsf-2.webp",
+    // The "For Lease" sign — an SMSF buys property to rent, not to live in,
+    // which is the rule the guide spends most of its time on.
+    from: "Home loan services/white-picket-fence-with-for-lease-sign-2026-03-17-00-14-28-utc.jpg",
+    crop: null,
+    size: [1600, 900],
+  },
+
   {
     out: "page-calculators.webp", // /calculators
     from: "Remaining site pages/modern-home-office-desk-with-laptop-calculator-a-2026-06-16-06-30-35-utc.jpg",
@@ -419,7 +518,29 @@ const JOBS = [
   },
 ];
 
+/*
+ * Never overwrite an image that already exists.
+ *
+ * This script used to rebuild every job on every run, which meant a routine
+ * run silently reverted any photograph that had been swapped by hand — it
+ * clobbered three of John's replacements exactly that way. The manifest is a
+ * record of where each file came from, not a claim that it is still the file
+ * on disk.
+ *
+ * So: existing outputs are kept. Pass --force to deliberately regenerate the
+ * lot, or delete the one file you want rebuilt and run again.
+ */
+const FORCE = process.argv.includes("--force");
+let built = 0;
+let kept = 0;
+
 for (const job of JOBS) {
+  const dest0 = path.join(OUT, job.out);
+  if (!FORCE && existsSync(dest0)) {
+    kept++;
+    continue;
+  }
+
   const src = path.join(SUPPLIED, job.from);
   let img = sharp(src);
 
@@ -444,6 +565,7 @@ for (const job of JOBS) {
     .webp({ quality: 82, effort: 5 })
     .toFile(dest);
 
+  built++;
   const out = await sharp(dest).metadata();
   const { size } = await fs.stat(dest);
   console.log(
@@ -463,4 +585,8 @@ for (const job of JOBS) {
 for (const dir of [".next/cache/images", ".next/dev/cache/images"]) {
   await fs.rm(dir, { recursive: true, force: true });
 }
-console.log("\nCleared the next/image cache — hard-reload the browser (Ctrl+Shift+R).");
+console.log(
+  `\n${built} built, ${kept} left alone (already on disk).` +
+    (kept ? " Pass --force to rebuild everything from the manifest." : ""),
+);
+console.log("Cleared the next/image cache — hard-reload the browser (Ctrl+Shift+R).");

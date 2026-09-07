@@ -20,8 +20,18 @@ export type Guide = {
   readMinutes: number;
   /** Hero photograph. Only the published guides have one. */
   heroImage?: string;
-  /** Undefined means "planned but not written yet". */
-  body?: { heading: string; paragraphs: string[] }[];
+  /**
+   * Undefined means "planned but not written yet".
+   *
+   * A section may carry its own `image`, which renders as a full-width figure
+   * beneath that section's copy. One per guide is plenty — it breaks the run
+   * of text at the point the argument turns, rather than decorating.
+   */
+  body?: {
+    heading: string;
+    paragraphs: string[];
+    image?: { src: string; alt: string };
+  }[];
   faqs?: Faq[];
   related?: { label: string; href: string }[];
 };
@@ -355,12 +365,400 @@ export const guides: Guide[] = [
     ],
   },
 
+  {
+    slug: "how-much-can-i-borrow",
+    heroImage: "/brand/photography/guide-borrowing-capacity.webp",
+    title: "How much can I borrow for a home loan?",
+    summary:
+      "Why the bank's number is lower than you expected, and the four things that move it.",
+    cluster: "Borrowing",
+    keyword: "how much can i borrow home loan",
+    volume: 2900,
+    kd: 41,
+    updated: "September 2026",
+    readMinutes: 6,
+    body: [
+      {
+        heading: "Your limit is set by a rate you will never pay",
+        paragraphs: [
+          "Every lender in Australia has to test your application at your actual rate plus three percentage points. With variable rates sitting around 6% in September 2026, most applications are being assessed near 9%.",
+          "That single rule explains almost every disappointing number. You are not being asked whether you can afford the repayment. You are being asked whether you could afford it if rates rose by three per cent tomorrow.",
+        ],
+      },
+      {
+        heading: "Roughly four to six times income, then adjustments",
+        paragraphs: [
+          "As a starting point most lenders land somewhere between four and six times gross household income. Where you fall in that range is decided by what sits around the income rather than the income itself.",
+          "Dependants reduce it. HECS or HELP reduces it, because the repayment is treated as an ongoing commitment. Credit cards reduce it by their limit, not their balance — an unused $10,000 card is assessed as though it were drawn. Car and personal loans reduce it hardest of all, because the terms are short and the repayments are large.",
+        ],
+      },
+      {
+        heading: "A rule that changed in February 2026",
+        image: {
+          src: "/brand/photography/guide-borrowing-capacity-2.webp",
+          alt: "A desk with a laptop, calculator and printed figures",
+        },
+        paragraphs: [
+          "APRA now restricts banks from writing more than a fifth of their new lending above six times a borrower's gross income. It is a cap on the bank's book, not on you personally, but the effect on borrowers at the top of their capacity is the same: the answer comes back as no more often than it used to.",
+          "Non-bank lenders sit outside that cap. That does not make them cheap or automatically right, but it does mean a file the banks have run out of room for is not necessarily a file that cannot be written.",
+        ],
+      },
+      {
+        heading: "The levers that actually move the number",
+        paragraphs: [
+          "Closing credit card limits you are not using is the fastest and least painful. Cancelling a $20,000 limit can be worth tens of thousands of borrowing capacity and costs you nothing you were using.",
+          "The assessed rate matters more than most people expect — roughly $15,000 to $25,000 of capacity for every half a per cent. And lender choice matters most of all, because expense benchmarks and income policies differ enough that the same file can vary by six figures between two lenders on the same day.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Why is the bank's number lower than the online calculator?",
+        a: "Calculators use a generic expense benchmark and ignore most of your commitments. A real assessment uses your declared living costs, your card limits, any HECS balance, and that lender's own floor rate. The gap between the two is normal and is usually large.",
+      },
+      {
+        q: "Does HECS or HELP really make a difference?",
+        a: "Yes, and more than people expect. It is assessed as a continuing repayment against your income, so on a moderate salary it can move borrowing capacity by tens of thousands of dollars. Paying it out shortly before applying does not always help, because some lenders still want to see it cleared on a payslip.",
+      },
+      {
+        q: "Can I borrow more than six times my income?",
+        a: "Sometimes, but it is a credit policy question rather than a rate question. Banks have limited room above that level and use it selectively. It is one of the situations where holding our own credit licence is the difference, because we can reach lenders who are not subject to the same cap.",
+      },
+    ],
+    related: [
+      { label: "Borrowing capacity calculator", href: "/calculators/borrowing-capacity" },
+      { label: "Self-employed home loans", href: "/home-loans/self-employed" },
+    ],
+  },
+  {
+    slug: "fixed-rate-ending",
+    heroImage: "/brand/photography/guide-fixed-rate.webp",
+    title: "My fixed rate is ending — what should I do?",
+    summary:
+      "What the revert rate costs, when to start, and the phone call worth making first.",
+    cluster: "Refinance",
+    keyword: "fixed rate expiring",
+    volume: 590,
+    kd: 24,
+    updated: "September 2026",
+    readMinutes: 5,
+    body: [
+      {
+        heading: "What happens if you do nothing",
+        paragraphs: [
+          "At the end of a fixed term the loan rolls onto the lender's revert rate automatically. That rate is almost never the sharpest number the same lender is offering new customers that week.",
+          "The gap is rarely small. On a $700,000 loan, one percentage point is roughly $580 a month. Doing nothing is a decision with a price on it, and the price is charged monthly until you act.",
+        ],
+      },
+      {
+        heading: "Start ninety days out, not on the day",
+        paragraphs: [
+          "Discharging one loan and settling another takes weeks, and the paperwork does not begin until the assessment is done. Borrowers who start when the fixed rate ends typically spend two or three months on the revert rate regardless of what they decide.",
+          "Ninety days is comfortable. Sixty is workable. Thirty means you will pay the revert rate for a while no matter how organised you are.",
+        ],
+      },
+      {
+        heading: "Ask your own lender first",
+        image: {
+          src: "/brand/photography/guide-fixed-rate-2.webp",
+          alt: "A couple going through loan paperwork together at home",
+        },
+        paragraphs: [
+          "Lenders keep pricing in reserve for customers who are about to leave, and a fixed rate expiry is the moment they expect to lose you. One phone call asking to be moved to their new-customer rate sometimes closes most of the gap.",
+          "If it does, you are done and it cost you ten minutes. If it does not, you now know exactly how big the gap is, which is the number any other lender has to beat.",
+        ],
+      },
+      {
+        heading: "Fixing again, in a market that is moving up",
+        paragraphs: [
+          "As at September 2026 the cash rate is 4.35% and the forecasters are openly split on whether the next move is up or a hold. Nobody writing about this — us included — knows what happens next.",
+          "That is the honest frame for the decision. Fixing buys a known repayment, not a saving. It costs flexibility: break fees if you move, caps on extra repayments, and offset accounts that are often limited or unavailable. Fix if certainty is worth more to your household than that flexibility, not because you expect to win a bet.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Will I be charged a break fee for leaving?",
+        a: "Not for leaving at the end of the fixed term — break costs apply when you exit part way through. You will still pay a discharge fee to the outgoing lender and government registration fees, which usually total a few hundred dollars.",
+      },
+      {
+        q: "Should I fix again or go variable?",
+        a: "It depends on whether a predictable repayment matters more to you than flexibility, and nobody can answer that from the outside. If your budget has no room for a rise, certainty has real value. If you expect to sell, renovate or make large extra repayments, fixing will get in the way.",
+      },
+      {
+        q: "Can I split the loan?",
+        a: "Yes, and it is a common middle path. Part fixed for certainty, part variable so you keep an offset and the ability to pay extra. It suits people who cannot decide because both arguments genuinely apply to them.",
+      },
+    ],
+    related: [
+      { label: "Refinancing", href: "/home-loans/refinance" },
+      { label: "Refinance savings calculator", href: "/calculators/refinance-savings" },
+    ],
+  },
+  {
+    slug: "debt-consolidation-home-loan",
+    heroImage: "/brand/photography/guide-debt-consolidation.webp",
+    title: "Should I put my debts into my home loan?",
+    summary:
+      "The maths that makes it look obvious, and the two things that decide whether it works.",
+    cluster: "Refinance",
+    keyword: "debt consolidation home loan",
+    volume: 1900,
+    kd: 38,
+    updated: "September 2026",
+    readMinutes: 6,
+    body: [
+      {
+        heading: "Why the arithmetic looks so good",
+        paragraphs: [
+          "In September 2026 credit cards commonly sit between 19% and 22%, personal loans between 10% and 13%, and car loans between 7% and 9%. Owner-occupier home loans are around 5.7% to 5.9%.",
+          "Move $30,000 off a card at 20% onto a home loan at under 6% and the interest on that balance falls by thousands of dollars a year. The gap is real, which is why consolidation enquiries rose roughly 47% through early 2026.",
+        ],
+      },
+      {
+        heading: "The trap is the term, not the rate",
+        image: {
+          src: "/brand/photography/guide-debt-consolidation-2.webp",
+          alt: "Statements and a calculator spread across a desk",
+        },
+        paragraphs: [
+          "A card balance you would have cleared in three years, spread across the twenty-five years left on your mortgage, can cost more in total interest than leaving it where it was — even at a third of the rate.",
+          "Consolidation only wins if you keep paying the old amount. Take the lower minimum repayment and you have not saved money, you have rescheduled it and added interest. This is the single reason most consolidations disappoint.",
+        ],
+      },
+      {
+        heading: "You are converting unsecured debt into secured debt",
+        paragraphs: [
+          "A credit card is not secured against your house. Once the balance is inside the mortgage, it is. If things go wrong later, the consequences are no longer a default and a collections process — they involve the property.",
+          "That is not an argument against doing it. It is the trade being made, and it should be made deliberately rather than discovered afterwards.",
+        ],
+      },
+      {
+        heading: "What a lender needs before it will agree",
+        paragraphs: [
+          "Most want the loan to sit at or below 80% of the property value once the debts are added, because above that line mortgage insurance usually applies to the whole amount. Many require the consolidated accounts to be closed at settlement rather than simply paid to zero.",
+          "Recent arrears are the most common reason a file fails. Missed payments in the last six months narrow the lender list sharply, which is exactly when getting the order and the presentation right matters most.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "How much equity do I need?",
+        a: "Enough that the combined loan stays at or under about 80% of the property's value. Above that, lenders mortgage insurance generally applies and is charged on the full loan, which can wipe out the saving you were consolidating to get.",
+      },
+      {
+        q: "Will consolidating hurt my credit file?",
+        a: "Closing the accounts is usually neutral to positive over time. The applications themselves are recorded as enquiries, so making several at once is the part that does damage — another reason to apply once, to the right lender.",
+      },
+      {
+        q: "Is it always a good idea?",
+        a: "No, and we will say so. If the spending that created the balances has not changed, consolidation clears the cards and they refill within a year or two — except now the original debt is secured against your home as well. That is a worse position than the one you started in.",
+      },
+    ],
+    related: [
+      { label: "Debt consolidation", href: "/home-loans/debt-consolidation" },
+      { label: "Refinance savings calculator", href: "/calculators/refinance-savings" },
+    ],
+  },
+
   /* ── Planned, not yet written ─────────────────────────────────────── */
   { slug: "how-to-refinance-a-home-loan", title: "How to refinance a home loan in Australia", summary: "The whole process, what it costs, and how long it takes.", cluster: "Refinance", keyword: "how to refinance a home loan", volume: 1300, kd: 54, updated: "", readMinutes: 0 },
   { slug: "should-i-refinance", title: "Should I refinance? A broker's honest answer", summary: "Sometimes no. Here's how to tell which one you are.", cluster: "Refinance", keyword: "should i refinance my home loan", volume: 260, kd: 32, updated: "", readMinutes: 0 },
-  { slug: "bank-said-no-home-loan", title: "Your bank said no. What a broker can still do", summary: "Why a decline is usually a presentation problem.", cluster: "Self-employed", keyword: "self employed home loan", volume: 480, kd: 34, updated: "", readMinutes: 0 },
-  { slug: "how-much-is-lmi", title: "How much is lenders mortgage insurance?", summary: "What drives the premium, and how to avoid it entirely.", cluster: "Professionals", keyword: "how much is lmi", volume: 1600, updated: "", readMinutes: 0 },
-  { slug: "smsf-property-loans", title: "SMSF property loans: rules, costs and criteria", summary: "What a fund needs before a lender will look at it.", cluster: "SMSF", keyword: "smsf lending", volume: 1000, kd: 28, updated: "", readMinutes: 0 },
+  {
+    slug: "bank-said-no-home-loan",
+    heroImage: "/brand/photography/guide-bank-said-no.webp",
+    title: "The bank said no. What can a broker actually do?",
+    summary:
+      "A decline is usually a policy mismatch, not a verdict on you. Here is what changes second time round.",
+    cluster: "Self-employed",
+    keyword: "bank declined home loan",
+    volume: 480,
+    kd: 34,
+    updated: "September 2026",
+    readMinutes: 5,
+    body: [
+      {
+        heading: "A decline is a policy mismatch, not a verdict",
+        paragraphs: [
+          "Every lender writes its own credit policy, and they differ far more than the advertising suggests. A decline tells you that you did not fit one lender's rules, on one day, in the form the application was presented. It is not a statement about whether you can afford the loan.",
+          "That is why the same person, with the same income and the same deposit, can be declined on Monday and approved on Thursday. Nothing about them changed. The lender did, and so did the way the file was put together.",
+        ],
+      },
+      {
+        heading: "The three reasons we see most",
+        image: {
+          src: "/brand/photography/guide-bank-said-no-2.webp",
+          alt: "A self-employed tradesperson in his own workshop",
+        },
+        paragraphs: [
+          "Self-employed income read straight off the taxable figure is the biggest. A good accountant's job is to make that number small; the bank then reads it as your capacity to repay. Add-backs for depreciation, one-off expenses and interest on debts being cleared often move it substantially.",
+          "Second is income the lender does not like the shape of — casual, contract, overtime, commission or bonus. Some lenders count all of it, some count 80%, some want two years of it. Third, and increasingly common since APRA's February 2026 cap on high debt-to-income lending, is a file that is simply at the top of what a bank has room to write.",
+        ],
+      },
+      {
+        heading: "Why the second application matters more than the first",
+        paragraphs: [
+          "Every application leaves a credit enquiry, and several enquiries in a short window is itself a reason to decline. Applying to three more lenders in the hope one says yes makes the fourth one harder.",
+          "So the work is order and presentation: identifying the lender whose policy actually fits, evidencing the income the way that lender wants to see it, and going once. That is a slower answer than reapplying immediately, and it is the reason declines get overturned.",
+        ],
+      },
+      {
+        heading: "What we will tell you if it genuinely does not work",
+        paragraphs: [
+          "Sometimes the answer really is not yet. If the deposit is short, the arrears are recent, or the trading history is too thin, no amount of presentation fixes that this month.",
+          "If that is the case we will say so on the first call and tell you what needs to change and roughly how long it takes. That costs us the deal and keeps us worth referring.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Does a decline hurt my credit score?",
+        a: "The enquiry is recorded on your file, not the outcome — a lender cannot see that you were declined, only that you applied. What does the damage is several enquiries close together, because that pattern reads as someone being knocked back repeatedly.",
+      },
+      {
+        q: "How soon can I apply again?",
+        a: "As soon as the reason has actually changed. Reapplying to the same lender without changing the file wastes an enquiry and produces the same answer. Applying to a different lender whose policy fits can happen straight away.",
+      },
+      {
+        q: "Will you tell me before you lodge anything?",
+        a: "Yes. Nothing is submitted and no credit check is run until you have seen where it is going and why. The first conversation is a conversation, not an application.",
+      },
+    ],
+    related: [
+      { label: "Self-employed home loans", href: "/home-loans/self-employed" },
+      { label: "Low doc and alt doc loans, explained", href: "/guides/self-employed-home-loans-explained" },
+    ],
+  },
+  {
+    slug: "how-much-is-lmi",
+    heroImage: "/brand/photography/guide-lmi-cost.webp",
+    title: "How much is LMI, and can you avoid it?",
+    summary:
+      "What drives the premium, why capitalising it costs more than the sticker, and the four ways out.",
+    cluster: "Professionals",
+    keyword: "how much is lmi",
+    volume: 1600,
+    kd: 30,
+    updated: "September 2026",
+    readMinutes: 5,
+    body: [
+      {
+        heading: "Two numbers decide the premium",
+        paragraphs: [
+          "Lenders mortgage insurance is priced off the size of the loan and the loan-to-value ratio, and it does not rise in a straight line. The step from 80% to 85% is mild. The step from 90% to 95% is where the premium becomes one of the largest costs in the whole purchase.",
+          "It is worth being clear about what you are buying: the policy covers the lender's shortfall if the loan is ever sold up at a loss. It is not insurance for you, and it does not reduce what you owe.",
+        ],
+      },
+      {
+        heading: "Most people never pay it — they borrow it",
+        paragraphs: [
+          "The premium is usually capitalised, meaning it is added to the loan rather than paid at settlement. That is convenient and it is why the cost is so easy to wave through.",
+          "It also means you pay interest on the premium for as long as the loan runs. A premium added to a thirty-year loan costs considerably more than the figure quoted, and that total is the number worth comparing against your alternatives.",
+        ],
+      },
+      {
+        heading: "The four ways out",
+        image: {
+          src: "/brand/photography/guide-lmi-cost-2.webp",
+          alt: "A couple holding the keys to their new home",
+        },
+        paragraphs: [
+          "Get to a 20% deposit, either by saving longer or buying at a lower price. Qualify for a profession-based waiver — medical, accounting and legal professionals commonly reach 90% or 95% with no premium at all. Use a family guarantee, where a relative's equity secures part of the loan. Or use a government guarantee scheme if you are eligible.",
+          "Which of these is available to you is usually decided in one conversation. Which lender honours it is the part that takes work, because approved occupation lists and guarantee policies differ at every bank.",
+        ],
+      },
+      {
+        heading: "When paying it is the right decision",
+        paragraphs: [
+          "Avoiding LMI is not automatically the goal. If getting to a 20% deposit takes two more years, the honest comparison is the premium against two years of rent plus whatever the market does in that time.",
+          "Sometimes the premium is clearly the cheaper path and paying it is the rational choice. Sometimes waiting wins comfortably. It is worth running both rather than assuming, because the answer flips depending on your deposit, your timeline and the market you are buying into.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Is LMI refundable if I sell or refinance early?",
+        a: "Partially, and only within a short window — commonly the first year or two, with the refundable share dropping quickly. Most borrowers who move later get nothing back, so it is not worth planning around.",
+      },
+      {
+        q: "Can I transfer my LMI to a new lender?",
+        a: "No. The policy belongs to the original lender, so refinancing above 80% generally means a fresh premium. It is one of the reasons refinancing at a high LVR often does not stack up, even when the new rate looks better.",
+      },
+      {
+        q: "Does LMI protect me if I cannot pay?",
+        a: "No, and this is the most common misunderstanding. It protects the lender. If the property sells for less than the debt, the insurer pays the lender and can then pursue you for the shortfall.",
+      },
+    ],
+    related: [
+      { label: "LMI calculator", href: "/calculators/lmi" },
+      { label: "LMI waivers for professionals", href: "/guides/lmi-waiver-professionals" },
+    ],
+  },
+  {
+    slug: "smsf-property-loans",
+    heroImage: "/brand/photography/guide-smsf.webp",
+    title: "Can my super fund buy a property?",
+    summary:
+      "Yes, within limits — and the limits are the whole story. What a fund needs before a lender will look at it.",
+    cluster: "SMSF",
+    keyword: "smsf property loan",
+    volume: 1000,
+    kd: 28,
+    updated: "September 2026",
+    readMinutes: 6,
+    body: [
+      {
+        heading: "How the borrowing is structured",
+        paragraphs: [
+          "A self-managed super fund can borrow to buy property, but only through a limited recourse borrowing arrangement. The property is held in a separate holding trust until the loan is repaid, and the lender's recourse is limited to that one asset rather than the rest of the fund.",
+          "That structure is the reason the lending is different. The lender cannot reach the fund's other investments if things go wrong, so it prices and assesses the loan more conservatively than a personal purchase.",
+        ],
+      },
+      {
+        heading: "What lenders want to see from the fund",
+        paragraphs: [
+          "A larger deposit than you would need personally — commonly 20% to 30% of the value, and more for commercial property. Evidence that contributions and expected rent comfortably cover the repayments, assessed with the same buffer applied to everyone else.",
+          "And liquidity left behind. Lenders generally want the fund to still hold a meaningful cash balance after settlement, because a fund with everything tied up in one property has no way to cover a vacancy or a repair.",
+        ],
+      },
+      {
+        heading: "The rules that catch people out",
+        image: {
+          src: "/brand/photography/guide-smsf-2.webp",
+          alt: "A For Lease sign outside a weatherboard house",
+        },
+        paragraphs: [
+          "If the property is residential, no member of the fund or their relatives can live in it or rent it, at any price. This one ends more plans than any other, usually when someone realises they cannot house an adult child in it. Business real property is treated differently and can be leased to a member's own business.",
+          "While the loan is in place the asset generally cannot be improved in a way that changes its character. Repairs and maintenance are fine. Knocking a house down and building two townhouses is not, unless the borrowing has been repaid first.",
+        ],
+      },
+      {
+        heading: "Costs, and getting back out",
+        paragraphs: [
+          "Expect set-up costs for the holding trust and the advice around it, a much smaller panel of lenders willing to write the loan, and rates above a standard residential mortgage. None of that is a reason not to do it, but it changes the return calculation and should be in the numbers from the start.",
+          "Selling is straightforward. Refinancing is not always — some lenders have withdrawn from SMSF lending entirely, so the option to move later is narrower than it is on an ordinary loan. That is worth knowing before you fix your plans around a future refinance.",
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: "Can I live in a property my super fund owns?",
+        a: "Not if it is residential — not you, not a relative, not at market rent. Business real property is the exception: a fund can own the premises its member's business trades from, provided it is leased at market terms.",
+      },
+      {
+        q: "How much does the fund need to have?",
+        a: "Beyond the deposit and purchase costs, lenders generally want a cash buffer left in the fund after settlement so it can absorb a vacancy or a repair. Thresholds vary by lender, and it is one of the first things worth checking rather than assuming.",
+      },
+      {
+        q: "Is this financial advice?",
+        a: "No. SMSF borrowing sits across credit, tax and superannuation law at once, and we are licensed for the credit part only. We arrange the loan and work alongside your accountant and your licensed adviser, who should be the ones telling you whether the strategy suits your fund at all.",
+      },
+    ],
+    related: [
+      { label: "SMSF loans", href: "/smsf-loans" },
+      { label: "Borrowing capacity calculator", href: "/calculators/borrowing-capacity" },
+    ],
+  },
   { slug: "refinance-cashback-offers", title: "Refinance cashback offers — what to watch for", summary: "What the cashback costs you in rate over the term.", cluster: "Refinance", keyword: "refinance cashback", volume: 1600, kd: 52, updated: "", readMinutes: 0 },
 ];
 

@@ -78,6 +78,9 @@ const FOCUS: Record<string, Focus> = {
      sky, which fills the top third. */
   "/brand/photography/svc-commercial-property.webp": { mobile: "62% 55%", desktop: "50% 50%" },
 
+  /* Sole trader in a workshop, centred at 36–63% of the frame. */
+  "/brand/photography/guide-bank-said-no.webp": { mobile: "50% 26%", desktop: "50% 28%" },
+
   /* Framing, no people — any crop reads. */
   "/brand/photography/svc-construction.webp": { mobile: "54% 45%", desktop: "50% 45%" },
   /* "FOR SALE" board at 63–88%, same reasoning as the For Lease shot. */

@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { PageHero } from "@/components/page/PageHero";
 import { Reveal } from "@/components/motion/Reveal";
 import { SplitLines } from "@/components/motion/SplitLines";
 import { CtaBand, ComplianceNote } from "@/components/page/ServiceSections";
-import { guides } from "@/data/guides";
+import { publishedGuides } from "@/data/guides";
+import { GuideGrid } from "@/components/page/GuideGrid";
 
 export const metadata: Metadata = {
   title: "Guides | Straight Answers About Borrowing",
@@ -14,8 +14,6 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  const clusters = [...new Set(guides.map((g) => g.cluster))];
-
   return (
     <>
       <PageHero
@@ -27,50 +25,29 @@ export default function Page() {
         cta={{ label: "Talk to us", href: "/contact" }}
       />
 
-      {clusters.map((cluster, ci) => (
-        <section
-          key={cluster}
-          className={ci % 2 === 0 ? "section-y bg-offwhite" : "section-y bg-sand"}
-        >
-          <div className="container-wide">
-            <p className="type-label text-clay">{cluster}</p>
-            <SplitLines as="h2" className="type-display mt-4 max-w-none sm:max-w-[13ch] text-forest">
-              {cluster} guides
+      <section className="section-y bg-offwhite">
+        <div className="container-wide">
+          <div className="max-w-[46rem]">
+            <Reveal variant="fade">
+              <p className="type-label text-clay">Every guide</p>
+            </Reveal>
+            <SplitLines as="h2" className="type-display mt-4 text-forest">
+              Start with the question you actually have.
             </SplitLines>
-            <Reveal
-              variant="rise"
-              stagger={0.06}
-              className="mt-10 grid gap-4 sm:grid-cols-2 sm:auto-rows-fr lg:grid-cols-3"
-            >
-              {guides
-                .filter((g) => g.cluster === cluster)
-                .map((g) => (
-                  <Link
-                    key={g.slug}
-                    href={g.body ? `/guides/${g.slug}` : "/contact"}
-                    className="group flex h-full flex-col justify-between gap-7 rounded-panel border border-ink-12 bg-offwhite p-7 transition-colors duration-500 hover:border-green"
-                  >
-                    <div>
-                      <h3 className="type-title text-[1.375rem] text-forest">{g.title}</h3>
-                      <p className="type-body mt-2.5 text-[0.9375rem] text-ink-70">{g.summary}</p>
-                    </div>
-                    <span className="type-label flex items-center gap-2 text-clay">
-                      {g.body ? `Read · ${g.readMinutes} min` : "Coming soon"}
-                      {g.body && (
-                        <span
-                          aria-hidden="true"
-                          className="transition-transform duration-400 ease-[var(--ease-brand)] group-hover:translate-x-1.5"
-                        >
-                          →
-                        </span>
-                      )}
-                    </span>
-                  </Link>
-                ))}
+            <Reveal variant="rise" delay={0.1}>
+              <p className="type-body mt-6 text-[1.0625rem] text-ink-70">
+                {publishedGuides.length} written so far, across refinancing,
+                self-employed lending, LMI, business and asset finance. Filter by
+                topic, or read the lot.
+              </p>
             </Reveal>
           </div>
-        </section>
-      ))}
+
+          <Reveal variant="rise" delay={0.15} className="mt-12">
+            <GuideGrid />
+          </Reveal>
+        </div>
+      </section>
 
       <CtaBand
         heading="Rather just ask someone?"

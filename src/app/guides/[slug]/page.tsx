@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { PageHero } from "@/components/page/PageHero";
 import { FaqSection } from "@/components/page/FaqSection";
@@ -74,17 +75,36 @@ export default async function Page({
             </p>
           </nav>
 
-          <div className="grid gap-10">
+          <div className="grid gap-12">
             {g.body!.map((b, i) => (
               <Reveal key={b.heading} variant="rise" id={`s-${i}`} className="scroll-mt-32">
-                <h2 className="type-title text-[clamp(1.75rem,2.6vw,2.25rem)] text-forest">
+                {/* A hairline and the section number give the run of text some
+                    rhythm — without it a long guide reads as one grey block. */}
+                <div className="flex items-center gap-4 border-t border-ink-12 pt-6">
+                  <span className="type-label text-clay numeric">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <span aria-hidden="true" className="h-px w-8 bg-clay-60" />
+                </div>
+                <h2 className="type-title mt-5 text-[clamp(1.75rem,2.6vw,2.25rem)] text-forest">
                   {b.heading}
                 </h2>
                 {b.paragraphs.map((t, j) => (
-                  <p key={j} className="type-body mt-4 max-w-[68ch] text-ink-70">
+                  <p key={j} className="type-body mt-4 text-[1.0625rem] text-ink-70">
                     {t}
                   </p>
                 ))}
+                {b.image && (
+                  <figure className="relative mt-8 aspect-[16/9] w-full overflow-hidden rounded-panel border border-ink-12">
+                    <Image
+                      src={b.image.src}
+                      alt={b.image.alt}
+                      fill
+                      sizes="(min-width:1024px) 60vw, 100vw"
+                      className="object-cover"
+                    />
+                  </figure>
+                )}
               </Reveal>
             ))}
 
