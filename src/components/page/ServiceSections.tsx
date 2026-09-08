@@ -5,9 +5,8 @@ import { SplitLines } from "@/components/motion/SplitLines";
 import { Reveal } from "@/components/motion/Reveal";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { Button } from "@/components/ui/Button";
-import { speed, howItWorks, credentials, complianceNote } from "@/data/shared";
+import { speed, howItWorks, credentials } from "@/data/shared";
 import { site } from "@/data/site";
-import { cn } from "@/lib/utils";
 
 /* ── 2. Qualifying strip ─────────────────────────────────────────────────
  * Where lead quality is won or lost. Stating who this isn't for is the
@@ -37,18 +36,18 @@ export function QualifyingStrip({
         <div className="mt-12 grid gap-5 lg:mt-14 lg:grid-cols-2 lg:gap-6">
           <Reveal
             variant="rise"
-            className="rounded-panel border border-ink-12 bg-offwhite p-8 lg:p-10"
+            className="card-on-light rounded-panel border p-8 lg:p-10"
           >
-            <p className="type-label flex items-center gap-3 text-green">
-              <span className="grid h-8 w-8 place-items-center rounded-full bg-green text-offwhite">
+            <p className="type-label flex items-center gap-3 text-sand">
+              <span className="grid h-8 w-8 place-items-center rounded-full border border-offwhite text-offwhite">
                 <Icon name="check" className="h-4 w-4" />
               </span>
               This is for you if
             </p>
             <ul className="mt-7 grid gap-3.5">
               {forThem.map((item) => (
-                <li key={item} className="type-body flex gap-3 text-forest">
-                  <span aria-hidden="true" className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-green" />
+                <li key={item} className="type-body flex gap-3">
+                  <span aria-hidden="true" className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-sand" />
                   {item}
                 </li>
               ))}
@@ -58,23 +57,23 @@ export function QualifyingStrip({
           <Reveal
             variant="rise"
             delay={0.08}
-            className="rounded-panel border border-ink-12 bg-offwhite p-8 lg:p-10"
+            className="card-on-light rounded-panel border p-8 lg:p-10"
           >
-            <p className="type-label flex items-center gap-3 text-ink-50">
-              <span className="grid h-8 w-8 place-items-center rounded-full border border-ink-30 text-ink-50">
+            <p className="type-label card-muted flex items-center gap-3">
+              <span className="grid h-8 w-8 place-items-center rounded-full border border-current">
                 <span aria-hidden="true" className="h-px w-3 bg-current" />
               </span>
               This isn&rsquo;t for you if
             </p>
             <ul className="mt-7 grid gap-3.5">
               {notForThem.map((item) => (
-                <li key={item} className="type-body flex gap-3 text-ink-70">
-                  <span aria-hidden="true" className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-ink-30" />
+                <li key={item} className="type-body card-muted flex gap-3">
+                  <span aria-hidden="true" className="mt-2.5 h-1.5 w-1.5 shrink-0 rounded-full bg-current" />
                   {item}
                 </li>
               ))}
             </ul>
-            <p className="type-body mt-7 text-[0.875rem] text-ink-50">
+            <p className="type-body card-muted mt-7 text-[0.875rem]">
               Not sure which side you fall on? Call — that&rsquo;s a
               two-minute conversation, not an application.
             </p>
@@ -120,50 +119,23 @@ export function Advantages({
           stagger={0.08}
           className="mt-12 grid gap-5 sm:grid-cols-2 sm:auto-rows-fr lg:mt-16 lg:gap-6"
         >
-          {items.map((item, i) => {
-            const light = i % 3 === 1;
-            return (
-              <article
-                key={item.title}
-                className={cn(
-                  "group flex h-full flex-col rounded-panel border p-8 transition-colors duration-500 lg:p-9",
-                  light
-                    ? "border-sand bg-sand"
-                    : "border-paper-20 bg-paper-10 hover:border-sand/50",
-                )}
-              >
-                <span
-                  className={cn(
-                    /* The badge takes its colour from the card it sits on:
-                       green ring and glyph on the light card, white on the
-                       dark one. */
-                    "grid h-12 w-12 shrink-0 place-items-center rounded-full border transition-colors duration-500",
-                    light
-                      ? "border-clay text-clay"
-                      : "border-offwhite text-offwhite",
-                  )}
-                >
-                  <Icon name={item.icon} className="h-5 w-5" />
-                </span>
-                <h3
-                  className={cn(
-                    "type-title mt-7 text-[clamp(1.75rem,2.2vw,2.125rem)]",
-                    light ? "text-forest" : "text-offwhite",
-                  )}
-                >
-                  {item.title}
-                </h3>
-                <p
-                  className={cn(
-                    "type-body mt-3",
-                    light ? "text-forest/70" : "text-paper-60",
-                  )}
-                >
-                  {item.body}
-                </p>
-              </article>
-            );
-          })}
+          {/* These used to alternate — every third tile inverted — which read
+              as two components rather than one set of six. The band is dark,
+              so all of them take the light card and the clay badge with it. */}
+          {items.map((item) => (
+            <article
+              key={item.title}
+              className="group card-on-dark flex h-full flex-col rounded-panel border p-8 transition-colors duration-500 hover:border-clay-60 lg:p-9"
+            >
+              <span className="grid h-12 w-12 shrink-0 place-items-center rounded-full border border-clay text-clay transition-colors duration-500">
+                <Icon name={item.icon} className="h-5 w-5" />
+              </span>
+              <h3 className="type-title mt-7 text-[clamp(1.75rem,2.2vw,2.125rem)]">
+                {item.title}
+              </h3>
+              <p className="type-body card-muted mt-3">{item.body}</p>
+            </article>
+          ))}
         </Reveal>
       </div>
     </section>
@@ -193,19 +165,19 @@ export function SpeedBand({ timeline }: { timeline?: { label: string; value: str
         </div>
 
         <Reveal variant="rise" delay={0.08}>
-          <dl className="grid gap-px overflow-hidden rounded-panel border border-ink-12 bg-ink-12">
+          <dl className="card-on-light grid gap-px overflow-hidden rounded-panel border bg-paper-20">
             {rows.map((row) => (
               <div
                 key={row.label}
                 /* Both cells can wrap on a phone, so each is pinned to its
                    own edge — otherwise the wrapped value drifts into the
                    middle and the row stops reading as a pair. */
-                className="flex items-baseline justify-between gap-4 bg-sand px-5 py-5 sm:gap-6 sm:px-7 sm:py-6"
+                className="card-on-light flex items-baseline justify-between gap-4 px-5 py-5 sm:gap-6 sm:px-7 sm:py-6"
               >
-                <dt className="type-label min-w-0 text-left text-forest/60">
+                <dt className="type-label card-muted min-w-0 text-left">
                   {row.label}
                 </dt>
-                <dd className="type-title numeric min-w-0 text-right text-[clamp(1.375rem,2.4vw,2.25rem)] text-clay">
+                <dd className="type-title numeric min-w-0 text-right text-[clamp(1.375rem,2.4vw,2.25rem)] text-clay-soft">
                   {row.value}
                 </dd>
               </div>
@@ -245,16 +217,16 @@ export function HowItWorks() {
           {howItWorks.map((s) => (
             <article
               key={s.n}
-              className="group flex h-full flex-col rounded-panel border border-ink-12 bg-offwhite p-7 transition-colors duration-500 hover:border-clay-60"
+              className="group card-on-light flex h-full flex-col rounded-panel border p-7 transition-colors duration-500 hover:border-clay"
             >
               <div className="flex items-center justify-between">
-                <span className="grid h-11 w-11 place-items-center rounded-full border border-clay text-clay">
+                <span className="grid h-11 w-11 place-items-center rounded-full border border-offwhite text-offwhite">
                   <Icon name={s.icon} className="h-5 w-5" />
                 </span>
-                <span className="type-label text-ink-30 numeric">{s.n}</span>
+                <span className="type-label card-muted numeric">{s.n}</span>
               </div>
-              <h3 className="type-title mt-6 text-[clamp(1.375rem,1.7vw,1.625rem)] text-forest">{s.title}</h3>
-              <p className="type-body mt-2.5 text-[0.9375rem] text-ink-70">{s.body}</p>
+              <h3 className="type-title mt-6 text-[clamp(1.375rem,1.7vw,1.625rem)]">{s.title}</h3>
+              <p className="type-body card-muted mt-2.5 text-[0.9375rem]">{s.body}</p>
             </article>
           ))}
         </Reveal>
@@ -289,11 +261,11 @@ export function Credentials({ proofNote }: { proofNote?: string }) {
           </div>
 
           <Reveal variant="rise" delay={0.08}>
-            <dl className="grid gap-px overflow-hidden rounded-panel border border-paper-20 bg-paper-20 sm:grid-cols-2">
+            <dl className="card-on-dark grid gap-px overflow-hidden rounded-panel border bg-ink-12 sm:grid-cols-2">
               {credentials.map((c) => (
-                <div key={c.label} className="bg-forest px-7 py-7">
-                  <dt className="type-label text-paper-40">{c.label}</dt>
-                  <dd className="type-title mt-2.5 text-[1.25rem] text-offwhite">{c.value}</dd>
+                <div key={c.label} className="card-on-dark px-7 py-7">
+                  <dt className="type-label card-muted">{c.label}</dt>
+                  <dd className="type-title mt-2.5 text-[1.25rem]">{c.value}</dd>
                 </div>
               ))}
             </dl>
@@ -336,10 +308,10 @@ export function RelatedLinks({
             <Link
               key={l.href}
               href={l.href}
-              className="group flex flex-col justify-between gap-8 rounded-panel border border-ink-12 bg-form p-7 transition-colors duration-500 hover:border-clay"
+              className="group card-on-light flex flex-col justify-between gap-8 rounded-panel border p-7 transition-colors duration-500 hover:border-clay"
             >
-              <span className="type-title text-[1.375rem] text-forest">{l.label}</span>
-              <span className="type-label flex items-center gap-2 text-clay">
+              <span className="type-title text-[1.375rem]">{l.label}</span>
+              <span className="type-label flex items-center gap-2 text-clay-soft">
                 Read more
                 <span
                   aria-hidden="true"
@@ -351,20 +323,6 @@ export function RelatedLinks({
             </Link>
           ))}
         </Reveal>
-      </div>
-    </section>
-  );
-}
-
-/* ── 11. Compliance footer ──────────────────────────────────────────── */
-export function ComplianceNote({ extra }: { extra?: string }) {
-  return (
-    <section data-surface="offwhite" className={cn("border-t border-ink-12 bg-offwhite py-10")}>
-      <div className="container-wide">
-        <p className="type-body text-[0.8125rem] leading-relaxed text-ink-50">
-          {complianceNote}
-          {extra ? ` ${extra}` : ""}
-        </p>
       </div>
     </section>
   );

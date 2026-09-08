@@ -8,7 +8,7 @@ export type SectionKey =
   | "smsf-loans"
   | "calculators"
   | "locations"
-  | "guides"
+  | "blogs"
   | "core";
 
 export type BuildTier = 1 | 2 | 3;
@@ -23,7 +23,7 @@ export type Faq = { q: string; a: string };
 export type ServicePage = {
   /** Path segment only, e.g. "refinance". */
   slug: string;
-  section: Exclude<SectionKey, "core" | "calculators" | "locations" | "guides">;
+  section: Exclude<SectionKey, "core" | "calculators" | "locations" | "blogs">;
   tier: BuildTier;
 
   /** SEO */

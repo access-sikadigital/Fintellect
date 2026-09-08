@@ -8,7 +8,7 @@ import { EnquiryForm } from "@/components/page/EnquiryForm";
 import { Logomark } from "@/components/ui/Logo";
 import { Icon } from "@/components/ui/Icon";
 import { Button } from "@/components/ui/Button";
-import { credentials, complianceNote } from "@/data/shared";
+import { credentials } from "@/data/shared";
 import { site } from "@/data/site";
 import type { LandingPage } from "@/data/types";
 
@@ -91,9 +91,6 @@ export function LandingTemplate({ page }: { page: LandingPage }) {
 
       <footer className="border-t border-ink-12 bg-offwhite py-10">
         <div className="container-wide flex flex-col gap-4">
-          <p className="type-body text-[0.8125rem] leading-relaxed text-ink-50">
-            {complianceNote}
-          </p>
           <div className="flex flex-wrap gap-x-6 gap-y-2 text-[0.8125rem] text-ink-50">
             <Link href="/credit-guide" className="hover:text-forest">Credit guide</Link>
             <Link href="/privacy-policy" className="hover:text-forest">Privacy</Link>

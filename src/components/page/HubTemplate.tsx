@@ -8,7 +8,6 @@ import {
   SpeedBand,
   HowItWorks,
   Credentials,
-  ComplianceNote,
   CtaBand,
 } from "@/components/page/ServiceSections";
 import { servicesInSection, servicePath } from "@/data/services";
@@ -60,16 +59,16 @@ export function HubTemplate({ hub }: { hub: HubPage }) {
               <Link
                 key={s.slug}
                 href={servicePath(s)}
-                className="group flex h-full flex-col justify-between gap-8 rounded-panel border border-ink-12 bg-form p-8 transition-colors duration-500 hover:border-clay"
+                className="group card-on-light flex h-full flex-col justify-between gap-8 rounded-panel border p-8 transition-colors duration-500 hover:border-clay"
               >
                 <div>
-                  <p className="type-label text-green">{s.eyebrow}</p>
-                  <h3 className="type-title mt-4 text-[clamp(1.75rem,2.4vw,2.25rem)] text-forest">
+                  <p className="type-label text-sand">{s.eyebrow}</p>
+                  <h3 className="type-title mt-4 text-[clamp(1.75rem,2.4vw,2.25rem)]">
                     {s.h1}
                   </h3>
-                  <p className="type-body mt-3 text-[0.9375rem] text-ink-70">{s.intro}</p>
+                  <p className="type-body card-muted mt-3 text-[0.9375rem]">{s.intro}</p>
                 </div>
-                <span className="type-label flex items-center gap-2 text-clay">
+                <span className="type-label flex items-center gap-2 text-clay-soft">
                   Read more
                   <span
                     aria-hidden="true"
@@ -99,7 +98,6 @@ export function HubTemplate({ hub }: { hub: HubPage }) {
         formType={HUB_FORM_TYPE[hub.section] ?? "residential"}
         serviceName={hub.eyebrow}
       />
-      <ComplianceNote />
 
       <script
         type="application/ld+json"

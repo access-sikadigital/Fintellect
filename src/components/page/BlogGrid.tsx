@@ -3,38 +3,38 @@
 import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { publishedGuides } from "@/data/guides";
+import { publishedBlogs } from "@/data/blogs";
 import { cn } from "@/lib/utils";
 
 const ALL = "All";
 
 /**
- * The guides index.
+ * The blogs index.
  *
  * One grid, filtered by a row of tabs, rather than a separate band per
- * cluster. Only written guides appear — the planned briefs stay out of the
+ * cluster. Only written blogs appear — the planned briefs stay out of the
  * index rather than filling it with cards that go nowhere.
  *
- * With twelve guides across seven clusters the old layout produced
+ * With twelve blogs across seven clusters the old layout produced
  * seven headings and several one-card rows; a single grid keeps the whole
  * library visible and lets the reader narrow it themselves.
  *
  * Filtering is client state because it is instant and shareable-by-nothing —
  * there is no reason to make it a URL or a round trip.
  */
-export function GuideGrid() {
+export function BlogGrid() {
   const [active, setActive] = useState<string>(ALL);
 
   const clusters = useMemo(
-    () => [ALL, ...new Set(publishedGuides.map((g) => g.cluster))],
+    () => [ALL, ...new Set(publishedBlogs.map((g) => g.cluster))],
     [],
   );
 
   const shown = useMemo(
     () =>
       active === ALL
-        ? publishedGuides
-        : publishedGuides.filter((g) => g.cluster === active),
+        ? publishedBlogs
+        : publishedBlogs.filter((g) => g.cluster === active),
     [active],
   );
 
@@ -42,13 +42,13 @@ export function GuideGrid() {
     <div>
       <div
         role="tablist"
-        aria-label="Filter guides by topic"
+        aria-label="Filter blogs by topic"
         className="flex flex-wrap gap-2.5"
       >
         {clusters.map((c) => {
           const on = c === active;
           const count =
-            c === ALL ? publishedGuides.length : publishedGuides.filter((g) => g.cluster === c).length;
+            c === ALL ? publishedBlogs.length : publishedBlogs.filter((g) => g.cluster === c).length;
           return (
             <button
               key={c}
@@ -76,8 +76,8 @@ export function GuideGrid() {
         {shown.map((g) => (
           <Link
             key={g.slug}
-            href={`/guides/${g.slug}`}
-            className="group flex h-full flex-col overflow-hidden rounded-panel border border-ink-12 bg-offwhite transition-colors duration-500 hover:border-green"
+            href={`/blogs/${g.slug}`}
+            className="group card-on-light flex h-full flex-col overflow-hidden rounded-panel border transition-colors duration-500 hover:border-clay"
           >
             <div className="relative aspect-[16/10] w-full overflow-hidden bg-sand">
               <Image
@@ -91,11 +91,11 @@ export function GuideGrid() {
 
             <div className="flex flex-1 flex-col justify-between gap-6 p-7">
               <div>
-                <p className="type-label text-clay">{g.cluster}</p>
-                <h3 className="type-title mt-3 text-[1.375rem] text-forest">{g.title}</h3>
-                <p className="type-body mt-2.5 text-[0.9375rem] text-ink-70">{g.summary}</p>
+                <p className="type-label text-sand">{g.cluster}</p>
+                <h3 className="type-title mt-3 text-[1.375rem]">{g.title}</h3>
+                <p className="type-body card-muted mt-2.5 text-[0.9375rem]">{g.summary}</p>
               </div>
-              <span className="type-label flex items-center gap-2 text-clay">
+              <span className="type-label flex items-center gap-2 text-clay-soft">
                 Read · {g.readMinutes} min
                 <span
                   aria-hidden="true"

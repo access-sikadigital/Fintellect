@@ -99,6 +99,18 @@ export const nav: NavItem[] = [
       { label: "Offset account", href: "/calculators/offset-account" },
     ],
   },
+  {
+    label: "Blogs",
+    href: "/blogs",
+    children: [
+      { label: "How much can I borrow?", href: "/blogs/how-much-can-i-borrow" },
+      { label: "My fixed rate is ending", href: "/blogs/fixed-rate-ending" },
+      { label: "When should you refinance?", href: "/blogs/when-to-refinance" },
+      { label: "Debts into your home loan", href: "/blogs/debt-consolidation-home-loan" },
+      { label: "The bank said no", href: "/blogs/bank-said-no-home-loan" },
+      { label: "How much is LMI?", href: "/blogs/how-much-is-lmi" },
+    ],
+  },
   { label: "About", href: "/about" },
   // John, 2 Sep: "there's no contact in the header menu — let's just put a
   // contact button there." Reviews stays in the footer only.
@@ -147,20 +159,23 @@ export const footerNav = {
     { label: "Refinance savings", href: "/calculators/refinance-savings" },
     { label: "Offset account", href: "/calculators/offset-account" },
   ],
+  Blogs: [
+    { label: "All blogs", href: "/blogs" },
+    { label: "How much can I borrow?", href: "/blogs/how-much-can-i-borrow" },
+    { label: "My fixed rate is ending", href: "/blogs/fixed-rate-ending" },
+    { label: "When should you refinance?", href: "/blogs/when-to-refinance" },
+    { label: "Debts into your home loan", href: "/blogs/debt-consolidation-home-loan" },
+    { label: "The bank said no", href: "/blogs/bank-said-no-home-loan" },
+    { label: "How much is LMI?", href: "/blogs/how-much-is-lmi" },
+  ],
   Company: [
     { label: "About Fintellect", href: "/about" },
     { label: "Reviews", href: "/reviews" },
-    { label: "Guides", href: "/guides" },
     { label: "Melbourne", href: "/mortgage-broker-melbourne" },
     { label: "Sydney", href: "/mortgage-broker-sydney" },
     { label: "Brisbane", href: "/mortgage-broker-brisbane" },
     { label: "Perth", href: "/mortgage-broker-perth" },
     { label: "Gold Coast", href: "/mortgage-broker-gold-coast" },
     { label: "Contact", href: "/contact" },
-  ],
-  Legal: [
-    { label: "Credit guide", href: "/credit-guide" },
-    { label: "Privacy policy", href: "/privacy-policy" },
-    { label: "Complaints & disputes", href: "/complaints-and-disputes" },
   ],
 } as const;

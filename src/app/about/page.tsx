@@ -7,8 +7,7 @@ import {
   Credentials,
   HowItWorks,
   CtaBand,
-  ComplianceNote,
-} from "@/components/page/ServiceSections";
+  } from "@/components/page/ServiceSections";
 import { FaqSection } from "@/components/page/FaqSection";
 import { site } from "@/data/site";
 
@@ -79,14 +78,14 @@ export default function Page() {
           <Reveal
             variant="rise"
             stagger={0.08}
-            className="mt-12 grid gap-px overflow-hidden rounded-panel border border-ink-12 bg-ink-12 sm:grid-cols-2 lg:grid-cols-4"
+            className="card-on-light mt-12 grid gap-px overflow-hidden rounded-panel border bg-paper-20 sm:grid-cols-2 lg:grid-cols-4"
           >
             {stats.map((s) => (
-              <div key={s.label} className="flex flex-col gap-3 bg-sand p-8">
-                <p className="type-title text-[clamp(2.5rem,4vw,3.5rem)] leading-none text-green">
+              <div key={s.label} className="card-on-light flex flex-col gap-3 p-8">
+                <p className="type-title text-[clamp(2.5rem,4vw,3.5rem)] leading-none text-clay-soft">
                   <Counter value={s.value} prefix={"prefix" in s ? s.prefix : ""} suffix={s.suffix} />
                 </p>
-                <p className="type-label text-forest">{s.label}</p>
+                <p className="type-label">{s.label}</p>
               </div>
             ))}
           </Reveal>
@@ -129,7 +128,6 @@ export default function Page() {
         body="A call back in about ten minutes during business hours, and a straight answer either way."
         cta={{ label: "Get in touch", href: "/contact" }}
       />
-      <ComplianceNote />
     </>
   );
 }

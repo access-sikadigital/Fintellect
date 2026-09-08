@@ -39,7 +39,7 @@ function Slider({ label, value, min, max, step, display, onChange }: SliderProps
   const id = `slider-${label.toLowerCase().replace(/[^a-z0-9]+/g, "-")}`;
   return (
     <div className="grid gap-3">
-      <div className="flex items-baseline justify-between gap-4">
+      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
         <label
           htmlFor={id}
           className="type-label text-forest/60"
@@ -156,8 +156,12 @@ export function CalculatorTeaser() {
 
         {/* The live tool */}
         <Reveal variant="rise" delay={0.08}>
-          <div className="relative overflow-hidden rounded-panel border border-ink-12 bg-offwhite p-7 shadow-[0_30px_80px_-40px_var(--color-ink-30)] sm:p-9">
-            <div className="flex items-center justify-between gap-4 border-b border-ink-12 pb-5">
+          <div className="relative overflow-hidden rounded-panel border border-ink-12 bg-offwhite p-5 shadow-[0_30px_80px_-40px_var(--color-ink-30)] sm:p-7 lg:p-9">
+            {/* flex-wrap matters here: without it this row's min-content is
+                "Repayment estimate" plus "Full tool" side by side, which is
+                wider than a 320px phone leaves and blew the whole teaser
+                grid track out past the viewport. */}
+            <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-2 border-b border-ink-12 pb-5">
               <h3 className="type-label text-forest">Repayment estimate</h3>
               <Link
                 href="/calculators/home-loan-repayments"
@@ -197,8 +201,8 @@ export function CalculatorTeaser() {
               />
             </div>
 
-            <div className="grid gap-5 rounded-card bg-forest p-7 text-offwhite">
-              <div className="flex items-end justify-between gap-4">
+            <div className="grid gap-5 rounded-card bg-forest p-5 text-offwhite sm:p-7">
+              <div className="flex flex-wrap items-end justify-between gap-x-4 gap-y-3">
                 <div>
                   <p className="type-label text-sand">Monthly repayment</p>
                   <p className="type-title mt-2 text-[clamp(2.25rem,4vw,3.25rem)] leading-none numeric">

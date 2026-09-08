@@ -5,12 +5,12 @@ import { notFound } from "next/navigation";
 import { PageHero } from "@/components/page/PageHero";
 import { FaqSection } from "@/components/page/FaqSection";
 import { Reveal } from "@/components/motion/Reveal";
-import { CtaBand, ComplianceNote } from "@/components/page/ServiceSections";
-import { publishedGuides, findGuide } from "@/data/guides";
+import { CtaBand } from "@/components/page/ServiceSections";
+import { publishedBlogs, findBlog } from "@/data/blogs";
 import { site } from "@/data/site";
 
 export function generateStaticParams() {
-  return publishedGuides.map((g) => ({ slug: g.slug }));
+  return publishedBlogs.map((g) => ({ slug: g.slug }));
 }
 
 export const dynamicParams = false;
@@ -21,12 +21,12 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const g = findGuide(slug);
+  const g = findBlog(slug);
   if (!g) return {};
   return {
     title: g.title,
     description: g.summary,
-    alternates: { canonical: `/guides/${g.slug}` },
+    alternates: { canonical: `/blogs/${g.slug}` },
   };
 }
 
@@ -36,7 +36,7 @@ export default async function Page({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const g = findGuide(slug);
+  const g = findBlog(slug);
   if (!g) notFound();
 
   return (
@@ -47,8 +47,8 @@ export default async function Page({
         intro={g.summary}
         image={g.heroImage}
         trail={[
-          { label: "Guides", href: "/guides" },
-          { label: g.title, href: `/guides/${g.slug}` },
+          { label: "Blogs", href: "/blogs" },
+          { label: g.title, href: `/blogs/${g.slug}` },
         ]}
         cta={{ label: site.cta.primary, href: "/contact" }}
       />
@@ -79,7 +79,7 @@ export default async function Page({
             {g.body!.map((b, i) => (
               <Reveal key={b.heading} variant="rise" id={`s-${i}`} className="scroll-mt-32">
                 {/* A hairline and the section number give the run of text some
-                    rhythm — without it a long guide reads as one grey block. */}
+                    rhythm — without it a long blog reads as one grey block. */}
                 <div className="flex items-center gap-4 border-t border-ink-12 pt-6">
                   <span className="type-label text-clay numeric">
                     {String(i + 1).padStart(2, "0")}
@@ -135,7 +135,6 @@ export default async function Page({
       />
 
       {g.faqs && <FaqSection faqs={g.faqs} eyebrow="FAQ" heading="Common questions" />}
-      <ComplianceNote />
 
       <script
         type="application/ld+json"
@@ -145,7 +144,7 @@ export default async function Page({
             "@type": "Article",
             headline: g.title,
             description: g.summary,
-            url: `https://${site.domain}/guides/${g.slug}`,
+            url: `https://${site.domain}/blogs/${g.slug}`,
             author: { "@type": "Organization", name: site.name },
             publisher: {
               "@type": "Organization",

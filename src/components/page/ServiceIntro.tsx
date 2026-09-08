@@ -48,14 +48,13 @@ export function ServiceIntro({ page }: { page: ServicePage }) {
                 {page.explainer.steps.map((s) => (
                   <div
                     key={s.n}
-                    /* White, not cream: the client asked for these to stop
-                       disappearing into the background. */
-                    className="flex gap-5 rounded-panel border border-ink-12 bg-form p-6"
+                    /* The band is offwhite, so the steps run green. */
+                    className="card-on-light flex gap-5 rounded-panel border p-6"
                   >
-                    <span className="type-label shrink-0 text-clay">{s.n}</span>
+                    <span className="type-label shrink-0 text-clay-soft">{s.n}</span>
                     <div>
-                      <h3 className="type-title text-[clamp(1.25rem,1.7vw,1.5rem)] text-forest">{s.title}</h3>
-                      <p className="type-body mt-2 text-forest/70">{s.body}</p>
+                      <h3 className="type-title text-[clamp(1.25rem,1.7vw,1.5rem)]">{s.title}</h3>
+                      <p className="type-body card-muted mt-2">{s.body}</p>
                     </div>
                   </div>
                 ))}

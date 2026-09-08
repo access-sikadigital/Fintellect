@@ -1,6 +1,5 @@
 import { PageHero } from "@/components/page/PageHero";
 import { Reveal } from "@/components/motion/Reveal";
-import { ComplianceNote } from "@/components/page/ServiceSections";
 
 export type LegalBlock = { heading: string; body: string[] };
 
@@ -80,7 +79,6 @@ export function LegalTemplate({
         </div>
       </section>
 
-      <ComplianceNote />
     </>
   );
 }

@@ -45,26 +45,23 @@ export function Numbers() {
           </Reveal>
         </div>
 
-        <dl className="mt-14 grid gap-px overflow-hidden rounded-panel border border-ink-12 bg-ink-12 sm:grid-cols-2 lg:grid-cols-4">
+        {/* This band is sand, so the tiles run green. The gap-px over
+            paper-20 draws the hairline between cells. */}
+        <dl className="card-on-light mt-14 grid gap-px overflow-hidden rounded-panel border bg-paper-20 sm:grid-cols-2 lg:grid-cols-4">
           {stats.map((s) => (
             <div
               key={s.label}
-              /*
-                One ground for all four. The gap-px over bg-ink-12 already
-                draws the hairline between cells, so the tiles no longer need
-                alternating fills to stop reading as a single slab.
-              */
-              className="group flex flex-col gap-3 bg-offwhite p-8 transition-colors duration-500 hover:bg-paper-warm"
+              className="group card-on-light flex flex-col gap-3 p-8 transition-colors duration-500"
             >
-              <dd className="type-title text-[clamp(2.75rem,4.5vw,4rem)] leading-none text-clay">
+              <dd className="type-title text-[clamp(2.75rem,4.5vw,4rem)] leading-none text-clay-soft">
                 <Counter
                   value={s.value}
                   prefix={"prefix" in s ? s.prefix : ""}
                   suffix={s.suffix}
                 />
               </dd>
-              <dt className="type-label text-forest">{s.label}</dt>
-              <p className="type-body text-[0.875rem] text-forest/60">{s.note}</p>
+              <dt className="type-label">{s.label}</dt>
+              <p className="type-body card-muted text-[0.875rem]">{s.note}</p>
             </div>
           ))}
         </dl>

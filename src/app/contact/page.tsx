@@ -3,7 +3,6 @@ import { PageHero } from "@/components/page/PageHero";
 import { EnquiryForm } from "@/components/page/EnquiryForm";
 import { Reveal } from "@/components/motion/Reveal";
 import { SplitLines } from "@/components/motion/SplitLines";
-import { ComplianceNote } from "@/components/page/ServiceSections";
 import { Icon } from "@/components/ui/Icon";
 import { site } from "@/data/site";
 
@@ -55,23 +54,23 @@ export default function Page() {
               <a
                 key={c.label}
                 href={c.href}
-                className="group flex h-full flex-col justify-between gap-8 rounded-panel border border-sand-deep/40 bg-sand p-8 transition-colors duration-500 hover:border-clay"
+                className="group card-on-light flex h-full flex-col justify-between gap-8 rounded-panel border p-8 transition-colors duration-500 hover:border-clay"
               >
-                <span className="grid h-12 w-12 place-items-center rounded-full border border-clay-60 bg-offwhite text-clay">
+                <span className="grid h-12 w-12 place-items-center rounded-full border border-offwhite text-offwhite">
                   <Icon name={c.icon} className="h-5 w-5" />
                 </span>
                 <div>
-                  <p className="type-label text-green">{c.label}</p>
+                  <p className="type-label text-sand">{c.label}</p>
                   {/*
                     Inter, not Fraunces. A phone number and an email address
                     are the two things on this page a visitor has to read
                     character by character, and the display serif is the wrong
                     tool for that at this size.
                   */}
-                  <p className="type-subtitle mt-2.5 text-[1.0625rem] text-clay-ink transition-colors duration-300 group-hover:text-forest">
+                  <p className="type-subtitle mt-2.5 text-[1.0625rem] transition-colors duration-300 group-hover:text-clay-soft">
                     {c.value}
                   </p>
-                  <p className="type-body mt-2 text-[0.875rem] text-ink-50">{c.note}</p>
+                  <p className="type-body card-muted mt-2 text-[0.875rem]">{c.note}</p>
                 </div>
               </a>
             ))}
@@ -81,10 +80,10 @@ export default function Page() {
             {site.offices.map((city) => (
               <div
                 key={city}
-                className="rounded-panel border border-sand-deep/40 bg-paper-warm p-8"
+                className="card-on-light rounded-panel border p-8"
               >
-                <p className="type-label text-clay">{city} office</p>
-                <p className="type-body mt-3 text-ink-70">
+                <p className="type-label text-sand">{city} office</p>
+                <p className="type-body card-muted mt-3">
                   {OFFICE_NOTE[city] ?? OFFICE_NOTE.default}
                 </p>
               </div>
@@ -94,7 +93,6 @@ export default function Page() {
       </section>
 
       <EnquiryForm formType="residential" serviceName="General enquiry" heading="What do you need?" />
-      <ComplianceNote />
     </>
   );
 }

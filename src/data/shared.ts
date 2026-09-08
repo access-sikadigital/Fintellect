@@ -76,15 +76,6 @@ export const commonObjections: Faq[] = [
   },
 ];
 
-/**
- * 11 — Compliance footer.
- *
- * PLACEHOLDER. The website scope lists the licensee's written advertising
- * guidelines and required disclaimer wording as outstanding. Replace this
- * before launch with the wording Robert supplies.
- */
-export const complianceNote = `${site.legalName} holds Australian Credit Licence ${site.acl}. The information on this page is general only and does not take your objectives, financial situation or needs into account. Lending criteria, fees, charges, terms and conditions apply and are subject to change. Approval is subject to the lender's assessment.`;
-
 /** Language the scope rules out entirely. Enforced in review, noted here. */
 export const excludedLanguage = ["guaranteed results", "cheapest rates"];
 

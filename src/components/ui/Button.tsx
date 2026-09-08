@@ -32,10 +32,19 @@ const base =
   "transition-colors duration-300 ease-[var(--ease-brand)] " +
   "focus-visible:outline-2 focus-visible:outline-offset-3";
 
+/*
+ * The `max-[380px]` steps exist because the label is `whitespace-nowrap`.
+ * "Get your free assessment" at the lg size measures 317px of min-content,
+ * and a 320px phone only has 280px between the container gutters — so the
+ * button was blowing out its grid track and pushing content off-screen on
+ * every page that carries the footer CTA. Trimming the padding and the type
+ * a step on the smallest phones keeps the label on one line and inside the
+ * viewport; nothing above 380px is affected.
+ */
 const sizes: Record<Size, string> = {
-  sm: "px-5 py-2.5 text-[0.6875rem]",
-  md: "px-7 py-3.5 text-[0.75rem]",
-  lg: "px-9 py-4.5 text-[0.8125rem]",
+  sm: "px-5 py-2.5 text-[0.6875rem] max-[380px]:px-4",
+  md: "px-7 py-3.5 text-[0.75rem] max-[380px]:px-5 max-[380px]:text-[0.6875rem]",
+  lg: "px-9 py-4.5 text-[0.8125rem] max-[380px]:px-5 max-[380px]:py-4 max-[380px]:text-[0.6875rem]",
 };
 
 const variants: Record<Variant, string> = {

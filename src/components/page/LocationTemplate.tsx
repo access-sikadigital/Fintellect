@@ -8,7 +8,6 @@ import {
   SpeedBand,
   HowItWorks,
   Credentials,
-  ComplianceNote,
   CtaBand,
 } from "@/components/page/ServiceSections";
 import { homeLoanServices, servicePath } from "@/data/services";
@@ -84,15 +83,15 @@ export function LocationTemplate({ page }: { page: LocationPage }) {
               <Link
                 key={s.slug}
                 href={servicePath(s)}
-                className="group flex h-full flex-col justify-between gap-6 rounded-panel border border-ink-12 bg-form p-7 transition-colors duration-500 hover:border-clay"
+                className="group card-on-light flex h-full flex-col justify-between gap-6 rounded-panel border p-7 transition-colors duration-500 hover:border-clay"
               >
                 <div>
-                  <p className="type-label text-green">{s.eyebrow}</p>
-                  <h3 className="type-title mt-3 text-[1.1rem] text-forest">{s.h1}</h3>
+                  <p className="type-label text-sand">{s.eyebrow}</p>
+                  <h3 className="type-title mt-3 text-[1.1rem]">{s.h1}</h3>
                 </div>
                 <span
                   aria-hidden="true"
-                  className="type-label text-clay transition-transform duration-400 ease-[var(--ease-brand)] group-hover:translate-x-1.5"
+                  className="type-label text-clay-soft transition-transform duration-400 ease-[var(--ease-brand)] group-hover:translate-x-1.5"
                 >
                   →
                 </span>
@@ -111,7 +110,6 @@ export function LocationTemplate({ page }: { page: LocationPage }) {
       <Credentials />
       <FaqSection faqs={page.faqs} eyebrow="FAQ" heading={`${page.city} questions`} />
       <EnquiryForm formType="residential" serviceName={`${page.city} enquiry`} />
-      <ComplianceNote />
 
       {/* LocalBusiness schema — only where there is a genuine office. */}
       {page.office && (

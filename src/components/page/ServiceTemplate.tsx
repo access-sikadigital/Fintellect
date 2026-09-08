@@ -9,7 +9,6 @@ import {
   HowItWorks,
   Credentials,
   RelatedLinks,
-  ComplianceNote,
   CtaBand,
 } from "@/components/page/ServiceSections";
 import { commonObjections } from "@/data/shared";
@@ -94,7 +93,6 @@ export function ServiceTemplate({ page }: { page: ServicePage }) {
 
       <RelatedLinks links={related} />
 
-      <ComplianceNote />
 
       {/* Service + FAQPage schema, per scope §10.2 */}
       <script

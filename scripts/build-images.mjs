@@ -79,6 +79,18 @@ const JOBS = [
     crop: [292, 0, 4687, 3515],
     size: [1600, 1200],
   },
+  {
+    out: "coverage-handshake.webp",
+    from: "Remaining site pages/smiling-professionals-concluding-a-business-deal-i-2026-03-05-11-55-42-utc.jpg",
+    /*
+      John asked for a handshake in the coverage panel. Tight 4:3 on the
+      handshake itself: 400px off the top and 900 off the left lift it to
+      about 60% of the frame, clear of the two office cards that sit over the
+      bottom fifth, while keeping all three faces in.
+    */
+    crop: [900, 400, 4587, 3440],
+    size: [1600, 1200],
+  },
 
   // ── Section hubs ───────────────────────────────────────────────────────
   // All three are hero backdrops, which are object-cover — the aspect ratio

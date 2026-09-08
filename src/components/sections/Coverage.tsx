@@ -72,11 +72,11 @@ export function Coverage() {
               <Parallax speed={0.1} overscan>
                 <div className="relative aspect-[4/3] w-full">
                   <Image
-                    src="/brand/photography/coverage.webp"
-                    alt="A family on the front porch of their home"
+                    src="/brand/photography/coverage-handshake.webp"
+                    alt="A broker shaking hands with a couple across an office desk"
                     fill
                     sizes="(min-width:1024px) 46vw, 100vw"
-                    className="object-cover object-[center_35%]"
+                    className="object-cover object-center"
                   />
                 </div>
               </Parallax>
@@ -107,9 +107,9 @@ export function Coverage() {
             </div>
 
             {/* Licence line, tying the section back to the credential */}
-            <div className="mt-3 flex items-center justify-between gap-4 rounded-panel border border-ink-12 px-6 py-4">
-              <span className="type-label text-forest/60">Lending</span>
-              <span className="type-body text-[0.9375rem] font-medium text-forest">
+            <div className="card-on-light mt-3 flex items-center justify-between gap-4 rounded-panel border px-6 py-4">
+              <span className="type-label card-muted">Lending</span>
+              <span className="type-body text-[0.9375rem] font-medium">
                 Australia-wide · ACL {site.acl}
               </span>
             </div>

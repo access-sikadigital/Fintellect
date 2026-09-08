@@ -416,6 +416,41 @@ html.lenis body {
 }
 
 /* ==========================================================================
+   CARDS — a card always contrasts the band it sits on
+   --------------------------------------------------------------------------
+   John, 8 Sep: green section → white card; light section → green card.
+
+   Both utilities set `color`, and everything inside a card is expected to
+   inherit from it or use the `card-*` text roles below. That is deliberate:
+   the previous alternating cards set a background without setting the copy
+   colour with it, which is what left dark text on a dark ground. Tying the
+   two together in one class makes that failure impossible.
+   ========================================================================== */
+
+/** For cards sitting on a dark (forest/green) band. */
+@utility card-on-dark {
+  background-color: var(--color-offwhite);
+  border-color: var(--color-ink-12);
+  color: var(--color-forest);
+}
+
+/** For cards sitting on a light (offwhite/sand/paper) band. */
+@utility card-on-light {
+  background-color: var(--color-forest);
+  border-color: var(--color-forest);
+  color: var(--color-offwhite);
+}
+
+/*
+ * Secondary copy inside a card, in whichever direction the card runs.
+ * Opacity rather than a colour mix: a `color-mix` on `currentcolor` gets
+ * flattened back to plain `currentColor` here and the dimming is lost.
+ */
+@utility card-muted {
+  opacity: 0.74;
+}
+
+/* ==========================================================================
    ANIMATION PRIMITIVES
    Elements start hidden only when JS is running, so no-JS users see content.
    ========================================================================== */

@@ -69,17 +69,17 @@ export function Reviews() {
           </div>
           {rating && (
             <Reveal variant="rise" delay={0.1}>
-              <div className="flex items-center gap-4 rounded-panel border border-ink-12 px-7 py-5">
-                <span className="type-title text-[2.5rem] leading-none text-clay numeric">
+              <div className="card-on-light flex items-center gap-4 rounded-panel border px-7 py-5">
+                <span className="type-title text-[2.5rem] leading-none text-clay-soft numeric">
                   {rating.score.toFixed(1)}
                 </span>
                 <span>
-                  <span className="flex gap-0.5 text-clay">
+                  <span className="flex gap-0.5 text-clay-soft">
                     {Array.from({ length: 5 }).map((_, i) => (
                       <Icon key={i} name="star" className="h-4 w-4" />
                     ))}
                   </span>
-                  <span className="type-body mt-1 block text-[0.8125rem] text-ink-50">
+                  <span className="type-body card-muted mt-1 block text-[0.8125rem]">
                     {rating.count} Google reviews
                   </span>
                 </span>
@@ -96,15 +96,15 @@ export function Reviews() {
           {reviews.map((r) => (
             <figure
               key={r.name + r.quote.slice(0, 16)}
-              className="flex h-full flex-col justify-between gap-7 rounded-panel border border-ink-12 bg-paper-warm p-8"
+              className="card-on-light flex h-full flex-col justify-between gap-7 rounded-panel border p-8"
             >
-              <blockquote className="type-body text-ink-70">
+              <blockquote className="type-body card-muted">
                 &ldquo;{r.quote}&rdquo;
               </blockquote>
               <figcaption>
-                <span className="type-label block text-forest">{r.name}</span>
+                <span className="type-label block">{r.name}</span>
                 {r.detail && (
-                  <span className="type-body mt-1 block text-[0.8125rem] text-ink-50">
+                  <span className="type-body card-muted mt-1 block text-[0.8125rem]">
                     {r.detail}
                   </span>
                 )}

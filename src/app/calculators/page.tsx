@@ -3,7 +3,7 @@ import Link from "next/link";
 import { PageHero } from "@/components/page/PageHero";
 import { SplitLines } from "@/components/motion/SplitLines";
 import { Reveal } from "@/components/motion/Reveal";
-import { CtaBand, ComplianceNote } from "@/components/page/ServiceSections";
+import { CtaBand } from "@/components/page/ServiceSections";
 import { stampDutyCalculators, otherCalculators } from "@/data/calculators";
 import { site } from "@/data/site";
 
@@ -25,13 +25,13 @@ function Grid({ items }: { items: { slug: string; h1: string; intro: string }[] 
         <Link
           key={c.slug}
           href={`/calculators/${c.slug}`}
-          className="group flex h-full flex-col justify-between gap-7 rounded-panel border border-ink-12 p-7 transition-colors duration-500 hover:border-green"
+          className="group card-on-light flex h-full flex-col justify-between gap-7 rounded-panel border p-7 transition-colors duration-500 hover:border-clay"
         >
           <div>
-            <h3 className="type-title text-[1.375rem] text-forest">{c.h1}</h3>
-            <p className="type-body mt-2.5 text-[0.9375rem] text-ink-70">{c.intro}</p>
+            <h3 className="type-title text-[1.375rem]">{c.h1}</h3>
+            <p className="type-body card-muted mt-2.5 text-[0.9375rem]">{c.intro}</p>
           </div>
-          <span className="type-label flex items-center gap-2 text-clay">
+          <span className="type-label flex items-center gap-2 text-clay-soft">
             Open
             <span
               aria-hidden="true"
@@ -89,7 +89,6 @@ export default function Page() {
         body="Which lender will actually approve it is the question the calculator can't answer."
         cta={{ label: "Talk to a broker", href: "/contact" }}
       />
-      <ComplianceNote />
 
       <script
         type="application/ld+json"

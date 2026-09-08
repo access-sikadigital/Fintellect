@@ -141,7 +141,7 @@ const FOCUS: Record<string, Focus> = {
   "/brand/photography/loc-sydney.webp": { mobile: "50% 50%", desktop: "50% 50%" },
   "/brand/photography/loc-perth.webp": { mobile: "50% 50%", desktop: "50% 50%" },
 
-  /* Guide articles. */
+  /* Blog articles. */
   "/brand/photography/guide-when-to-refinance.webp": { mobile: "48% 28%", desktop: "50% 26%" },
   /* Overhead invoices and a calculator — no faces, keep the paperwork. */
   "/brand/photography/guide-low-doc-home-loans.webp": { mobile: "50% 45%", desktop: "50% 45%" },

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { PageHero } from "@/components/page/PageHero";
 import { Reveal } from "@/components/motion/Reveal";
 import { SplitLines } from "@/components/motion/SplitLines";
-import { CtaBand, ComplianceNote, Credentials } from "@/components/page/ServiceSections";
+import { CtaBand, Credentials } from "@/components/page/ServiceSections";
 import { Icon } from "@/components/ui/Icon";
 
 export const metadata: Metadata = {
@@ -80,7 +80,6 @@ export default function Page() {
         body="We'll put you in touch with someone we've actually settled a loan for."
         cta={{ label: "Get in touch", href: "/contact" }}
       />
-      <ComplianceNote />
     </>
   );
 }

@@ -1,13 +1,13 @@
 import type { Faq } from "@/data/types";
 
 /**
- * Guides — the launch set.
+ * Blogs — the launch set.
  *
  * Six written, mapped to validated question keywords from the workbook's
  * content plan. The remaining briefs stay listed as upcoming so the hub shows
  * the full plan without pretending they exist.
  */
-export type Guide = {
+export type Blog = {
   slug: string;
   title: string;
   summary: string;
@@ -18,13 +18,13 @@ export type Guide = {
   kd?: number;
   updated: string;
   readMinutes: number;
-  /** Hero photograph. Only the published guides have one. */
+  /** Hero photograph. Only the published blogs have one. */
   heroImage?: string;
   /**
    * Undefined means "planned but not written yet".
    *
    * A section may carry its own `image`, which renders as a full-width figure
-   * beneath that section's copy. One per guide is plenty — it breaks the run
+   * beneath that section's copy. One per blog is plenty — it breaks the run
    * of text at the point the argument turns, rather than decorating.
    */
   body?: {
@@ -36,7 +36,7 @@ export type Guide = {
   related?: { label: string; href: string }[];
 };
 
-export const guides: Guide[] = [
+export const blogs: Blog[] = [
   {
     slug: "when-to-refinance",
     heroImage: "/brand/photography/guide-when-to-refinance.webp",
@@ -626,7 +626,7 @@ export const guides: Guide[] = [
     ],
     related: [
       { label: "Self-employed home loans", href: "/home-loans/self-employed" },
-      { label: "Low doc and alt doc loans, explained", href: "/guides/self-employed-home-loans-explained" },
+      { label: "Low doc and alt doc loans, explained", href: "/blogs/self-employed-home-loans-explained" },
     ],
   },
   {
@@ -691,7 +691,7 @@ export const guides: Guide[] = [
     ],
     related: [
       { label: "LMI calculator", href: "/calculators/lmi" },
-      { label: "LMI waivers for professionals", href: "/guides/lmi-waiver-professionals" },
+      { label: "LMI waivers for professionals", href: "/blogs/lmi-waiver-professionals" },
     ],
   },
   {
@@ -762,6 +762,6 @@ export const guides: Guide[] = [
   { slug: "refinance-cashback-offers", title: "Refinance cashback offers — what to watch for", summary: "What the cashback costs you in rate over the term.", cluster: "Refinance", keyword: "refinance cashback", volume: 1600, kd: 52, updated: "", readMinutes: 0 },
 ];
 
-export const publishedGuides = guides.filter((g) => Boolean(g.body));
-export const plannedGuides = guides.filter((g) => !g.body);
-export const findGuide = (slug: string) => guides.find((g) => g.slug === slug && g.body);
+export const publishedBlogs = blogs.filter((g) => Boolean(g.body));
+export const plannedBlogs = blogs.filter((g) => !g.body);
+export const findBlog = (slug: string) => blogs.find((g) => g.slug === slug && g.body);

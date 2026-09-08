@@ -4,10 +4,9 @@ import { FaqSection } from "@/components/page/FaqSection";
 import { CalculatorWidget } from "@/components/page/CalculatorWidget";
 import { SplitLines } from "@/components/motion/SplitLines";
 import { Reveal } from "@/components/motion/Reveal";
-import { CtaBand, ComplianceNote } from "@/components/page/ServiceSections";
+import { CtaBand } from "@/components/page/ServiceSections";
 import { calculators } from "@/data/calculators";
 import { site } from "@/data/site";
-import { RATES_VERIFIED } from "@/lib/calculators/rates";
 import type { CalculatorPage } from "@/data/types";
 
 /**
@@ -106,12 +105,12 @@ export function CalculatorTemplate({ page }: { page: CalculatorPage }) {
               <Link
                 key={c.slug}
                 href={`/calculators/${c.slug}`}
-                className="group flex items-center justify-between gap-4 rounded-card border border-ink-12 bg-form px-6 py-5 transition-colors duration-500 hover:border-clay"
+                className="group card-on-light flex items-center justify-between gap-4 rounded-card border px-6 py-5 transition-colors duration-500 hover:border-clay"
               >
-                <span className="type-body font-medium text-forest">{c.h1}</span>
+                <span className="type-body font-medium">{c.h1}</span>
                 <span
                   aria-hidden="true"
-                  className="text-clay transition-transform duration-400 ease-[var(--ease-brand)] group-hover:translate-x-1.5"
+                  className="text-clay-soft transition-transform duration-400 ease-[var(--ease-brand)] group-hover:translate-x-1.5"
                 >
                   →
                 </span>
@@ -121,13 +120,6 @@ export function CalculatorTemplate({ page }: { page: CalculatorPage }) {
         </div>
       </section>
 
-      <ComplianceNote
-        extra={
-          RATES_VERIFIED
-            ? undefined
-            : "Rates and thresholds used by this calculator are pending verification against the relevant published schedules."
-        }
-      />
 
       <script
         type="application/ld+json"

@@ -10,7 +10,16 @@ const nextConfig: NextConfig = {
     qualities: [75, 88],
     formats: ["image/avif", "image/webp"],
   },
-  /* config options here */
+  /*
+   * The guides section was renamed to blogs. Anything already pointing at the
+   * old paths — a bookmark, a search result — lands on the new one.
+   */
+  async redirects() {
+    return [
+      { source: "/guides", destination: "/blogs", permanent: true },
+      { source: "/guides/:slug", destination: "/blogs/:slug", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;
